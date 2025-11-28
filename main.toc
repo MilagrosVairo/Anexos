@@ -1,66 +1,66 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{Anexos}{1}{section*.1}%
-\contentsline {section}{Anexo 1 -- Modelo de Casos de Uso}{1}{section*.2}%
-\contentsline {subsection}{\numberline {0.1}Proyecto Laboratorio de Semillas INIA}{1}{subsection.3}%
-\contentsline {subsubsection}{\numberline {0.1.1}Modelo de Casos de Uso}{1}{subsubsection.4}%
-\contentsline {paragraph}{\numberline {0.1.1.1}Historia de revisiones}{1}{paragraph.5}%
-\contentsline {subsection}{\numberline {0.2}Actores}{2}{subsection.6}%
-\contentsline {subsubsection}{\numberline {0.2.1}Analista}{2}{subsubsection.7}%
-\contentsline {subsubsection}{\numberline {0.2.2}Administrador}{2}{subsubsection.8}%
-\contentsline {subsubsection}{\numberline {0.2.3}Observador}{2}{subsubsection.9}%
-\contentsline {subsection}{\numberline {0.3}Casos de Uso}{3}{subsection.10}%
-\contentsline {subsubsection}{\numberline {0.3.1}Registrar Lote de Semillas}{3}{subsubsection.11}%
-\contentsline {subsubsection}{\numberline {0.3.2}Registro de Análisis Pureza}{5}{subsubsection.20}%
-\contentsline {subsubsection}{\numberline {0.3.3}Registro de Análisis PMS}{7}{subsubsection.26}%
-\contentsline {subsubsection}{\numberline {0.3.4}Registro de Análisis de Germinación}{9}{subsubsection.33}%
-\contentsline {subsubsection}{\numberline {0.3.5}Registro de Análisis de Tetrazolio}{11}{subsubsection.40}%
-\contentsline {subsubsection}{\numberline {0.3.6}Registro de Análisis DOSN}{13}{subsubsection.42}%
-\contentsline {subsubsection}{\numberline {0.3.7}Registrar Usuario}{15}{subsubsection.48}%
-\contentsline {subsubsection}{\numberline {0.3.8}Edición de Lotes}{18}{subsubsection.57}%
-\contentsline {subsubsection}{\numberline {0.3.9}Gestión de Análisis de Pureza}{20}{subsubsection.68}%
-\contentsline {subsubsection}{\numberline {0.3.10}Gestión de Análisis de PMS}{23}{subsubsection.74}%
-\contentsline {subsubsection}{\numberline {0.3.11}Gestión de Análisis de Germinación}{26}{subsubsection.80}%
-\contentsline {subsubsection}{\numberline {0.3.12}Gestión de Análisis de Tetrazolio}{29}{subsubsection.102}%
-\contentsline {subsubsection}{\numberline {0.3.13}Gestión de Análisis DOSN}{32}{subsubsection.122}%
-\contentsline {subsubsection}{\numberline {0.3.14}Finalizar Análisis (Todos los tipos)}{35}{subsubsection.148}%
-\contentsline {subsubsection}{\numberline {0.3.15}Aprobar Análisis Pendiente}{38}{subsubsection.154}%
-\contentsline {subsubsection}{\numberline {0.3.16}Marcar Análisis para Repetir}{40}{subsubsection.163}%
-\contentsline {subsubsection}{\numberline {0.3.17}Aprobar, Rechazar y Gestionar Usuarios}{43}{subsubsection.170}%
-\contentsline {subsubsection}{\numberline {0.3.18}Actualizar Perfil Propio}{45}{subsubsection.182}%
-\contentsline {subsubsection}{\numberline {0.3.19}Consultar registros con filtros combinados}{48}{subsubsection.189}%
-\contentsline {subsubsection}{\numberline {0.3.20}Generar archivo Excel con datos de lotes y análisis aplicando filtros}{49}{subsubsection.197}%
-\contentsline {subsubsection}{\numberline {0.3.21}Crear y consumir notificaciones automáticas de eventos del sistema}{51}{subsubsection.204}%
-\contentsline {subsubsection}{\numberline {0.3.22}Verificar segundo factor luego del login inicial}{52}{subsubsection.211}%
-\contentsline {subsubsection}{\numberline {0.3.23}Impedir acceso a cuenta en estado pendiente}{54}{subsubsection.218}%
-\contentsline {subsubsection}{\numberline {0.3.24}Obtener métricas agregadas de análisis}{55}{subsubsection.224}%
-\contentsline {subsubsection}{\numberline {0.3.25}Generar métricas consolidadas (general y por tipo) en un periodo}{56}{subsubsection.229}%
-\contentsline {subsubsection}{\numberline {0.3.26}Importar datos históricos desde un archivo Excel a la entidad Legado}{58}{subsubsection.240}%
-\contentsline {section}{Anexo 2 -- Estado del Arte}{1}{section*.250}%
-\contentsline {subsection}{\numberline {0.4}Introducción}{1}{subsection.251}%
-\contentsline {subsection}{\numberline {0.5}Marco Teórico}{1}{subsection.252}%
-\contentsline {subsubsection}{\numberline {0.5.1}Limitaciones de las hojas de cálculo}{2}{subsubsection.253}%
-\contentsline {subsubsection}{\numberline {0.5.2}La Transición Hacia Sistemas Web}{3}{subsubsection.254}%
-\contentsline {subsubsection}{\numberline {0.5.3}Sistemas LIMS como referencia conceptual}{4}{subsubsection.255}%
-\contentsline {subsection}{\numberline {0.6}Tecnologías Relevantes}{5}{subsection.256}%
-\contentsline {subsubsection}{\numberline {0.6.1}Frontend: React + TypeScript}{5}{subsubsection.257}%
-\contentsline {subsubsection}{\numberline {0.6.2}Backend: Java + Spring Boot}{5}{subsubsection.258}%
-\contentsline {subsubsection}{\numberline {0.6.3}Base de Datos: PostgreSQL}{6}{subsubsection.259}%
-\contentsline {subsubsection}{\numberline {0.6.4}Infraestructura y Arquitectura}{7}{subsubsection.260}%
-\contentsline {subsection}{\numberline {0.7}Soluciones Similares}{7}{subsection.261}%
-\contentsline {subsubsection}{\numberline {0.7.1}Airtable}{7}{subsubsection.262}%
-\contentsline {subsubsection}{\numberline {0.7.2}Smartsheet}{8}{subsubsection.265}%
-\contentsline {subsubsection}{\numberline {0.7.3}Odoo}{9}{subsubsection.268}%
-\contentsline {subsubsection}{\numberline {0.7.4}Conclusión Comparativa}{10}{subsubsection.271}%
-\contentsline {subsection}{\numberline {0.8}Conclusión General}{10}{subsection.272}%
-\contentsline {section}{Anexo 3 -- Mitigación de Riesgos}{1}{section*.273}%
-\contentsline {subsection}{\numberline {0.9}Proyecto Final -- Documento de Riesgos}{1}{subsection.274}%
-\contentsline {subsubsection}{\numberline {0.9.1}Historial de revisiones}{1}{subsubsection.275}%
-\contentsline {subsection}{\numberline {0.10}Lista de Riesgos identificados}{2}{subsection.276}%
-\contentsline {subsubsection}{\numberline {0.10.1}Riesgo 1 -- Experiencia limitada en PWA}{2}{subsubsection.277}%
-\contentsline {subsubsection}{\numberline {0.10.2}Riesgo 2 -- Falta de experiencia en React de parte del equipo}{3}{subsubsection.278}%
-\contentsline {subsubsection}{\numberline {0.10.3}Riesgo 3 -- Plazos reducidos}{4}{subsubsection.279}%
-\contentsline {subsubsection}{\numberline {0.10.4}Riesgo 4 -- Dependencia de coordinación grupal}{5}{subsubsection.280}%
-\contentsline {section}{\numberline {1}Anexo D -- Testing}{6}{section.281}%
-\contentsline {subsection}{\numberline {1.1}Pruebas unitarias}{6}{subsection.282}%
-\contentsline {subsection}{\numberline {1.2}Pruebas de integración}{6}{subsection.283}%
-\contentsline {subsection}{\numberline {1.3}Pruebas de aceptación}{6}{subsection.284}%
+\contentsline {section}{\numberline {1}Anexo 1 -- Modelo de Casos de Uso}{4}{section*.2}%
+\contentsline {subsection}{\numberline {1.1}Proyecto Laboratorio de Semillas INIA}{5}{subsection.3}%
+\contentsline {subsubsection}{\numberline {1.1.1}Modelo de Casos de Uso}{5}{subsubsection.4}%
+\contentsline {paragraph}{\numberline {1.1.1.1}Historia de revisiones}{5}{paragraph.5}%
+\contentsline {subsection}{\numberline {1.2}Actores}{6}{subsection.6}%
+\contentsline {subsubsection}{\numberline {1.2.1}Analista}{6}{subsubsection.7}%
+\contentsline {subsubsection}{\numberline {1.2.2}Administrador}{6}{subsubsection.8}%
+\contentsline {subsubsection}{\numberline {1.2.3}Observador}{6}{subsubsection.9}%
+\contentsline {subsection}{\numberline {1.3}Casos de Uso}{7}{subsection.10}%
+\contentsline {subsubsection}{\numberline {1.3.1}Registrar Lote de Semillas}{7}{subsubsection.11}%
+\contentsline {subsubsection}{\numberline {1.3.2}Registro de Análisis Pureza}{9}{subsubsection.20}%
+\contentsline {subsubsection}{\numberline {1.3.3}Registro de Análisis PMS}{11}{subsubsection.26}%
+\contentsline {subsubsection}{\numberline {1.3.4}Registro de Análisis de Germinación}{13}{subsubsection.33}%
+\contentsline {subsubsection}{\numberline {1.3.5}Registro de Análisis de Tetrazolio}{15}{subsubsection.40}%
+\contentsline {subsubsection}{\numberline {1.3.6}Registro de Análisis DOSN}{17}{subsubsection.42}%
+\contentsline {subsubsection}{\numberline {1.3.7}Registrar Usuario}{19}{subsubsection.48}%
+\contentsline {subsubsection}{\numberline {1.3.8}Edición de Lotes}{22}{subsubsection.57}%
+\contentsline {subsubsection}{\numberline {1.3.9}Gestión de Análisis de Pureza}{24}{subsubsection.68}%
+\contentsline {subsubsection}{\numberline {1.3.10}Gestión de Análisis de PMS}{27}{subsubsection.74}%
+\contentsline {subsubsection}{\numberline {1.3.11}Gestión de Análisis de Germinación}{30}{subsubsection.80}%
+\contentsline {subsubsection}{\numberline {1.3.12}Gestión de Análisis de Tetrazolio}{33}{subsubsection.102}%
+\contentsline {subsubsection}{\numberline {1.3.13}Gestión de Análisis DOSN}{36}{subsubsection.122}%
+\contentsline {subsubsection}{\numberline {1.3.14}Finalizar Análisis (Todos los tipos)}{39}{subsubsection.148}%
+\contentsline {subsubsection}{\numberline {1.3.15}Aprobar Análisis Pendiente}{42}{subsubsection.154}%
+\contentsline {subsubsection}{\numberline {1.3.16}Marcar Análisis para Repetir}{44}{subsubsection.163}%
+\contentsline {subsubsection}{\numberline {1.3.17}Aprobar, Rechazar y Gestionar Usuarios}{47}{subsubsection.170}%
+\contentsline {subsubsection}{\numberline {1.3.18}Actualizar Perfil Propio}{49}{subsubsection.182}%
+\contentsline {subsubsection}{\numberline {1.3.19}Consultar registros con filtros combinados}{52}{subsubsection.189}%
+\contentsline {subsubsection}{\numberline {1.3.20}Generar archivo Excel con datos de lotes y análisis aplicando filtros}{53}{subsubsection.197}%
+\contentsline {subsubsection}{\numberline {1.3.21}Crear y consumir notificaciones automáticas de eventos del sistema}{55}{subsubsection.204}%
+\contentsline {subsubsection}{\numberline {1.3.22}Verificar segundo factor luego del login inicial}{56}{subsubsection.211}%
+\contentsline {subsubsection}{\numberline {1.3.23}Impedir acceso a cuenta en estado pendiente}{58}{subsubsection.218}%
+\contentsline {subsubsection}{\numberline {1.3.24}Obtener métricas agregadas de análisis}{59}{subsubsection.224}%
+\contentsline {subsubsection}{\numberline {1.3.25}Generar métricas consolidadas (general y por tipo) en un periodo}{60}{subsubsection.229}%
+\contentsline {subsubsection}{\numberline {1.3.26}Importar datos históricos desde un archivo Excel a la entidad Legado}{62}{subsubsection.240}%
+\contentsline {section}{\numberline {2}Anexo 2 -- Estado del Arte}{64}{section*.251}%
+\contentsline {subsection}{\numberline {2.1}Introducción}{65}{subsection.252}%
+\contentsline {subsection}{\numberline {2.2}Marco Teórico}{65}{subsection.253}%
+\contentsline {subsubsection}{\numberline {2.2.1}Limitaciones de las hojas de cálculo}{65}{subsubsection.254}%
+\contentsline {subsubsection}{\numberline {2.2.2}La Transición Hacia Sistemas Web}{67}{subsubsection.255}%
+\contentsline {subsubsection}{\numberline {2.2.3}Sistemas LIMS como referencia conceptual}{68}{subsubsection.256}%
+\contentsline {subsection}{\numberline {2.3}Tecnologías Relevantes}{68}{subsection.257}%
+\contentsline {subsubsection}{\numberline {2.3.1}Frontend: React + TypeScript}{69}{subsubsection.258}%
+\contentsline {subsubsection}{\numberline {2.3.2}Backend: Java + Spring Boot}{69}{subsubsection.259}%
+\contentsline {subsubsection}{\numberline {2.3.3}Base de Datos: PostgreSQL}{70}{subsubsection.260}%
+\contentsline {subsubsection}{\numberline {2.3.4}Infraestructura y Arquitectura}{70}{subsubsection.261}%
+\contentsline {subsection}{\numberline {2.4}Soluciones Similares}{71}{subsection.262}%
+\contentsline {subsubsection}{\numberline {2.4.1}Airtable}{71}{subsubsection.263}%
+\contentsline {subsubsection}{\numberline {2.4.2}Smartsheet}{72}{subsubsection.266}%
+\contentsline {subsubsection}{\numberline {2.4.3}Odoo}{73}{subsubsection.269}%
+\contentsline {subsubsection}{\numberline {2.4.4}Conclusión Comparativa}{74}{subsubsection.272}%
+\contentsline {subsection}{\numberline {2.5}Conclusión General}{74}{subsection.273}%
+\contentsline {section}{\numberline {3}Anexo 3 -- Mitigación de Riesgos}{75}{section*.275}%
+\contentsline {subsection}{\numberline {3.1}Proyecto Final -- Documento de Riesgos}{76}{subsection.276}%
+\contentsline {subsubsection}{\numberline {3.1.1}Historial de revisiones}{76}{subsubsection.277}%
+\contentsline {subsection}{\numberline {3.2}Lista de Riesgos identificados}{77}{subsection.278}%
+\contentsline {subsubsection}{\numberline {3.2.1}Riesgo 1 -- Experiencia limitada en PWA}{77}{subsubsection.279}%
+\contentsline {subsubsection}{\numberline {3.2.2}Riesgo 2 -- Falta de experiencia en React de parte del equipo}{78}{subsubsection.280}%
+\contentsline {subsubsection}{\numberline {3.2.3}Riesgo 3 -- Plazos reducidos}{79}{subsubsection.281}%
+\contentsline {subsubsection}{\numberline {3.2.4}Riesgo 4 -- Dependencia de coordinación grupal}{80}{subsubsection.282}%
+\contentsline {section}{\numberline {4}Anexo 4 -- Testing}{81}{section*.284}%
+\contentsline {subsection}{Contenido de Testing}{82}{section*.284}%
+\contentsline {subsection}{\numberline {4.1}Pruebas unitarias}{82}{subsection.285}%
+\contentsline {subsection}{\numberline {4.2}Pruebas de integración}{82}{subsection.286}%
+\contentsline {subsection}{\numberline {4.3}Pruebas de aceptación}{82}{subsection.287}%

@@ -23,7 +23,16 @@
 \usepackage{underscore}
 % Configure hyperref to avoid duplicate destination names for pages
 % `hypertexnames=false` prevents repeated `page.N` identifiers.
-\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\usepackage[hidelinks,hypertexnames=false,pdfpagelabels=false]{hyperref}
+% Ensure page numbering is not reset by any package or by calls to \pagenumbering
+% (some titlepage/cover inputs might call \pagenumbering; preserve continuity).
+\newcounter{savedpageforcontinuous}
+\let\origpagenumbering\pagenumbering
+\renewcommand{\pagenumbering}[1]{%
+  \setcounter{savedpageforcontinuous}{\value{page}}%
+  \origpagenumbering{#1}%
+  \setcounter{page}{\value{savedpageforcontinuous}}%
+}
 \usepackage{bookmark}
 \usepackage{placeins}
 \usepackage{pdfpages}

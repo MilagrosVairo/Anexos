@@ -1,0 +1,20 @@
+% Contenido del Anexo 4 - Testing
+\section*{Contenido de Testing}
+\addcontentsline{toc}{subsection}{Contenido de Testing}
+\subsection{Pruebas unitarias}
+\begin{itemize}
+  \item Descripción: pruebas de las unidades lógicas del backend (servicios y mappers).
+  \item Herramienta: JUnit + Mockito.
+\end{itemize}
+
+\subsection{Pruebas de integración}
+\begin{itemize}
+  \item Descripción: integración entre capas (API -> servicios -> BD en memoria).
+  \item Herramienta: Spring Test, Testcontainers (si procede).
+\end{itemize}
+
+\subsection{Pruebas de aceptación}
+\begin{itemize}
+  \item Descripción: escenarios end-to-end que verifican flujos principales.
+  \item Herramienta: Selenium / Cypress / pruebas manuales documentadas.
+\end{itemize}
