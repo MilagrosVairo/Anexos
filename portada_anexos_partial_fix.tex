@@ -1,4 +1,8 @@
 % Portada (solo el bloque titlepage) para incluir en otros documentos
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Anexos}
+\hypersetup{pageanchor=false}
 \begin{titlepage}
     \centering
     \vspace*{2cm}
@@ -16,4 +20,4 @@
     {\large SEDE: San Jos\'e de Mayo\par}
     \vfill
 \end{titlepage}
-\clearpage
+\hypersetup{pageanchor=true}

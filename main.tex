@@ -20,7 +20,10 @@
 % Buscar imágenes en la carpeta images/ por conveniencia
 \graphicspath{{../DocuProyectoFinal/images/}{images/}}
 \usepackage{enumitem}
-\usepackage{hyperref}
+\usepackage{underscore}
+% Configure hyperref to avoid duplicate destination names for pages
+% `hypertexnames=false` prevents repeated `page.N` identifiers.
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
 \usepackage{bookmark}
 \usepackage{placeins}
 \usepackage{pdfpages}
