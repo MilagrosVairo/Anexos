@@ -1,0 +1,144 @@
+% 2.13 Caso de uso - Gestión de Análisis DOSN
+\subsection{Caso de uso: Gestión de Análisis DOSN}
+
+\noindent\textbf{Caso de uso:} Editar y Completar Análisis DOSN
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El usuario edita un análisis DOSN existente, completa o modifica datos INIA e INASE, gestiona listados de malezas, otros cultivos, brassica y cuscuta, y define cumplimiento del estándar.
+
+\vspace{0.5em}
+\noindent\textbf{Pre-Condición:}
+\begin{itemize}[nosep]
+    \item El análisis DOSN debe existir
+    \item El análisis debe estar en estado \texttt{EN\_PROCESO} o \texttt{PENDIENTE\_APROBACION}
+    \item Si está \texttt{APROBADO}, solo Administrador puede editar
+    \item El usuario debe estar autenticado
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Post-Condición:}
+\begin{itemize}[nosep]
+    \item Datos del análisis actualizados
+    \item Si Analista edita \texttt{APROBADO} → cambia a \texttt{PENDIENTE\_APROBACION}
+    \item Si Administrador edita \texttt{APROBADO} → permanece \texttt{APROBADO}
+    \item Registro automático en historial de modificación
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item \textbf{Acceso al análisis}
+    \begin{enumerate}[nosep]
+        \item El usuario accede al detalle del análisis DOSN
+        \item Selecciona ``Editar análisis''
+        \item El sistema carga los datos actuales en dos pestañas:
+        \begin{itemize}[nosep]
+            \item Datos generales (INIA e INASE)
+            \item Registros (listados)
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{Edición de datos INIA}
+    \begin{enumerate}[nosep]
+        \item El usuario puede modificar: fecha de análisis, gramos analizados, tipos de análisis (Completo, Reducido, Limitado, Reducido-Limitado)
+        \item El sistema valida: fecha no futura, gramos > 0, al menos un tipo de análisis marcado
+    \end{enumerate}
+
+    \item \textbf{Edición de datos INASE (opcionales)}
+    \begin{enumerate}[nosep]
+        \item El usuario puede modificar: fecha INASE, gramos analizados INASE, tipos de análisis INASE
+        \item Si no completa, los datos INASE permanecen vacíos (opcionales)
+    \end{enumerate}
+
+    \item \textbf{Gestión de listados de Malezas}
+    \begin{enumerate}[nosep]
+        \item El usuario puede agregar nuevas malezas identificadas
+        \item Seleccionar tipo: Tolerancia cero, Toleradas, o Comunes
+        \item Seleccionar catálogo o especie e ingresar cantidad de semillas
+        \item Editar o eliminar registros existentes
+    \end{enumerate}
+
+    \item \textbf{Gestión de Otros Cultivos}
+    \begin{enumerate}[nosep]
+        \item Agregar otros cultivos identificados, seleccionar catálogo o especie e ingresar cantidad
+        \item Editar o eliminar registros existentes
+    \end{enumerate}
+
+    \item \textbf{Gestión de Brassica}
+    \begin{enumerate}[nosep]
+        \item Si aplica, agregar semillas brassica identificadas, seleccionar catálogo o especie e ingresar cantidad
+        \item Editar o eliminar registros existentes
+    \end{enumerate}
+
+    \item \textbf{Registro de Cuscuta}
+    \begin{enumerate}[nosep]
+        \item Si se encuentra cuscuta, el usuario registra cantidad de semillas de cuscuta y observaciones
+    \end{enumerate}
+
+    \item \textbf{Cumplimiento del estándar}
+    \begin{enumerate}[nosep]
+        \item El usuario selecciona cumplimiento (Sí/No) y guarda los cambios
+        \        item El sistema actualiza el análisis, registra la modificación en historial y aplica cambio de estado según rol
+    \end{enumerate}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Analista edita análisis APROBADO}
+    \begin{itemize}[nosep]
+        \item El sistema detecta que es Analista
+        \item Permite editar
+        \item Al guardar, cambia estado a ``PENDIENTE APROBACIÓN''
+        \item Muestra mensaje de cambio de estado
+    \end{itemize}
+
+    \item \textit{Administrador edita análisis APROBADO}
+    \begin{itemize}[nosep]
+        \item El sistema detecta que es Administrador
+        \item Permite editar
+        \item Al guardar, mantiene estado ``APROBADO''
+    \end{itemize}
+
+    \item \textit{Fecha futura en INIA}
+    \begin{itemize}[nosep]
+        \item El sistema valida fecha INIA
+        \item Muestra error: ``Ingrese una fecha válida (no futura)''
+        \item No permite guardar hasta corregir
+    \end{itemize}
+
+    \item \textit{Gramos inválidos}
+    \begin{itemize}[nosep]
+        \item El sistema valida que gramos INIA > 0
+        \item Muestra error correspondiente
+        \item No permite guardar hasta corregir
+    \end{itemize}
+
+    \item \textit{Sin tipo de análisis INIA}
+    \begin{itemize}[nosep]
+        \item El sistema valida al menos un checkbox marcado
+        \item Muestra error: ``Debe seleccionar al menos un tipo de análisis''
+        \item No permite guardar hasta corregir
+    \end{itemize}
+
+    \item \textit{Eliminar todos los listados}
+    \begin{itemize}[nosep]
+        \item El usuario puede eliminar todos los registros
+        \item El análisis queda solo con datos INIA/INASE
+        \item El sistema permite pero advierte antes de finalizar
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Datos INIA obligatorios, datos INASE opcionales
+    \item Validación de fechas no futuras
+    \item Gestión dinámica de múltiples listados independientes
+    \item Cada tipo de listado (malezas, cultivos, brassica) es independiente
+    \item Cambio de estado automático según rol
+    \item Registro automático en historial
+\end{itemize}

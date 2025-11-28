@@ -1,0 +1,65 @@
+% Contenido del Anexo 1 - Modelo de Casos de Uso
+
+% Primera página: Información del proyecto y tabla de revisiones
+\section*{Proyecto Laboratorio de Semillas INIA}
+\addcontentsline{toc}{section}{Proyecto Laboratorio de Semillas INIA}
+
+\subsection*{Modelo de Casos de Uso}
+\addcontentsline{toc}{subsection}{Modelo de Casos de Uso}
+
+\vspace{1em}
+\textbf{Versión [1.2]}
+
+\vspace{2em}
+\subsection*{Historia de revisiones}
+\addcontentsline{toc}{subsection}{Historia de revisiones}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3cm}|p{2cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{Fecha} & \textbf{Versión} & \textbf{Descripción} & \textbf{Autor} \\
+\hline
+10/09/2025 & 1.1 & Se definieron los casos de uso para el sistema a realizar & Nahuel Perdomo, Milagros Vairo, Nadia Gorría \\
+\hline
+17/11/2025 & 1.2 & Se redefinieron los casos de uso en base a las implementaciones finales & Nahuel Perdomo, Milagros Vairo, Nadia Gorría \\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+% Segunda página: Actores
+\section{Actores}
+En esta sección se describe a cada uno de los actores que existen en el sistema. Un actor es un usuario del sistema o cualquier otro sistema que interactúa con el mismo.
+
+\subsection{Analista}
+\textbf{Descripción:} Usuario de laboratorio que registra muestras y carga los resultados de los análisis (Pureza, Germinación, PMS, Tetrazolio, etc.). Se encarga de ingresar datos en la plataforma y asegurar que las mediciones queden registradas correctamente.
+
+\subsection{Administrador}
+\textbf{Descripción:} Usuario con acceso completo al sistema. Además de las funciones del analista, puede gestionar usuarios, catálogos y normativas, y validar lotes. Es responsable de la administración general del sistema y de la generación de reportes oficiales.
+
+\subsection{Observador}
+\textbf{Descripción:} Usuario externo (cliente del laboratorio) o interno con acceso de solo lectura, que consulta los resultados de sus lotes. Puede descargar reportes y visualizar el estado de los análisis, pero no modificar información.
+
+\clearpage
+
+% Tercera página: Casos de Uso
+\section{Casos de Uso}
+En esta sección se describen los casos de uso identificados para el sistema. Un caso de uso representa una funcionalidad o interacción específica entre un actor y el sistema, detallando los pasos que se siguen para cumplir un objetivo particular.
+
+Cada caso de uso se documenta con su descripción, precondiciones, flujo principal de eventos, flujos alternativos, postcondiciones y requerimientos especiales. Estos casos permiten comprender cómo los actores interactúan con el sistema y sirven de base para el diseño y validación del mismo.
+
+\input{sections/casos_de_uso/01-registrar_lote.tex}
+\input{sections/casos_de_uso/02-analisis_pureza.tex}
+\input{sections/casos_de_uso/03-analisis_pms.tex}
+\input{sections/casos_de_uso/04-analisis_germinacion.tex}
+\input{sections/casos_de_uso/05-analisis_tetrazolio.tex}
+\input{sections/casos_de_uso/06-analisis_dosn.tex}
+\input{sections/casos_de_uso/07-registrar_usuario.tex}
+\input{sections/casos_de_uso/08-edicion_lotes.tex}
+\input{sections/casos_de_uso/09-gestion_pureza.tex}
+\input{sections/casos_de_uso/10-gestion_pms.tex}
+\input{sections/casos_de_uso/11-gestion_analisis_germinacion.tex}
+\input{sections/casos_de_uso/12-gestion_analisis_tetrazolio.tex}
+\input{sections/casos_de_uso/13-gestion_analisis_dosn.tex}

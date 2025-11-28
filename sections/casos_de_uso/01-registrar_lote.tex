@@ -1,0 +1,110 @@
+\subsection{Caso de uso: Registrar Lote de Semillas}
+
+\textbf{Descripción:} El usuario registra un nuevo lote de semillas con su información completa, asignándole los tipos de análisis que se realizarán.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+    \item El usuario debe estar autenticado como Analista o Administrador.
+    \item Debe existir al menos un cultivar en el sistema.
+    \item Debe existir al menos una empresa registrada.
+    \item Debe existir al menos un cliente registrado.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+    \item Lote creado con estado activo = true.
+    \item Lote disponible para crear análisis de los tipos asignados.
+    \item Lote visible en el listado de lotes activos.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de eventos principal:}
+\begin{enumerate}[nosep]
+    \item El usuario accede a la página ``Registro de Lotes''.
+    \item Completa los datos obligatorios:
+    \begin{itemize}[nosep]
+        \item Ficha (campo único)
+        \item Nombre del lote (campo único)
+        \item Cultivar (selección desde catálogo)
+        \item Tipo de lote (INTERNO/EXTERNO)
+        \item Empresa (selección desde lista de contactos)
+        \item Cliente (selección desde lista de contactos)
+        \item Fecha de recibo
+        \item Kilos limpios
+    \end{itemize}
+    \item Completa datos opcionales:
+    \begin{itemize}[nosep]
+        \item Código CC, Código FF
+        \item Fecha de entrega
+        \item Depósito, Unidad de embolsado, Remitente
+        \item Datos de humedad (tipo y valor)
+        \item Número de artículo, Origen, Estado
+        \item Fecha de cosecha
+        \item Observaciones
+    \end{itemize}
+    \item Selecciona los tipos de análisis que se realizarán al lote:
+    \begin{itemize}[nosep]
+        \item Pureza
+        \item PMS (Peso de Mil Semillas)
+        \item Germinación
+        \item Tetrazolio
+        \item DOSN (Determinación de Otras Semillas en Número)
+    \end{itemize}
+    \item El sistema valida que:
+    \begin{itemize}[nosep]
+        \item La ficha no esté duplicada
+        \item El nombre del lote no esté duplicado
+        \item La fecha de recibo no sea futura
+        \item La fecha de cosecha no sea futura
+    \end{itemize}
+    \item El sistema crea el lote con \texttt{activo = true}.
+    \item El lote aparece en la lista de ``Últimos lotes registrados''.
+    \item El sistema muestra mensaje de confirmación.
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{1. Ficha duplicada}
+\begin{itemize}[nosep]
+    \item El sistema valida en tiempo real
+    \item Muestra alerta: ``Esta ficha ya está registrada. Por favor, utiliza una ficha diferente''
+    \item No permite guardar hasta corregir
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{2. Nombre de lote duplicado}
+\begin{itemize}[nosep]
+    \item El sistema valida en tiempo real
+    \item Muestra alerta: ``Este nombre de lote ya está registrado. Por favor, utiliza un nombre diferente''
+    \item No permite guardar hasta corregir
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{3. Fecha futura}
+\begin{itemize}[nosep]
+    \item El sistema valida en backend
+    \item Muestra error: ``La fecha de recibo/cosecha no puede ser posterior a la fecha actual''
+    \item No permite guardar hasta corregir
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{4. Sin tipos de análisis asignados}
+\begin{itemize}[nosep]
+    \item El lote se crea sin restricciones
+    \item No se podrán crear análisis hasta editar el lote y asignar tipos
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Validación asíncrona de campos únicos (ficha y nombre)
+    \item Eliminación automática de duplicados en tipos de análisis asignados
+    \item Los tipos de análisis asignados se almacenan como enum JSON
+\end{itemize}

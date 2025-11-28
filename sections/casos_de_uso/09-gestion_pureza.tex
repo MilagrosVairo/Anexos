@@ -1,0 +1,130 @@
+\subsection{Caso de uso: Gestión de Análisis de Pureza}
+
+\noindent\textbf{Caso de uso:} Editar y Completar Análisis de Pureza
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El usuario edita un análisis de Pureza existente, completa datos de pesos, porcentajes, registra listados de malezas y otros cultivos, y define cumplimiento del estándar.
+
+\vspace{0.5em}
+\noindent\textbf{Pre-Condición:}
+\begin{itemize}[nosep]
+    \item El análisis de Pureza debe existir
+    \item El análisis debe estar en estado \texttt{EN\_PROCESO} o \texttt{PENDIENTE\_APROBACION}
+    \item Si está \texttt{APROBADO}, solo Administrador puede editar
+    \item El usuario debe estar autenticado
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Post-Condición:}
+\begin{itemize}[nosep]
+    \item Datos del análisis actualizados
+    \item Si Analista edita \texttt{APROBADO} $\rightarrow$ cambia a \texttt{PENDIENTE\_APROBACION}
+    \item Si Administrador edita \texttt{APROBADO} $\rightarrow$ permanece \texttt{APROBADO}
+    \item Registro automático en historial de modificación
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item \textbf{Fase 1: Acceso al análisis}
+    \begin{itemize}[nosep]
+        \item El usuario accede al detalle del análisis de Pureza
+        \item Selecciona ``Editar análisis''
+        \item El sistema carga los datos actuales
+    \end{itemize}
+    \item \textbf{Fase 2: Edición de datos INIA}
+    \begin{itemize}[nosep]
+        \item El usuario puede modificar:
+        \begin{itemize}[nosep]
+            \item Fecha del análisis
+            \item Peso inicial (g)
+            \item Componentes en gramos (semilla pura, materia inerte, otros cultivos, malezas, malezas toleradas, malezas tol. cero)
+        \end{itemize}
+        \item El sistema recalcula automáticamente:
+        \begin{itemize}[nosep]
+            \item Peso total
+            \item Porcentajes sin redondeo (4 decimales)
+        \end{itemize}
+        \item El sistema valida en tiempo real:
+        \begin{itemize}[nosep]
+            \item Peso total $\leq$ peso inicial
+            \item Pérdida de masa > 5\% $\rightarrow$ alerta
+        \end{itemize}
+        \item El usuario ajusta porcentajes redondeados
+        \item El sistema valida suma = 100\%
+    \end{itemize}
+    \item \textbf{Fase 3: Edición de datos INASE}
+    \begin{itemize}[nosep]
+        \item El usuario puede modificar:
+        \begin{itemize}[nosep]
+            \item Fecha INASE
+            \item Porcentajes oficiales INASE
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Fase 4: Gestión de listados}
+    \begin{itemize}[nosep]
+        \item El usuario puede:
+        \begin{itemize}[nosep]
+            \item Agregar nuevas malezas identificadas
+            \item Agregar nuevos otros cultivos
+            \item Editar registros existentes
+            \item Eliminar registros
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Fase 5: Cumplimiento del estándar}
+    \begin{itemize}[nosep]
+        \item El usuario selecciona cumplimiento (Sí/No)
+        \item Guarda los cambios
+        \item El sistema:
+        \begin{itemize}[nosep]
+            \item Actualiza el análisis
+            \item Registra modificación en historial
+            \item Si es Analista editando \texttt{APROBADO} $\rightarrow$ cambia a \texttt{PENDIENTE\_APROBACION}
+            \item Si es Administrador $\rightarrow$ mantiene estado actual
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Analista edita análisis \texttt{APROBADO}:}
+    \begin{itemize}[nosep]
+        \item El sistema detecta que es Analista
+        \item Permite editar
+        \item Al guardar, cambia estado a \texttt{PENDIENTE\_APROBACION}
+        \item Muestra mensaje: ``El análisis ha sido devuelto a estado \texttt{PENDIENTE\_APROBACION} para nueva revisión''
+    \end{itemize}
+    \item \textit{Administrador edita análisis \texttt{APROBADO}:}
+    \begin{itemize}[nosep]
+        \item El sistema detecta que es Administrador
+        \item Permite editar
+        \item Al guardar, mantiene estado \texttt{APROBADO}
+        \item Muestra mensaje: ``Análisis actualizado exitosamente''
+    \end{itemize}
+    \item \textit{Peso total mayor que peso inicial:}
+    \begin{itemize}[nosep]
+        \item El sistema bloquea el guardado
+        \item Muestra error: ``El peso total no puede ser mayor al peso inicial''
+        \item El usuario debe corregir
+    \end{itemize}
+    \item \textit{Suma de porcentajes $\neq$ 100\%:}
+    \begin{itemize}[nosep]
+        \item El sistema muestra alerta en rojo
+        \item No bloquea guardado (puede ser intencional)
+        \item El usuario decide si continúa
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Cálculos automáticos en tiempo real
+    \item Validación de coherencia en pesos
+    \item Gestión dinámica de listados (agregar/editar/eliminar)
+    \item Cambio de estado automático según rol
+    \item Registro automático en historial
+\end{itemize}

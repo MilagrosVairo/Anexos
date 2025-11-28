@@ -1,0 +1,122 @@
+% 2.12 Caso de uso - Gestión de Análisis de Tetrazolio
+\subsection{Caso de uso: Gestión de Análisis de Tetrazolio}
+
+\noindent\textbf{Caso de uso:} Crear Repeticiones y Registrar Conteos de Tetrazolio
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El usuario crea repeticiones según la configuración establecida, registra conteos de semillas viables, no viables y muertas, y el sistema calcula automáticamente porcentajes de viabilidad.
+
+\vspace{0.5em}
+\noindent\textbf{Pre-Condición:}
+\begin{itemize}[nosep]
+    \item El análisis de Tetrazolio debe existir con estado \texttt{EN\_PROCESO}
+    \item La configuración inicial debe estar completa
+    \item El usuario debe estar autenticado
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Post-Condición:}
+\begin{itemize}[nosep]
+    \item Repeticiones creadas con conteos registrados
+    \item Cálculos automáticos realizados (totales, porcentajes, promedio general)
+    \item Análisis listo para finalizar cuando todas las repeticiones están completas
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item \textbf{Fase 1: Acceso al análisis}
+    \begin{enumerate}[nosep]
+        \item El usuario accede al detalle del análisis de Tetrazolio
+        \item Ve la configuración establecida: fecha del ensayo, semillas por repetición (25, 50 o 100), número de repeticiones esperadas (2-8), pretratamiento, concentración, temperatura, tiempo, Viabilidad INASE (si se ingresó)
+        \item Visualiza las repeticiones existentes (si las hubiera)
+    \end{enumerate}
+
+    \item \textbf{Fase 2: Creación de repeticiones}
+    \begin{enumerate}[nosep]
+        \item El usuario selecciona ``Agregar repetición''
+        \item El sistema crea la repetición automáticamente con número secuencial (Rep. 1, 2, 3...) y número de semillas configurado
+        \item La repetición queda lista para ingresar conteos
+    \end{enumerate}
+
+    \item \textbf{Fase 3: Registro de conteos}
+    \begin{enumerate}[nosep]
+        \item Para cada repetición, el usuario ingresa:
+        \begin{itemize}[nosep]
+            \item Semillas viables: cantidad de semillas con tinción adecuada
+            \item Semillas no viables: cantidad de semillas con tinción inadecuada
+            \item Semillas muertas: cantidad de semillas sin tinción
+        \end{itemize}
+        \item El sistema valida que la suma no exceda el número de semillas configurado
+    \end{enumerate}
+
+    \item \textbf{Fase 4: Cálculos automáticos}
+    \begin{enumerate}[nosep]
+        \item Por cada repetición, el sistema calcula:
+        \begin{itemize}[nosep]
+            \item Total evaluado = viables + no viables + muertas
+            \item Porcentaje de viabilidad = (viables / total evaluado) $\\times$ 100
+        \end{itemize}
+        \item Calcula el promedio general de viabilidad entre todas las repeticiones
+        \item Muestra comparación con Viabilidad INASE (si se ingresó)
+    \end{enumerate}
+
+    \item \textbf{Fase 5: Finalización}
+    \begin{enumerate}[nosep]
+        \item Cuando todas las repeticiones esperadas están completas, el análisis queda listo para finalizar
+        \item Muestra resumen de resultados
+        \item El usuario puede proceder a finalizar el análisis
+    \end{enumerate}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Conteo excede número de semillas:}
+    \begin{itemize}[nosep]
+        \item El sistema valida en tiempo real
+        \item Muestra error: ``El total de conteos ([X]) excede las [N] semillas configuradas''
+        \item Bloquea guardado hasta corregir
+    \end{itemize}
+
+    \item \textit{Intentar crear más repeticiones que las configuradas:}
+    \begin{itemize}[nosep]
+        \item El sistema valida el número de repeticiones esperadas
+        \item Bloquea la creación
+        \item Muestra mensaje: ``Ya se alcanzó el número máximo de repeticiones configuradas ([N])''
+    \end{itemize}
+
+    \item \textit{Editar conteos de repetición existente:}
+    \begin{itemize}[nosep]
+        \item El usuario puede editar repeticiones ya creadas
+        \item El sistema recalcula automáticamente porcentajes y promedio
+        \item Muestra cambios en tiempo real
+    \end{itemize}
+
+    \item \textit{Eliminar repetición:}
+    \begin{itemize}[nosep]
+        \item El usuario puede eliminar repeticiones
+        \item El sistema recalcula automáticamente el promedio general
+        \item Permite crear nuevas repeticiones hasta el límite configurado
+    \end{itemize}
+
+    \item \textit{Conteo incompleto:}
+    \begin{itemize}[nosep]
+        \item El usuario intenta guardar sin completar todos los campos
+        \item El sistema muestra advertencia
+        \item Permite guardar como borrador pero marca repetición como incompleta
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item No se puede modificar la configuración inicial una vez creadas las repeticiones
+    \item Validación estricta de suma de conteos $\leq$ semillas configuradas
+    \item Cálculos automáticos de porcentajes con 2 decimales
+    \item Comparación automática con Viabilidad INASE
+    \item Todas las repeticiones deben estar completas antes de finalizar
+\end{itemize}

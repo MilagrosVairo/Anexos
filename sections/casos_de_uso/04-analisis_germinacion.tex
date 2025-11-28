@@ -1,0 +1,71 @@
+\subsection{Caso de uso: Registro de Análisis de Germinación}
+
+\noindent\textbf{Caso de uso:} Configurar Análisis de Germinación
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El usuario configura un análisis de germinación, el cual servirá como contenedor para múltiples tablas de germinación con condiciones experimentales específicas.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondición:}
+\begin{itemize}[nosep]
+    \item Debe existir al menos un lote activo con tipo de análisis ``GERMINACION'' asignado
+    \item El lote no debe tener un análisis de Germinación en estado \texttt{APROBADO}
+    \item El usuario debe estar autenticado como Analista o Administrador
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondición:}
+\begin{itemize}[nosep]
+    \item Análisis creado con estado \texttt{EN\_PROCESO}
+    \item Sistema listo para crear tablas de germinación individuales
+    \item Cada tabla tendrá su propia configuración de fechas, repeticiones y condiciones
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item El usuario selecciona un lote elegible para Germinación
+    \item Accede a ``Crear análisis de Germinación''
+    \item El sistema muestra mensaje informativo:
+    \begin{itemize}[nosep]
+        \item ``Solo necesitas seleccionar el lote y opcionalmente agregar comentarios''
+        \item ``La configuración detallada se realiza al crear cada tabla''
+    \end{itemize}
+    \item El usuario puede agregar comentarios generales (opcional)
+    \item Guarda el análisis
+    \item El sistema:
+    \begin{itemize}[nosep]
+        \item Crea el análisis con estado \texttt{EN\_PROCESO}
+        \item Queda listo para crear tablas de germinación
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Lote sin tipo de análisis GERMINACION asignado:}
+    \begin{itemize}[nosep]
+        \item El sistema no permite seleccionar el lote
+        \item Solo muestra lotes elegibles con GERMINACION asignado
+    \end{itemize}
+    \item \textit{Guardar sin comentarios:}
+    \begin{itemize}[nosep]
+        \item El análisis se crea exitosamente
+        \item Los comentarios son completamente opcionales
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Análisis de germinación funciona como contenedor de tablas
+    \item No requiere configuración inicial compleja
+    \item Mínima configuración en el registro
+    \item Tabla de tolerancias disponible para consulta
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Nota:} La creación de tablas de germinación, configuración de condiciones (fechas, repeticiones, semillas, prefrío, pretratamiento, método, temperatura), creación de repeticiones, registro de conteos y cálculos automáticos se realiza en la fase de edición del análisis. El registro solo crea el contenedor inicial.

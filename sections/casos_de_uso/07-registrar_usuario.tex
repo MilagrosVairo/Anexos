@@ -1,0 +1,116 @@
+\subsection{Caso de uso: Registrar Usuario}
+
+\noindent\textbf{Caso de uso:} Registrar Solicitud de Usuario
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} Una persona solicita acceso al sistema completando un formulario de registro. La solicitud queda pendiente hasta ser aprobada por un administrador.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondición:}
+\begin{itemize}[nosep]
+    \item El solicitante no debe tener cuenta en el sistema
+    \item El nombre de usuario y email deben ser únicos
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondición:}
+\begin{itemize}[nosep]
+    \item Usuario creado con estado \texttt{PENDIENTE}
+    \item Usuario con \texttt{activo = false} y \texttt{rol = null}
+    \item Notificación automática creada para analistas
+    \item Email de confirmación enviado al solicitante
+    \item Email de notificación enviado a todos los analistas
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Solicitante (persona sin cuenta), Administrador (recibe notificación).
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item El solicitante accede a la página de registro desde el login
+    \item Completa el formulario con datos obligatorios:
+    \begin{itemize}[nosep]
+        \item Nombre de usuario (único, mínimo 3 caracteres, solo letras, números, puntos y guiones bajos)
+        \item Nombres (solo letras)
+        \item Apellidos (solo letras)
+        \item Email (único, formato válido)
+        \item Contraseña (mínimo 8 caracteres, al menos una letra y un número)
+        \item Confirmar contraseña (debe coincidir)
+    \end{itemize}
+    \item El sistema valida en tiempo real:
+    \begin{itemize}[nosep]
+        \item Formato de cada campo
+        \item Unicidad de nombre de usuario
+        \item Unicidad de email
+        \item Fortaleza de contraseña (débil/media/fuerte)
+        \item Coincidencia de contraseñas
+    \end{itemize}
+    \item Al perder el foco (blur), valida unicidad de nombre y email
+    \item El solicitante envía el formulario
+    \item El sistema:
+    \begin{itemize}[nosep]
+        \item Hashea la contraseña con bcrypt
+        \item Crea el usuario con estado \texttt{PENDIENTE}, \texttt{activo = false}, \texttt{rol = null}
+        \item Crea notificación automática para analistas
+        \item Envía email de confirmación al solicitante
+        \item Envía email a todos los analistas notificando la nueva solicitud
+    \end{itemize}
+    \item Muestra diálogo de éxito explicando el proceso de aprobación:
+    \begin{itemize}[nosep]
+        \item ``Esperando aprobación''
+        \item ``El administrador debe aprobar tu solicitud antes de que puedas acceder''
+        \item ``Recibirás una notificación por correo cuando sea aprobada''
+    \end{itemize}
+    \item Redirige al login al cerrar el diálogo
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Nombre de usuario duplicado:}
+    \begin{itemize}[nosep]
+        \item El sistema detecta en blur o en submit
+        \item Muestra error: ``Este nombre de usuario ya está registrado''
+        \item No permite guardar hasta cambiar
+    \end{itemize}
+    \item \textit{Email duplicado:}
+    \begin{itemize}[nosep]
+        \item El sistema detecta en blur o en submit
+        \item Muestra error: ``Este correo electrónico ya está registrado''
+        \item No permite guardar hasta cambiar
+    \end{itemize}
+    \item \textit{Contraseña débil:}
+    \begin{itemize}[nosep]
+        \item El sistema muestra indicador de fortaleza:
+        \begin{itemize}[nosep]
+            \item Rojo (débil): < 8 caracteres o sin letra/número
+            \item Amarillo (media): 8+ caracteres con letra y número
+            \item Verde (fuerte): 8+ caracteres con letra, número y caracteres especiales
+        \end{itemize}
+        \item Permite guardar con contraseña media o fuerte
+    \end{itemize}
+    \item \textit{Contraseñas no coinciden:}
+    \begin{itemize}[nosep]
+        \item El sistema valida en tiempo real
+        \item Muestra error: ``Las contraseñas no coinciden''
+        \item No permite guardar hasta corregir
+    \end{itemize}
+    \item \textit{Error al enviar emails:}
+    \begin{itemize}[nosep]
+        \item El registro se completa exitosamente
+        \item Los emails se intentan enviar pero no bloquean el registro
+        \item Se registra log de error pero no afecta al usuario
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Validación asíncrona de unicidad (nombre y email)
+    \item Validación en tiempo real de fortaleza de contraseña
+    \item Hasheo seguro con bcrypt antes de almacenar
+    \item Envío de emails asíncrono (no bloquea registro)
+    \item Creación automática de notificaciones
+    \item Indicador visual de fortaleza de contraseña (débil/media/fuerte)
+\end{itemize}

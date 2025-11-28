@@ -1,0 +1,77 @@
+\subsection{Caso de uso: Registro de Análisis Pureza}
+
+\noindent\textbf{Caso de uso:} Cargar Resultados de Pureza
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El analista registra pesos y componentes de una muestra de semillas para calcular el porcentaje de pureza física, identificando semilla pura, materia inerte, otros cultivos y malezas.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondición:}
+\begin{itemize}[nosep]
+    \item Debe existir al menos un lote activo con tipo de análisis ``PUREZA'' asignado
+    \item El lote no debe tener un análisis de Pureza en estado APROBADO
+    \item El usuario debe estar autenticado como Analista o Administrador
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondición:}
+\begin{itemize}[nosep]
+    \item Análisis creado con estado \texttt{EN\_PROCESO}
+    \item Fecha de inicio automática asignada
+    \item Resultados guardados y vinculados al lote
+    \item Registro automático en historial de análisis
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item \textbf{Fase 1: Creación del análisis}
+    \begin{itemize}[nosep]
+        \item El usuario selecciona un lote elegible para Pureza
+        \item Accede a ``Crear análisis de Pureza''
+        \item El sistema crea el análisis con estado \texttt{EN\_PROCESO} y fecha de inicio automática
+    \end{itemize}
+    \item \textbf{Fase 2: Registro de datos INIA}
+    \begin{itemize}[nosep]
+        \item Ingresa fecha del análisis (obligatoria)
+        \item Ingresa peso inicial en gramos (obligatorio, debe ser > 0)
+        \item Ingresa componentes en gramos: Semilla pura, Materia inerte, Otros cultivos, Malezas, Malezas toleradas, Malezas tolerancia cero
+        \item El sistema calcula automáticamente: peso total y porcentajes sin redondeo (4 decimales)
+        \item Validaciones en tiempo real: peso total $\leq$ peso inicial; alerta si pérdida de masa > 5\% (informativa)
+        \item El usuario ingresa porcentajes redondeados manualmente; el sistema valida suma = 100\%
+        \item Valores entre 0 y 0.05\% muestran ``tr'' (trazas) y son de solo lectura
+    \end{itemize}
+    \item \textbf{Fase 3: Datos INASE (opcionales)}
+    \begin{itemize}[nosep]
+        \item El usuario puede ingresar fecha INASE y porcentajes oficiales INASE
+    \end{itemize}
+    \item \textbf{Fase 4: Registro de listados (opcional)}
+    \begin{itemize}[nosep]
+        \item Registro de malezas identificadas y otros cultivos, indicando catálogo/especie, cantidad y categorías
+    \end{itemize}
+    \item \textbf{Fase 5: Cumplimiento del estándar}
+    \begin{itemize}[nosep]
+        \item El usuario selecciona si cumple o no con el estándar y el sistema guarda los cambios
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Peso total mayor que peso inicial}: bloqueo de guardado y mensaje de error
+    \item \textit{Pérdida de masa excesiva}: muestra alerta informativa (no bloquea)
+    \item \textit{Suma de porcentajes redondeados $\neq$ 100\%}: muestra alerta en rojo (no bloquea)
+    \item \textit{Finalizar sin evidencia}: sistema rechaza la finalización si faltan datos
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Cálculos automáticos en tiempo real con 4 decimales
+    \item Validación de coherencia en pesos (total $\leq$ inicial)
+    \item Alerta de pérdida de masa > 5\% y manejo de ``tr'' para trazas
+    \item Tabla de tolerancias disponible para consulta
+\end{itemize}

@@ -1,0 +1,149 @@
+% 2.11 Caso de uso - Gestión de Análisis de Germinación
+\subsection{Caso de uso: Gestión de Análisis de Germinación}
+
+\noindent\textbf{Caso de uso:} Crear y Gestionar Tablas de Germinación
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El usuario crea tablas de germinación con condiciones experimentales específicas, agrega repeticiones, registra conteos por fecha, y el sistema calcula automáticamente totales y porcentajes.
+
+\vspace{0.5em}
+\noindent\textbf{Pre-Condición:}
+\begin{itemize}[nosep]
+    \item El análisis de Germinación debe existir con estado \texttt{EN\_PROCESO}
+    \item El usuario debe estar autenticado
+    \item El usuario debe tener permisos para crear tablas
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Post-Condición:}
+\begin{itemize}[nosep]
+    \item Tabla(s) de germinación creada(s) con configuración específica
+    \item Repeticiones creadas y conteos registrados
+    \item Cálculos automáticos realizados (totales, promedios, porcentajes)
+    \item Análisis listo para finalizar cuando hay al menos una tabla completa
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item \textbf{Fase 1: Creación de tabla de germinación}
+    \begin{enumerate}[nosep]
+        \item El usuario accede al detalle del análisis de Germinación
+        \item Selecciona ``Crear nueva tabla de germinación''
+        \item Configura parámetros de la tabla:
+        \begin{itemize}[nosep]
+            \item Fecha de inicio
+            \item Fechas de conteos (hasta 4 fechas)
+            \item Número de repeticiones: entre 2 y 8
+            \item Número de semillas por repetición: 25, 50 o 100
+            \item Prefrío (días, opcional)
+            \item Pretratamiento (descripción, opcional)
+            \item Método: sustrato, entre papel, sobre papel, etc.
+            \item Temperatura (°C)
+            \item Tratamientos adicionales (opcional)
+        \end{itemize}
+        \item Guarda la configuración
+        \item El sistema crea la tabla con estado inicial
+    \end{enumerate}
+
+    \item \textbf{Fase 2: Creación de repeticiones}
+    \begin{enumerate}[nosep]
+        \item El usuario selecciona ``Agregar repetición'' a la tabla
+        \item El sistema crea la repetición (ej. Repetición 1, 2, 3...)
+        \item La repetición queda lista para registrar conteos
+        \item Repite hasta alcanzar el número de repeticiones configurado
+    \end{enumerate}
+
+    \item \textbf{Fase 3: Registro de conteos}
+    \begin{enumerate}[nosep]
+        \item Para cada repetición, el usuario ingresa conteos por fecha:
+        \begin{itemize}[nosep]
+            \item Fecha 1: número de semillas germinadas normalmente
+            \item Fecha 2: número de semillas germinadas normalmente
+            \item Fecha 3: número de semillas germinadas normalmente (si aplica)
+            \item Fecha 4: número de semillas germinadas normalmente (si aplica)
+        \end{itemize}
+        \item Además puede registrar:
+        \begin{itemize}[nosep]
+            \item Semillas anormales
+            \item Semillas muertas
+            \item Semillas duras
+            \item Semillas frescas
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{Fase 4: Cálculos automáticos}
+    \begin{enumerate}[nosep]
+        \item El sistema calcula automáticamente por repetición y conteo:
+        \begin{itemize}[nosep]
+            \item Total de semillas germinadas por fecha
+            \item Porcentaje de germinación = (germinadas / total semillas) $\\times$ 100
+            \item Totales acumulados por conteo
+        \end{itemize}
+        \item Calcula promedios entre repeticiones:
+        \begin{itemize}[nosep]
+            \item Promedio de germinación normal por fecha
+            \item Porcentaje promedio final
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{Fase 5: Gestión de múltiples tablas}
+    \begin{enumerate}[nosep]
+        \item El usuario puede crear múltiples tablas con diferentes condiciones experimentales
+        \item Cada tabla es independiente y tiene sus propios cálculos
+        \item Permite comparar resultados entre diferentes condiciones
+    \end{enumerate}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Intentar finalizar análisis sin tablas:}
+    \begin{itemize}[nosep]
+        \item El sistema valida que exista al menos una tabla
+        \item Bloquea finalización
+        \item Muestra error: ``Debe crear al menos una tabla de germinación antes de finalizar''
+    \end{itemize}
+
+    \item \textit{Tabla sin repeticiones completas:}
+    \begin{itemize}[nosep]
+        \item El sistema no calcula promedios
+        \item Muestra advertencia: ``Esta tabla tiene repeticiones incompletas''
+        \item Permite continuar pero marca la tabla como incompleta
+    \end{itemize}
+
+    \item \textit{Conteo excede número de semillas por repetición:}
+    \begin{itemize}[nosep]
+        \item El sistema valida en tiempo real
+        \item Muestra error: ``El conteo no puede exceder [N] semillas configuradas''
+        \item Bloquea guardado hasta corregir
+    \end{itemize}
+
+    \item \textit{Editar configuración de tabla existente:}
+    \begin{itemize}[nosep]
+        \item El usuario puede editar parámetros de la tabla
+        \item Si ya hay repeticiones con datos → muestra advertencia
+        \        item Requiere confirmación para continuar
+    \end{itemize}
+
+    \item \textit{Eliminar tabla:}
+    \begin{itemize}[nosep]
+        \item El usuario puede eliminar tablas
+        \item Si tiene repeticiones con datos → requiere confirmación
+        \item Elimina en cascada todas las repeticiones y conteos asociados
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Cada tabla es independiente con su propia configuración
+    \item Cálculos automáticos en tiempo real por repetición y promediados
+    \item Validación de conteos no excedan semillas configuradas
+    \item Permite múltiples condiciones experimentales en un mismo análisis
+    \item Fechas de conteo deben ser posteriores a fecha de inicio
+    \item Número de fechas de conteo flexible (1 a 4)
+\end{itemize}

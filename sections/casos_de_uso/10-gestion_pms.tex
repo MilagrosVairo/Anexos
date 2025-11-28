@@ -1,0 +1,125 @@
+\subsection{Caso de uso: Gestión de Análisis de PMS}
+
+\noindent\textbf{Caso de uso:} Crear Repeticiones y Gestionar Tandas de PMS
+
+\vspace{0.5em}
+\noindent\textbf{Descripción:} El usuario crea repeticiones dentro de tandas, ingresa pesos, y el sistema calcula automáticamente promedios y coeficiente de variación, creando nuevas tandas si es necesario.
+
+\vspace{0.5em}
+\noindent\textbf{Pre-Condición:}
+\begin{itemize}[nosep]
+    \item El análisis de PMS debe existir con estado \texttt{EN\_PROCESO}
+    \item La configuración inicial debe estar completa (repeticiones esperadas, tipo de semilla)
+    \item Debe existir al menos una tanda
+    \item El usuario debe estar autenticado
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Post-Condición:}
+\begin{itemize}[nosep]
+    \item Repeticiones creadas con pesos registrados
+    \item Cálculos automáticos realizados (promedio, CV)
+    \item Si CV > umbral $\rightarrow$ nueva tanda creada automáticamente
+    \item Análisis listo para finalizar cuando se cumplen condiciones
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item \textbf{Fase 1: Acceso al análisis}
+    \begin{itemize}[nosep]
+        \item El usuario accede al detalle del análisis de PMS
+        \item Ve la configuración establecida:
+        \begin{itemize}[nosep]
+            \item Número de repeticiones esperadas (4-20)
+            \item Tipo de semilla (brozosa o normal)
+            \item Umbral CV (6\% o 4\%)
+        \end{itemize}
+        \item Ve la tanda actual activa
+    \end{itemize}
+    \item \textbf{Fase 2: Creación de repeticiones}
+    \begin{itemize}[nosep]
+        \item El usuario selecciona ``Agregar repetición''
+        \item Ingresa el peso en gramos (3 decimales)
+        \item Guarda la repetición
+        \item El sistema:
+        \begin{itemize}[nosep]
+            \item Crea la repetición
+            \item La vincula a la tanda actual
+            \item Incrementa el contador de repeticiones de la tanda
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Fase 3: Cálculos automáticos}
+    \begin{itemize}[nosep]
+        \item Después de crear cada repetición, el sistema calcula:
+        \begin{itemize}[nosep]
+            \item Peso promedio de la tanda = suma de pesos / número de repeticiones
+            \item Coeficiente de variación (CV) = (desviación estándar / promedio) $\times$ 100
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Fase 4: Validación de CV y creación de tandas}
+    \begin{itemize}[nosep]
+        \item Si CV $\leq$ umbral:
+        \begin{itemize}[nosep]
+            \item La tanda queda válida
+            \item Muestra indicador verde
+        \end{itemize}
+        \item Si CV > umbral:
+        \begin{itemize}[nosep]
+            \item El sistema crea automáticamente una nueva tanda
+            \item Muestra mensaje: ``El CV excede el límite. Se creó automáticamente la Tanda [N]''
+            \item La nueva tanda queda activa para agregar repeticiones
+        \end{itemize}
+        \item El proceso se repite hasta lograr CV $\leq$ umbral
+    \end{itemize}
+    \item \textbf{Fase 5: Finalización}
+    \begin{itemize}[nosep]
+        \item Cuando todas las repeticiones están completas y CV es válido:
+        \begin{itemize}[nosep]
+            \item El análisis queda listo para finalizar
+            \item El usuario puede proceder a finalizar el análisis
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+\begin{itemize}[nosep]
+    \item \textit{Intentar crear más repeticiones que las configuradas:}
+    \begin{itemize}[nosep]
+        \item El sistema valida el número de repeticiones esperadas
+        \item Bloquea la creación si se excede
+        \item Muestra mensaje: ``Ya se alcanzó el número máximo de repeticiones configuradas ([N])''
+    \end{itemize}
+    \item \textit{CV persistentemente alto:}
+    \begin{itemize}[nosep]
+        \item El sistema sigue creando tandas automáticamente
+        \item El usuario puede revisar la configuración o datos ingresados
+        \item Puede consultar con supervisor sobre la calidad de la muestra
+    \end{itemize}
+    \item \textit{Editar peso de repetición existente:}
+    \begin{itemize}[nosep]
+        \item El usuario puede editar repeticiones ya creadas
+        \item El sistema recalcula automáticamente promedio y CV
+        \item Puede generar nueva tanda si CV excede umbral
+    \end{itemize}
+    \item \textit{Eliminar repetición:}
+    \begin{itemize}[nosep]
+        \item El usuario puede eliminar repeticiones
+        \item El sistema recalcula automáticamente
+        \item Puede eliminar tandas vacías automáticamente
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Cálculos automáticos de promedio y CV en tiempo real
+    \item Creación automática de tandas cuando CV excede umbral
+    \item No se puede modificar la configuración inicial (repeticiones esperadas, tipo de semilla)
+    \item Validación de número máximo de repeticiones por tanda
+    \item Pesos con 3 decimales de precisión
+\end{itemize}
