@@ -1,0 +1,217 @@
+% Contenido del Anexo 2 - Estado del Arte
+
+\subsection{Introducción}
+
+El presente anexo desarrolla una versión ampliada del Estado del Arte asociado al proyecto de desarrollo del sistema de gestión de análisis y muestras para el Instituto Nacional de Investigación Agropecuaria (INIA). El objetivo es ofrecer una mirada más completa sobre el contexto en el que se inscribe el proyecto: qué soluciones existían antes, por qué se necesitaba un cambio y cuáles son las tendencias actuales en digitalización dentro del ámbito científico y administrativo.
+
+A medida que las organizaciones comienzan a depender más de la información que generan, las herramientas que antes parecían suficientes, como las planillas Excel o los registros manuales, empezaron a quedarse cortas frente a la complejidad y el volumen de información que debe manejarse hoy. Esto se da, especialmente, en los entornos de investigación, donde contar con datos precisos, trazables y siempre disponibles es esencial.
+
+Esta es la principal razón por la cual cada vez más instituciones están migrando hacia sistemas web que centralizan la información, la organizan de forma más segura y permiten trabajar con reglas claras, validaciones y controles. Este documento profundiza en ese proceso, retomando conceptos teóricos, referencias tecnológicas y comparaciones con herramientas existentes para explicar por qué el desarrollo de un sistema a medida resulta adecuado para el caso del INIA.
+
+\subsection{Marco Teórico}
+
+El propósito del Estado del Arte es servir como base para entender por qué INIA necesita un sistema más moderno y por qué las soluciones tradicionales ya no alcanzan. Aquí se describen conceptos y antecedentes que explican la transición de los métodos manuales hacia plataformas digitales más robustas.
+
+\subsubsection{Limitaciones de las hojas de cálculo}
+
+En estos últimos años las organizaciones adoptaron hojas de cálculo como herramienta base para almacenar información gracias a su accesibilidad, bajo costo, flexibilidad y facilidad de uso. Sin embargo, a medida que los procesos se vuelven más complejos y los volúmenes de datos crecen, estos mecanismos se vuelven insuficientes y arriesgados para labores críticas. Las limitaciones más comunes incluyen:
+
+\begin{itemize}
+    \item \textbf{Escalabilidad restringida:} Las hojas de cálculo no están diseñadas para manejar grandes volúmenes de datos ni crecer de forma sostenible. A medida que aumentan los registros, las operaciones se vuelven lentas, propensas a fallos y difíciles de mantener.
+    
+    \item \textbf{Colaboración limitada:} La funcionalidad de edición simultánea que es ofrecida por la mayoría de las aplicaciones de gestión de hojas de cálculo es vulnerable a conflictos, sobreescrituras y pérdida de información.
+    
+    \item \textbf{Falta de trazabilidad y mecanismos de auditoría:} Resulta difícil rastrear cambios, identificar responsables y asegurar integridad de datos.
+    
+    \item \textbf{Integración deficiente con sistemas externos:} La conexión con APIs, bases de datos, servicios externos u otros sistemas institucionales resulta limitada.
+    
+    \item \textbf{Fragmentación de la información:} Es habitual que diferentes usuarios creen y mantengan múltiples versiones de una misma planilla, produciendo duplicados, inconsistencias y pérdida de coherencia en los datos.
+    
+    \item \textbf{Dependencia del conocimiento del creador:} Muchas planillas contienen fórmulas o lógicas internas que solo entiende quien las creó; si esa persona no está disponible, su mantenimiento se vuelve complejo o directamente inviable.
+    
+    \item \textbf{Riesgo de pérdida o daño:} Cuando los archivos se guardan localmente, la información queda expuesta a fallos de hardware, extravío o eliminación accidental, sin mecanismos de recuperación robustos.
+    
+    \item \textbf{Falta de estandarización:} Cada usuario puede modificar formatos, columnas o fórmulas sin ningún tipo de control, generando desorden y dificultando el trabajo conjunto.
+    
+    \item \textbf{Ausencia de flujos de trabajo formales:} Las planillas no permiten establecer procesos, roles, estados o validaciones complejas, lo que limita la organización y vuelve más difícil garantizar que las tareas se realicen de forma consistente.
+\end{itemize}
+
+\subsubsection{La Transición Hacia Sistemas Web}
+
+Las planillas, aunque al inicio eran muy útiles para las organizaciones, no alcanzaban para sostener procesos que crecían en volumen, complejidad y necesidad de control. A medida que la información aumentaba y los equipos debían trabajar de forma más coordinada, se volvió habitual buscar alternativas más sólidas que permitieran centralizar datos, automatizar tareas y reducir la dependencia del manejo manual.
+
+En este contexto surgieron los sistemas web como su evolución. Estas plataformas permiten que toda la información se concentre en un único entorno, accesible desde distintos dispositivos y ubicaciones, y con reglas claras que garantizan organización y coherencia. Además, reemplazan tareas manuales propensas a errores por mecanismos automáticos que validan, controlan y registran cada acción realizada.
+
+Los sistemas modernos ofrecen una serie de ventajas que los convierten en la opción más eficiente cuando se requiere confiabilidad y estructura:
+
+\begin{itemize}
+    \item \textbf{Acceso multiplataforma:} es posible trabajar desde computadoras, tablets o teléfonos, sin necesidad de instalar software adicional.
+    
+    \item \textbf{Escalabilidad horizontal:} gracias a arquitecturas distribuidas, los sistemas pueden crecer sin perder rendimiento, incluso frente a un aumento importante de datos o usuarios.
+    
+    \item \textbf{Integración nativa mediante APIs REST:} los sistemas pueden comunicarse entre sí, permitiendo automatizar procesos, importar y exportar información o conectar servicios externos.
+    
+    \item \textbf{Validaciones automáticas a nivel de negocio:} reglas que antes dependían de cada usuario ahora se aplican de forma consistente desde el sistema, reduciendo errores y asegurando calidad de los datos.
+    
+    \item \textbf{Auditorías completas y seguimiento de operaciones:} cada acción queda registrada, facilitando el control, la trazabilidad y la revisión de procesos.
+    
+    \item \textbf{Estandarización de flujos de trabajo:} se definen pasos claros, roles, permisos y estados, garantizando que todos los usuarios sigan el mismo procedimiento.
+\end{itemize}
+
+Por estas razones, este tipo de soluciones se ha vuelto el estándar en laboratorios, centros de investigación y organizaciones científicas. En estos entornos es fundamental asegurar la trazabilidad de muestras, el control sobre los análisis y la consistencia de los datos. Los sistemas web permiten cumplir con estas necesidades de forma confiable y escalable, convirtiéndose en la base tecnológica sobre la cual muchas instituciones organizan hoy sus procesos técnicos y administrativos.
+
+\subsubsection{Sistemas LIMS como referencia conceptual}
+
+Los LIMS (Laboratory Information Management Systems) son sistemas especialmente diseñados para gestionar muestras y procesos de laboratorio. Aunque el sistema del INIA no es un LIMS completo, adopta varias de sus ideas, como:
+
+\begin{itemize}
+    \item Organización clara de fichas y registros.
+    \item Trazabilidad completa del ciclo de vida de una muestra.
+    \item Gestión por roles con permisos diferenciados.
+    \item Validaciones específicas basadas en reglas técnicas.
+    \item Escalabilidad para manejar altos volúmenes de datos.
+\end{itemize}
+
+Estos conceptos sirvieron como guía para definir la estructura del proyecto.
+
+\subsection{Tecnologías Relevantes}
+
+El proyecto se desarrolló utilizando un conjunto de tecnologías modernas, estables y ampliamente adoptadas en la industria del software. La elección del stack buscó asegurar un equilibrio entre rendimiento, mantenibilidad, seguridad y disponibilidad de recursos a largo plazo. A continuación se presenta una descripción ampliada de cada uno de los componentes utilizados, explicando por qué fueron seleccionados y cómo contribuyen al funcionamiento global del sistema.
+
+\subsubsection{Frontend: React + TypeScript}
+
+React es actualmente una de las bibliotecas más populares para el desarrollo de interfaces web. Esto se debe a su forma de trabajar basada en componentes reutilizables, lo que permite construir pantallas modulares, organizadas y fáciles de mantener. Este enfoque facilita escalar la aplicación sin que la complejidad de la interfaz crezca de manera descontrolada.
+
+Otro aspecto clave es su modelo de actualización mediante virtual DOM, que mejora considerablemente el rendimiento al renderizar solo lo necesario en cada cambio de estado. A esto se suma un ecosistema muy amplio de librerías, herramientas y documentación que acelera el desarrollo y permite incorporar funcionalidades avanzadas sin necesidad de reinventar soluciones existentes.
+
+El uso de TypeScript complementa a React proporcionando tipado estático, ayudando a prevenir errores frecuentes en aplicaciones JavaScript puras y mejorando la claridad y mantenibilidad del código. Esta combinación hace que el frontend sea sólido, predecible y fácil de extender en el futuro.
+
+\subsubsection{Backend: Java + Spring Boot}
+
+Para el backend se optó por Java junto con Spring Boot, una de las combinaciones más confiables en entornos empresariales. Spring Boot permite crear aplicaciones robustas con una configuración mínima y una estructura bien organizada desde el inicio.
+
+Entre sus principales ventajas para este proyecto se encuentran:
+
+\begin{itemize}
+    \item Integración nativa con Spring Security, que facilita la implementación de autenticación, autorización y manejo de permisos por roles.
+    \item Soporte simple para APIs REST, ideal para la comunicación con el frontend.
+    \item Inyección de dependencias, que fomenta una arquitectura modular y fácilmente testeable.
+    \item Extensa documentación y comunidad activa, lo que asegura mantenimiento y soporte a largo plazo.
+\end{itemize}
+
+El uso de Java 21, una versión LTS (Long-Term Support), aporta estabilidad y asegura compatibilidad por varios años, permitiendo que el sistema se mantenga vigente sin necesidad de migraciones apresuradas.
+
+\subsubsection{Base de Datos: PostgreSQL}
+
+PostgreSQL fue seleccionada como base de datos por ser una de las opciones open-source más maduras y confiables disponibles en la actualidad. Es ampliamente utilizada en sistemas que requieren precisión, consistencia y soporte para operaciones complejas, características esenciales para manejar análisis, lotes y configuraciones del INIA.
+
+Entre sus puntos fuertes destacan:
+
+\begin{itemize}
+    \item Soporte a transacciones ACID.
+    \item Operaciones eficientes incluso con grandes volúmenes de datos.
+    \item Flexibilidad para definir estructuras avanzadas, tipos personalizados y validaciones.
+    \item Estabilidad comprobada en entornos de producción.
+\end{itemize}
+
+Estas características la convierten en una alternativa ideal para instituciones que dependen fuertemente de la integridad del dato.
+
+\subsubsection{Infraestructura y Arquitectura}
+
+La arquitectura elegida para el sistema sigue un modelo cliente-servidor, donde el frontend (React + TypeScript) interactúa con el backend (Spring Boot) mediante servicios REST. Esta separación clara de responsabilidades permite desarrollar y desplegar ambos componentes de manera independiente.
+
+Además, el proyecto se divide en tres capas principales:
+
+\begin{itemize}
+    \item \textbf{Presentación:} la interfaz web que utilizan los usuarios.
+    \item \textbf{Servicios:} lógica de negocio y validaciones.
+    \item \textbf{Datos:} persistencia en la base PostgreSQL.
+\end{itemize}
+
+Este enfoque favorece la organización, la extensibilidad y el mantenimiento futuro del sistema.
+
+\subsection{Soluciones Similares}
+
+\subsubsection{Airtable}
+
+Airtable combina conceptos de base de datos con la interfaz amigable de una hoja de cálculo. Es una plataforma low-code orientada a pequeños proyectos y equipos que necesitan digitalizar procesos sin desarrollar software propio.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Interfaz simple y accesible
+    \item Colaboración en tiempo real
+    \item APIs integradas
+    \item Automatizaciones básicas
+\end{itemize}
+
+\textbf{Limitaciones:}
+\begin{itemize}
+    \item No escala para flujos complejos
+    \item Restricciones para reglas de negocio avanzadas
+    \item Dependencia de licencias externas
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/airtable.png}
+    \caption{Interfaz de Airtable}
+    \label{fig:airtable}
+\end{figure}
+
+\subsubsection{Smartsheet}
+
+Smartsheet ofrece una experiencia similar a Excel, pero con mayor control, trazabilidad y herramientas para flujos de trabajo.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Gestión de proyectos y procesos
+    \item Reportes avanzados
+    \item Automatizaciones integradas
+\end{itemize}
+
+\textbf{Limitaciones:}
+\begin{itemize}
+    \item Alto costo según uso
+    \item Menor flexibilidad frente a un desarrollo a medida
+    \item Dependencia del ecosistema propietario
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/smartsheet.png}
+    \caption{Interfaz de Smartsheet}
+    \label{fig:smartsheet}
+\end{figure}
+
+\subsubsection{Odoo}
+
+Odoo es un ERP (Planificador de Recursos Empresariales) modular que integra distintos dominios empresariales.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Gran variedad de módulos
+    \item Comunidad activa
+    \item Escalabilidad para múltiples áreas
+\end{itemize}
+
+\textbf{Limitaciones:}
+\begin{itemize}
+    \item Instalación y configuración complejas
+    \item Sobrecarga funcional para proyectos específicos
+    \item Dificultad de adaptación a procesos científicos y de laboratorio
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/odoo.png}
+    \caption{Interfaz de Odoo}
+    \label{fig:odoo}
+\end{figure}
+
+\subsubsection{Conclusión Comparativa}
+
+Si bien todas estas herramientas ofrecen soluciones para organizar información, ninguna se adapta plenamente a la lógica propia del INIA: múltiples configuraciones por análisis, validaciones internas, manejo de datos históricos y flujos específicos del laboratorio. Esto refuerza la necesidad de contar con una solución desarrollada a medida.
+
+\subsection{Conclusión General}
+
+El análisis del Estado del Arte permite ver claramente que los sistemas web son actualmente la mejor opción para instituciones que necesitan precisión, trazabilidad y eficiencia. El sistema desarrollado para el INIA se apoya en tecnologías sólidas y prácticas recomendadas, lo que asegura que podrá acompañar las necesidades actuales y futuras de la institución.

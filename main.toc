@@ -1,0 +1,50 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Anexo 1 -- Modelo de Casos de Uso}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Proyecto Laboratorio de Semillas INIA}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Modelo de Casos de Uso}{1}{subsubsection.1.1.1}%
+\contentsline {paragraph}{\numberline {1.1.1.1}Historia de revisiones}{1}{paragraph.1.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Actores}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Analista}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Administrador}{2}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Observador}{2}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Casos de Uso}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Caso de uso: Registrar Lote de Semillas}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Caso de uso: Registro de Análisis Pureza}{5}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Caso de uso: Registro de Análisis PMS}{7}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Caso de uso: Registro de Análisis de Germinación}{9}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Caso de uso: Registro de Análisis de Tetrazolio}{11}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Caso de uso: Registro de Análisis DOSN}{13}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Caso de uso: Registrar Usuario}{15}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.11}Caso de uso: Edición de Lotes}{18}{subsection.1.11}%
+\contentsline {subsection}{\numberline {1.12}Caso de uso: Gestión de Análisis de Pureza}{20}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}Caso de uso: Gestión de Análisis de PMS}{23}{subsection.1.13}%
+\contentsline {subsection}{\numberline {1.14}Caso de uso: Gestión de Análisis de Germinación}{26}{subsection.1.14}%
+\contentsline {subsection}{\numberline {1.15}Caso de uso: Gestión de Análisis de Tetrazolio}{29}{subsection.1.15}%
+\contentsline {subsection}{\numberline {1.16}Caso de uso: Gestión de Análisis DOSN}{32}{subsection.1.16}%
+\contentsline {section}{\numberline {2}Anexo 2 -- Estado del Arte}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introducción}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Marco Teórico}{1}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Limitaciones de las hojas de cálculo}{2}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}La Transición Hacia Sistemas Web}{3}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Sistemas LIMS como referencia conceptual}{4}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Tecnologías Relevantes}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Frontend: React + TypeScript}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Backend: Java + Spring Boot}{5}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Base de Datos: PostgreSQL}{6}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Infraestructura y Arquitectura}{7}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Soluciones Similares}{7}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Airtable}{7}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Smartsheet}{8}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Odoo}{9}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Conclusión Comparativa}{10}{subsubsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.5}Conclusión General}{10}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Anexo C -- Mitigación de Riesgos}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Identificación de riesgos}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Análisis y evaluación}{11}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Estrategias de mitigación}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Asignación de responsabilidades}{11}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Monitoreo y actualización}{11}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Anexo D -- Testing}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Pruebas unitarias}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Pruebas de integración}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Pruebas de aceptación}{11}{subsection.4.3}%
