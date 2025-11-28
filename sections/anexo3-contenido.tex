@@ -1,0 +1,140 @@
+% Contenido del Anexo 3 - Mitigación de Riesgos
+
+\subsection{Proyecto Final -- Documento de Riesgos}
+
+\textbf{Versión [1.1]}
+
+\vspace{1em}
+
+\subsubsection{Historial de revisiones}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3cm}|p{2cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{Fecha} & \textbf{Versión} & \textbf{Descripción} & \textbf{Autor} \\
+\hline
+01/09/2025 & 1.0 & Documento de Riesgos - Proyecto INIA & Nadia Gorría, Nahuel Perdomo, Milagros Vairo \\
+\hline
+07/11/2025 & 1.1 & Documento de Riesgos - Proyecto INIA & Nadia Gorría, Nahuel Perdomo, Milagros Vairo \\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\subsection{Lista de Riesgos identificados}
+
+El presente documento tiene como objetivo identificar, analizar y proponer estrategias de mitigación para los riesgos asociados al desarrollo del sistema de gestión de análisis de semillas solicitado por el INIA (Instituto Nacional de Investigación Agropecuaria, Uruguay).
+
+Dado que este sistema es parte del proyecto final de carrera de los integrantes del equipo, se reconocen tanto riesgos técnicos como organizativos, derivados de la inexperiencia relativa con algunas tecnologías, las restricciones de tiempo y la necesidad de cumplir con estándares de calidad definidos por normativas nacionales.
+
+\subsubsection{Riesgo 1 -- Experiencia limitada en PWA}
+
+\textbf{Ranking:} Muy alto.
+
+\textbf{Descripción:} Es la primera vez que el equipo implementa una Progressive Web App (PWA) en un proyecto real. Solo se hizo un prototipo de prueba, sin alcanzar toda la complejidad que implica manejar una aplicación completa con diferentes funcionalidades y estrategias de instalación en distintos dispositivos. Existe la posibilidad de que, al integrar estas funcionalidades en el proyecto final, se enfrenten dificultades técnicas que retrasen los plazos o generen un producto incompleto.
+
+\textbf{Probabilidad de ocurrencia:} MEDIA
+
+\textbf{Impacto:} ALTO
+
+\textbf{Estrategia de Mitigación:}
+\begin{itemize}
+    \item Estudiar buenas prácticas y guías oficiales de PWA desde el inicio.
+    \item Identificar los componentes críticos (offline, notificaciones, instalación) y validarlos en pruebas tempranas.
+    \item Limitar el alcance inicial de la PWA, priorizando solo las funcionalidades realmente críticas y dejando extras como opcionales.
+\end{itemize}
+
+\textbf{Monitoreo:}
+\begin{itemize}
+    \item Revisiones semanales del avance de la PWA.
+    \item Indicador clave: si en la primera mitad del proyecto no se logra un prototipo funcional de la PWA, se dispara alerta de riesgo.
+\end{itemize}
+
+\textbf{Plan de Contingencia:} En caso de no poder implementar PWA completa, entregar una versión web responsiva con funcionalidad online garantizada, posponiendo el soporte offline para una versión futura.
+
+\subsubsection{Riesgo 2 -- Falta de experiencia en React de parte del equipo}
+
+\textbf{Ranking:} Medio
+
+\textbf{Descripción:} Dos integrantes del grupo no habían trabajado previamente con React, lo que implica una curva de aprendizaje significativa en un marco de tiempo corto. Esto podría generar código poco mantenible, retrasos en tareas asignadas o dependencia excesiva de los compañeros con mayor experiencia.
+
+\textbf{Probabilidad de ocurrencia:} MEDIA
+
+\textbf{Impacto:} MEDIA-ALTA
+
+\textbf{Estrategia de Mitigación:}
+\begin{itemize}
+    \item Capacitación rápida con tutoriales y guías prácticas al inicio del proyecto.
+    \item Definir buenas prácticas comunes de React (estructura de carpetas, uso de hooks, manejo de estados globales) desde la semana 1.
+    \item Asignar inicialmente tareas más simples en React a los integrantes menos experimentados para que ganen práctica sin comprometer partes críticas del sistema.
+\end{itemize}
+
+\textbf{Monitoreo:}
+\begin{itemize}
+    \item Revisión de código en cada entrega parcial (code reviews).
+    \item Reuniones de avance donde cada integrante explique su aporte técnico.
+\end{itemize}
+
+\textbf{Plan de Contingencia:}
+\begin{itemize}
+    \item Redistribuir tareas si un integrante no logra manejar React a tiempo.
+    \item Centralizar el desarrollo de las partes críticas de frontend en los miembros con mayor dominio, asegurando que todos contribuyan en alguna medida.
+\end{itemize}
+
+\subsubsection{Riesgo 3 -- Plazos reducidos}
+
+\textbf{Ranking:} Muy Alto
+
+\textbf{Descripción:} El proyecto debe estar finalizado en un período de solo 14 semanas, lo que es un tiempo ajustado considerando la complejidad de los requerimientos, la curva de aprendizaje de nuevas tecnologías y la necesidad de pruebas y validaciones. Existe riesgo de no llegar con todas las funcionalidades completas y probadas.
+
+\textbf{Probabilidad de ocurrencia:} MEDIA-ALTA
+
+\textbf{Impacto:} MUY ALTO
+
+\textbf{Estrategia de Mitigación:}
+\begin{itemize}
+    \item Definir prioridades claras: funcionalidades mínimas e imprescindibles primero (MVP).
+    \item Segmentar el proyecto en hitos semanales con entregas parciales funcionales.
+\end{itemize}
+
+\textbf{Monitoreo:}
+\begin{itemize}
+    \item Seguimiento estricto con cronograma en herramientas de gestión (ej. Notion).
+    \item Evaluación semanal de porcentaje real de avance contra el plan.
+\end{itemize}
+
+\textbf{Plan de Contingencia:}
+\begin{itemize}
+    \item Entregar un producto con menor alcance pero funcional.
+    \item Documentar claramente las funcionalidades pendientes para versiones futuras.
+\end{itemize}
+
+\subsubsection{Riesgo 4 -- Dependencia de coordinación grupal}
+
+\textbf{Ranking:} Medio
+
+\textbf{Descripción:} El trabajo depende de que todos los integrantes avancen de manera coordinada. Si no se cumplen plazos individuales, el resto del equipo se ve bloqueado (ej. backend sin endpoints listos → frontend paralizado).
+
+\textbf{Probabilidad de ocurrencia:} MEDIA
+
+\textbf{Impacto:} MEDIO-ALTO
+
+\textbf{Estrategia de Mitigación:}
+\begin{itemize}
+    \item Definir claramente dependencias técnicas (qué módulo necesita de qué para avanzar).
+    \item Uso intensivo de control de versiones.
+\end{itemize}
+
+\textbf{Monitoreo:}
+\begin{itemize}
+    \item Revisión diaria de bloqueos técnicos.
+    \item Reporte de tareas en cada reunión corta (tipo daily scrum).
+\end{itemize}
+
+\textbf{Plan de Contingencia:}
+\begin{itemize}
+    \item Reasignar tareas si un miembro queda atrasado.
+    \item Reducir alcance en algunos módulos secundarios para evitar retrasos generales.
+\end{itemize}

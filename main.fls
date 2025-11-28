@@ -339,6 +339,12 @@ INPUT .\images\odoo.png
 INPUT .\images\odoo.png
 INPUT .\images\odoo.png
 INPUT .\images\odoo.png
+INPUT .\sections\anexo3-portada.tex
+INPUT .\sections\anexo3-portada.tex
+INPUT sections\anexo3-portada.tex
+INPUT .\sections\anexo3-contenido.tex
+INPUT .\sections\anexo3-contenido.tex
+INPUT sections\anexo3-contenido.tex
 INPUT main.aux
 INPUT C:\Users\Usuario\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\Usuario\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
