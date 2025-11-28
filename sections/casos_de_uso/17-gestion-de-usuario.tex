@@ -1,0 +1,97 @@
+\subsubsection{Caso de uso: Aprobar, Rechazar y Gestionar Usuarios}
+
+\textbf{Descripción:} El Administrador revisa solicitudes de usuarios pendientes, aprueba o rechaza el acceso y gestiona usuarios existentes (cambio de rol y estado). El sistema notifica automáticamente y registra las acciones en historial.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+    \item El usuario que realiza la acción debe tener rol Administrador.
+    \item Para aprobar/rechazar: debe existir al menos una solicitud pendiente.
+    \item Para gestionar: debe existir el usuario en el sistema.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+    \item Aprobar: el usuario pasa a estado \texttt{ACTIVO} con el rol asignado.
+    \item Rechazar: la solicitud es eliminada del sistema (o marcada como rechazada según políticas).
+    \item Gestionar: los cambios solicitados (rol, estado activo/inactivo) se aplican.
+    \item Notificaciones y envío de email ejecutados (si el envío falla, la acción se completa y el error queda logueado).
+    \item Se registra en el historial (usuario que actuó, fecha, tipo de acción, observaciones).
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de eventos principal:}
+\begin{enumerate}[nosep]
+    \item El Administrador accede a la sección ``Gestión de Usuarios''.
+    \item Para Aprobación: selecciona la pestaña ``Solicitudes Pendientes'' y revisa la lista (nombre, usuario, email, fecha de registro).
+    \item Selecciona una solicitud y revisa el detalle completo del solicitante.
+    \item Selecciona "Aprobar usuario"; el sistema muestra formulario para asignar rol (ANALISTA o ADMIN).
+    \item El Administrador elige el rol y confirma la aprobación.
+    \item El sistema:
+    \begin{itemize}[nosep]
+        \item Valida que el email/usuario no esté duplicado en otro usuario activo.
+        \item Cambia el estado del usuario a \texttt{ACTIVO} y asigna el rol seleccionado.
+        \item Establece \texttt{activo = true}.
+        \item Crea notificación interna y desencadena envío de email de bienvenida.
+        \item Registra la acción en el historial.
+        \item Muestra confirmación: "Usuario aprobado exitosamente".
+    \end{itemize}
+    \item Para Rechazo: desde la solicitud, selecciona "Rechazar solicitud"; confirma en diálogo.
+    \item El sistema crea notificación de rechazo, elimina (o marca como rechazada) la solicitud y registra la acción; muestra confirmación "Solicitud rechazada".
+    \item Para Gestión de usuarios existentes: selecciona la pestaña "Todos los Usuarios", filtra/ busca por rol, estado, nombre, usuario o email.
+    \item Selecciona un usuario y edita rol y/o estado activo/inactivo; guarda cambios.
+    \item El sistema actualiza los datos del usuario, sincroniza el campo activo, registra el cambio en historial y muestra confirmación.
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Intentar aprobar con email duplicado}
+\begin{itemize}[nosep]
+    \item El sistema detecta que el email ya está en uso por otro usuario activo.
+    \item Muestra error: "El email ya está en uso por otro usuario activo" y no permite aprobar.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Cancelar aprobación/rechazo}
+\begin{itemize}[nosep]
+    \item El Administrador cierra el diálogo de confirmación o selecciona "Cancelar".
+    \item No se realiza ningún cambio; la solicitud permanece en estado \texttt{PENDIENTE}.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A3. Desactivar usuario con sesión activa}
+\begin{itemize}[nosep]
+    \item El sistema permite desactivar el usuario; las sesiones activas pueden continuar hasta expirar.
+    \item En el próximo intento de acceso, el usuario no podrá autenticarse.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A4. Cambiar rol de ADMIN a ANALISTA}
+\begin{itemize}[nosep]
+    \item Si se intenta demotar a un Admin, el sistema verifica que exista al menos otro Admin activo.
+    \item Si es el último Admin, muestra advertencia y requiere confirmación adicional.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A5. Error al enviar email}
+\begin{itemize}[nosep]
+    \item Si el envío de email falla, la acción de aprobar/rechazar se completa de todas formas.
+    \item El sistema registra el error en logs y muestra mensaje indicando el fallo de notificación.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Solo Administradores pueden aprobar, rechazar o gestionar usuarios.
+    \item En la aprobación se envía automáticamente un email de bienvenida; si falla, el proceso no se bloquea.
+    \item Validación de al menos un Admin activo en el sistema antes de demotar un Admin.
+    \item Búsqueda y filtrado eficientes con paginación en la lista de usuarios.
+    \item Sincronización automática entre el campo de estado y el campo \texttt{activo}.
+    \item Registro detallado en historial con usuario, rol, fecha y observaciones.
+\end{itemize}

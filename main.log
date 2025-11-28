@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.28)  28 NOV 2025 15:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.26)  28 NOV 2025 18:43
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -604,15 +605,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.27 ...hojas de c√°lculo}{2}{subsubsection.2.2.1}
+l.28 ...r Perfil Propio}{45}{subsubsection.1.3.18}
                                                   % [1
 
 
-])
+] [2])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [2] [3] (anexos.tex
+ [3] (anexos.tex
 (sections/anexo1-portada.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -693,7 +694,1298 @@ LaTeX Info: Symbol \textrightarrow not provided by
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 23.
- [33] [34])) [35]
+ [33] [34])
+(sections/casos_de_uso/14-finalizar-analisis.tex [35] [36] [37])
+(sections/casos_de_uso/15-aprobar-analisis.tex
+Overfull \hbox (8.84633pt too wide) in paragraph at lines 18--19
+[]\T1/ptm/m/n/12 Otros an·-li-sis del mis-mo ti-po y lo-te pa-san a so-lo lec-t
+u-ra (mar-ca-dos co-mo his-tÛ-ri-cos/referencia). 
+ []
+
+[38] [39]) (sections/casos_de_uso/16-marcar-analisis-para-repetir.tex [40]
+[41]) (sections/casos_de_uso/17-gestion-de-usuario.tex [42] [43] [44])
+(sections/casos_de_uso/18-actualizar-perfil-de-usuario.tex [45]
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 43.
+ [46] [47])
+(sections/casos_de_uso/19-busquedas-y-filtros.tex
+sections/casos_de_uso/19-busquedas-y-filtros.tex:25: Missing $ inserted.
+<inserted text> 
+                $
+l.25 ... filtros deseados (ej: estado = PENDIENTE_
+                                                  APROBACION, tipo = GERMINA...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:26: LaTeX Error: Command \item
+ invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26     \item
+               Define par√°metros de paginaci√≥n y orden (campo y asc/desc).
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:26: LaTeX Error: Something's w
+rong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26     \item D
+                efine par√°metros de paginaci√≥n y orden (campo y asc/desc).
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:26: LaTeX Error: Something's w
+rong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26     \item D
+                efine par√°metros de paginaci√≥n y orden (campo y asc/desc).
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 26.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 26.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:27: LaTeX Error: Command \item
+ invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27     \item
+               El frontend env√≠a los par√°metros al backend.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:27: Missing $ inserted.
+<inserted text> 
+                $
+l.27     \item E
+                l frontend env√≠a los par√°metros al backend.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:27: Missing } inserted.
+<inserted text> 
+                }
+l.27     \item E
+                l frontend env√≠a los par√°metros al backend.
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no · in font zptmcm7t!
+Missing character: There is no Û in font zptmcm7t!
+
+Overfull \hbox (389.9681pt too wide) in paragraph at lines 25--27
+[]\T1/ptm/m/n/12 Selecciona los fil-tros de-sea-dos (ej: es-ta-do = PENDIENTE$[
+]\OML/ztmcm/m/it/12 PROBACION; tipo \OT1/ztmcm/m/n/12 = \OML/ztmcm/m/it/12 GERM
+INACION; rangodefechas\OT1/ztmcm/m/n/12 )\OML/ztmcm/m/it/12 :[][]Defineparmetro
+sdepaginacinyorden\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12 campoyasc=desc\OT1/ztmc
+m/m/n/12 )\OML/ztmcm/m/it/12 :[][]$ 
+ []
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:27: Extra }, or forgotten \end
+group.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.27     \item E
+                l frontend env√≠a los par√°metros al backend.
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[48]
+sections/casos_de_uso/19-busquedas-y-filtros.tex:59: Missing $ inserted.
+<inserted text> 
+                $
+l.59     \item Soporte de filtros por estado (EN_
+                                                 PROCESO, PENDIENTE_APROBACI...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:60: LaTeX Error: Command \item
+ invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \item
+               Filtros por tipo de an√°lisis (PUREZA, PMS, GERMINACION, TETR...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:60: LaTeX Error: Something's w
+rong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \item F
+                iltros por tipo de an√°lisis (PUREZA, PMS, GERMINACION, TETR...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:60: LaTeX Error: Something's w
+rong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60     \item F
+                iltros por tipo de an√°lisis (PUREZA, PMS, GERMINACION, TETR...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 60.
+
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:61: LaTeX Error: Command \item
+ invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61     \item
+               Paginaci√≥n que incluya total global para permitir navegaci√≥...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:61: Missing $ inserted.
+<inserted text> 
+                $
+l.61     \item P
+                aginaci√≥n que incluya total global para permitir navegaci√≥...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:61: Missing } inserted.
+<inserted text> 
+                }
+l.61     \item P
+                aginaci√≥n que incluya total global para permitir navegaci√≥...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no · in font zptmcm7t!
+
+Overfull \hbox (572.17403pt too wide) in paragraph at lines 59--61
+[]\T1/ptm/m/n/12 Soporte de fil-tros por es-ta-do (EN$[]\OML/ztmcm/m/it/12 ROCE
+SO; PENDIENTE[]PROBACION; APROBADO; A[]EPETIR\OT1/ztmcm/m/n/12 )\OML/ztmcm/m/it
+/12 yestadoactivo=inactivo:Filtrosportipodeanlisis\OT1/ztmcm/m/n/12 (\OML/ztmcm
+/m/it/12 PUREZA; PMS; GERMINACION; TETRAZOLIO; DOSN\OT1/ztmcm/m/n/12 )\OML/ztmc
+m/m/it/12 :[][]$ 
+ []
+
+sections/casos_de_uso/19-busquedas-y-filtros.tex:61: Extra }, or forgotten \end
+group.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.61     \item P
+                aginaci√≥n que incluya total global para permitir navegaci√≥...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+) (sections/casos_de_uso/20-exportacion-excel.tex [49])
+(sections/casos_de_uso/21-notificaciones-basicas.tex [50] [51]
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Missing $ inserted.
+<inserted text> 
+                $
+l.53 ... notificaciones: \texttt{USUARIO_REGISTRO}
+                                                  , \texttt{USUARIO_APROBADO...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+<recently read> \egroup 
+                        
+l.53 ... notificaciones: \texttt{USUARIO_REGISTRO}
+                                                  , \texttt{USUARIO_APROBADO...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Missing $ inserted.
+<inserted text> 
+                $
+l.53 ...UARIO_REGISTRO}, \texttt{USUARIO_APROBADO}
+                                                  , \texttt{USUARIO_RECHAZAD...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.53 ...UARIO_REGISTRO}, \texttt{USUARIO_APROBADO}
+                                                  , \texttt{USUARIO_RECHAZAD...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.53 ...UARIO_REGISTRO}, \texttt{USUARIO_APROBADO}
+                                                  , \texttt{USUARIO_RECHAZAD...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Missing $ inserted.
+<inserted text> 
+                $
+l.53 ...ARIO_APROBADO}, \texttt{USUARIO_RECHAZADO}
+                                                  , \texttt{ANALISIS_FINALIZ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.53 ...ARIO_APROBADO}, \texttt{USUARIO_RECHAZADO}
+                                                  , \texttt{ANALISIS_FINALIZ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.53 ...ARIO_APROBADO}, \texttt{USUARIO_RECHAZADO}
+                                                  , \texttt{ANALISIS_FINALIZ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Missing $ inserted.
+<inserted text> 
+                $
+l.53 ...O_RECHAZADO}, \texttt{ANALISIS_FINALIZADO}
+                                                  , \texttt{ANALISIS_APROBAD...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.53 ...O_RECHAZADO}, \texttt{ANALISIS_FINALIZADO}
+                                                  , \texttt{ANALISIS_APROBAD...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.53 ...O_RECHAZADO}, \texttt{ANALISIS_FINALIZADO}
+                                                  , \texttt{ANALISIS_APROBAD...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Missing $ inserted.
+<inserted text> 
+                $
+l.53 ...IS_FINALIZADO}, \texttt{ANALISIS_APROBADO}
+                                                  , \texttt{ANALISIS_REPETIR}.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.53 ...IS_FINALIZADO}, \texttt{ANALISIS_APROBADO}
+                                                  , \texttt{ANALISIS_REPETIR}.
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.53 ...IS_FINALIZADO}, \texttt{ANALISIS_APROBADO}
+                                                  , \texttt{ANALISIS_REPETIR}.
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Missing $ inserted.
+<inserted text> 
+                $
+l.53 ...LISIS_APROBADO}, \texttt{ANALISIS_REPETIR}
+                                                  .
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.53 ...LISIS_APROBADO}, \texttt{ANALISIS_REPETIR}
+                                                  .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:53: Extra }, or forgotten $
+.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.53 ...LISIS_APROBADO}, \texttt{ANALISIS_REPETIR}
+                                                  .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:54: LaTeX Error: Command \i
+tem invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54     \item
+               Operaciones soportadas: crear, listar (paginado), obtener no ...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:54: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54     \item O
+                peraciones soportadas: crear, listar (paginado), obtener no ...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:54: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54     \item O
+                peraciones soportadas: crear, listar (paginado), obtener no ...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 54.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 54.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 54.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 54.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:55: LaTeX Error: Command \i
+tem invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     \item
+               Persistencia eficiente y endpoint para consultar/actualizar e...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:55: Missing $ inserted.
+<inserted text> 
+                $
+l.55     \item P
+                ersistencia eficiente y endpoint para consultar/actualizar e...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:55: Missing } inserted.
+<inserted text> 
+                }
+l.55     \item P
+                ersistencia eficiente y endpoint para consultar/actualizar e...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no Ì in font zptmcm7t!
+Missing character: There is no Ì in font zptmcm7t!
+Missing character: There is no Ì in font zptmcm7t!
+Missing character: There is no Ì in font zptmcm7t!
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:55: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     \item P
+                ersistencia eficiente y endpoint para consultar/actualizar e...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:55: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55     \item P
+                ersistencia eficiente y endpoint para consultar/actualizar e...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 55.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 55.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:56: LaTeX Error: Command \i
+tem invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     \item
+               Manejo de errores y logging al fallar operaciones de persiste...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:56: Missing $ inserted.
+<inserted text> 
+                $
+l.56     \item M
+                anejo de errores y logging al fallar operaciones de persiste...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:56: Missing } inserted.
+<inserted text> 
+                }
+l.56     \item M
+                anejo de errores y logging al fallar operaciones de persiste...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:56: Missing } inserted.
+<inserted text> 
+                }
+l.56     \item M
+                anejo de errores y logging al fallar operaciones de persiste...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no Ì in font zptmcm7t!
+Missing character: There is no Ì in font zptmcm7t!
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:56: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     \item M
+                anejo de errores y logging al fallar operaciones de persiste...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:56: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56     \item M
+                anejo de errores y logging al fallar operaciones de persiste...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 56.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: LaTeX Error: Command \e
+nd{itemize} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 \end{itemize}
+                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 \end{itemize}
+                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: LaTeX Error: Something'
+s wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 \end{itemize}
+                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing $ inserted.
+<inserted text> 
+                $
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no Û in font zptmcm7t!
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing $ inserted.
+<inserted text> 
+                $
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing $ inserted.
+<inserted text> 
+                $
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing $ inserted.
+<inserted text> 
+                $
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/21-notificaciones-basicas.tex:57: Missing } inserted.
+<inserted text> 
+                }
+l.57 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (sections/casos_de_uso/22-autenticacion-2fa.tex
+Overfull \hbox (1804.01065pt too wide) in paragraph at lines 53--1
+[]\T1/ptm/m/n/12 Tipos de no-ti-fi-ca-cio-nes: \T1/cmtt/m/n/12 USUARIO$[]\OML/z
+tmcm/m/it/12 EGISTRO; []$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--1
+
+ []
+
+[52]) (sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex [53]
+Overfull \hbox (13.53043pt too wide) in paragraph at lines 24--25
+[]\T1/ptm/m/n/12 El bac-kend con-sul-ta el es-ta-do del usua-rio y de-tec-ta qu
+e es-t· en es-ta-do \T1/cmtt/m/n/12 PENDIENTE APROBACION\T1/ptm/m/n/12 . 
+ []
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:25: Missing $ in
+serted.
+<inserted text> 
+                $
+l.25 ...ej.: \texttt{USUARIO_PENDIENTE_APROBACION}
+                                                  ).
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:25: Extra }, or 
+forgotten $.
+<recently read> \egroup 
+                        
+l.25 ...ej.: \texttt{USUARIO_PENDIENTE_APROBACION}
+                                                  ).
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:26: LaTeX Error:
+ Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26     \item
+               El controlador de autenticaci√≥n captura la excepci√≥n y la t...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:26: LaTeX Error:
+ Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26     \item E
+                l controlador de autenticaci√≥n captura la excepci√≥n y la t...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:26: LaTeX Error:
+ Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26     \item E
+                l controlador de autenticaci√≥n captura la excepci√≥n y la t...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 26.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 26.
+
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:27: LaTeX Error:
+ Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27     \item
+               El usuario no recibe token y permanece sin acceso hasta que s...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:27: Missing $ in
+serted.
+<inserted text> 
+                $
+l.27     \item E
+                l usuario no recibe token y permanece sin acceso hasta que s...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex:27: Missing } in
+serted.
+<inserted text> 
+                }
+l.27     \item E
+                l usuario no recibe token y permanece sin acceso hasta que s...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no Û in font zptmcm7t!
+Missing character: There is no Û in font zptmcm7t!
+
+Overfull \hbox (494.86528pt too wide) in paragraph at lines 25--27
+[]\T1/ptm/m/n/12 El ser-vi-cio de se-gu-ri-dad lan-za una ex-cep-ciÛn iden-ti-f
+i-ca-da (ej.: \T1/cmtt/m/n/12 USUARIO$[]\OML/ztmcm/m/it/12 ENDIENTE[]PROBACION\
+OT1/ztmcm/m/n/12 )\OML/ztmcm/m/it/12 :[][]Elcontroladordeautenticacincapturalae
+xcepcinylatraduceaunmensajelegibleparaelcliente:[][]$ 
+ []
+
+) (sections/casos_de_uso/24-dashboard-basico.tex [54]
+Overfull \hbox (17.2827pt too wide) in paragraph at lines 24--25
+[]\T1/ptm/m/n/12 El ser-vi-cio de mÈ-tri-cas con-sul-ta los re-po-si-to-rios co
+-rres-pon-dien-tes (por ejem-plo: \T1/cmtt/m/n/12 countByEstado
+ []
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Missing $ inserted.
+<inserted text> 
+                $
+l.47 ...em Conteos por estado: \texttt{EN_PROCESO}
+                                                  , \texttt{PENDIENTE_APROBA...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.47 ...em Conteos por estado: \texttt{EN_PROCESO}
+                                                  , \texttt{PENDIENTE_APROBA...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Missing $ inserted.
+<inserted text> 
+                $
+l.47 ...EN_PROCESO}, \texttt{PENDIENTE_APROBACION}
+                                                  , \texttt{APROBADO}, \text...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Extra }, or forgotten $.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.47 ...EN_PROCESO}, \texttt{PENDIENTE_APROBACION}
+                                                  , \texttt{APROBADO}, \text...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Extra }, or forgotten $.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.47 ...EN_PROCESO}, \texttt{PENDIENTE_APROBACION}
+                                                  , \texttt{APROBADO}, \text...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Missing $ inserted.
+<inserted text> 
+                $
+l.47 ...ON}, \texttt{APROBADO}, \texttt{A_REPETIR}
+                                                  .
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Extra }, or forgotten $.
+\mbox  #1->\leavevmode \hbox {#1}
+                                 
+l.47 ...ON}, \texttt{APROBADO}, \texttt{A_REPETIR}
+                                                  .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+sections/casos_de_uso/24-dashboard-basico.tex:47: Extra }, or forgotten $.
+\nfss@text #1->{\mbox {#1}}
+                           
+l.47 ...ON}, \texttt{APROBADO}, \texttt{A_REPETIR}
+                                                  .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+sections/casos_de_uso/24-dashboard-basico.tex:48: LaTeX Error: Command \item in
+valid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48     \item
+               Conteo diario de aprobados (fecha actual) para mostrar un val...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/24-dashboard-basico.tex:48: LaTeX Error: Something's wron
+g--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48     \item C
+                onteo diario de aprobados (fecha actual) para mostrar un val...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/24-dashboard-basico.tex:48: LaTeX Error: Something's wron
+g--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48     \item C
+                onteo diario de aprobados (fecha actual) para mostrar un val...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/24-dashboard-basico.tex:49: LaTeX Error: Command \item in
+valid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49     \item
+               Respuesta ligera (DTO) sin datos de series hist√≥ricas ni gr√...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+sections/casos_de_uso/24-dashboard-basico.tex:49: Missing $ inserted.
+<inserted text> 
+                $
+l.49     \item R
+                espuesta ligera (DTO) sin datos de series hist√≥ricas ni gr√...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/24-dashboard-basico.tex:49: Missing } inserted.
+<inserted text> 
+                }
+l.49     \item R
+                espuesta ligera (DTO) sin datos de series hist√≥ricas ni gr√...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+sections/casos_de_uso/24-dashboard-basico.tex:49: LaTeX Error: Something's wron
+g--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49     \item R
+                espuesta ligera (DTO) sin datos de series hist√≥ricas ni gr√...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/24-dashboard-basico.tex:49: LaTeX Error: Something's wron
+g--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49     \item R
+                espuesta ligera (DTO) sin datos de series hist√≥ricas ni gr√...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 49.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 49.
+
+)
+Runaway argument?
+{itemize> 
+sections/anexo1-contenido.tex:73: File ended while scanning use of \end .
+<inserted text> 
+                \par 
+l.73 ...ions/casos_de_uso/24-dashboard-basico.tex}
+                                                  
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+(sections/casos_de_uso/25-resportes-consolidados.tex
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing $ inserted.
+<inserted text> 
+                $
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing } inserted.
+<inserted text> 
+                }
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing } inserted.
+<inserted text> 
+                }
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no Û in font zptmcm7t!
+Missing character: There is no · in font zptmcm7t!
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: LaTeX Error: Something's
+ wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: LaTeX Error: Something's
+ wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 1.
+
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: LaTeX Error: Command \bf
+series invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+Please use the math alphabet \mathbf instead of the \bfseries command. 
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing $ inserted.
+<inserted text> 
+                $
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing \endgroup insert
+ed.
+<inserted text> 
+                \endgroup 
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing } inserted.
+<inserted text> 
+                }
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing \endgroup insert
+ed.
+<inserted text> 
+                \endgroup 
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing } inserted.
+<inserted text> 
+                }
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no È in font zptmcm7t!
+
+Overfull \hbox (1107.46648pt too wide) in paragraph at lines 47--1
+[]\T1/ptm/m/n/12 Conteos por es-ta-do: \T1/cmtt/m/n/12 EN$[]\OML/ztmcm/m/it/12 
+ROCESO; []$ 
+ []
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Missing } inserted.
+<inserted text> 
+                }
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Too many }'s.
+\ttlh@hang ... \nobreak \ttl@midlongest #5\@@par }
+                                                  \ttl@endlongest 
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+sections/casos_de_uso/25-resportes-consolidados.tex:1: Extra \endgroup.
+\ttl@select ...e \ttl@c {#2}{#3}{#4}\fi \endgroup 
+                                                  
+l.1 ...lidadas (general y por tipo) en un periodo}
+                                                  
+Things are pretty mixed up, but I think the worst is over.
+
+[55] [56]) (sections/casos_de_uso/26-importacion-excel.tex [57] [58])) [59]
 (sections/anexo2-portada.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -715,9 +2007,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34     \item \textbf
-                      {Falta de estandarizaci√≥n:} Cada usuario puede modifi...
-[2]
+l.35 
+      [2]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -734,63 +2025,62 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.97     \item S
-                oporte simple para APIs REST, ideal para la comunicaci√≥n co...
-[5]
+l.100 \end{itemize}
+                    [5]
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.122 
-       [6]
-pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.151     \item D
-                 ependencia de licencias externas [7]
-<images/airtable.png, id=424, 1606.0pt x 801.99625pt>
+l.128     \item \textbf
+                       {Datos:} persistencia en la base PostgreSQL. [6]
+<images/airtable.png, id=637, 1606.0pt x 801.99625pt>
 File: images/airtable.png Graphic file (type png)
 <use images/airtable.png>
 Package pdftex.def Info: images/airtable.png  used on input line 156.
 (pdftex.def)             Requested size: 422.77664pt x 211.12068pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
+pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.177 \end{itemize}
-                    [8
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.177 \end{itemize}
-                    <./images/airtable.png (PNG copy)>]
-<images/smartsheet.png, id=430, 1606.0pt x 901.3675pt>
+l.160 
+       [7]
+<images/smartsheet.png, id=641, 1606.0pt x 901.3675pt>
 File: images/smartsheet.png Graphic file (type png)
 <use images/smartsheet.png>
 Package pdftex.def Info: images/smartsheet.png  used on input line 181.
 (pdftex.def)             Requested size: 422.77664pt x 237.27956pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
+pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.202 \end{itemize}
-                    [9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+l.185 
+       [8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.202 \end{itemize}
-                    <./images/smartsheet.png (PNG copy)>]
-<images/odoo.png, id=435, 1606.0pt x 884.30376pt>
+l.185 
+       <./images/airtable.png (PNG copy)>]
+<images/odoo.png, id=647, 1606.0pt x 884.30376pt>
 File: images/odoo.png Graphic file (type png)
 <use images/odoo.png>
 Package pdftex.def Info: images/odoo.png  used on input line 206.
 (pdftex.def)             Requested size: 422.77664pt x 232.78764pt.
-)
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.210 
+       [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.210 
+       <./images/smartsheet.png (PNG copy)>])
 pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
  been already used, duplicate ignored
 <to be read again> 
@@ -833,18 +2123,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52     \item I
-                ndicador clave: si en la primera mitad del proyecto no se lo...
-[2
+l.53 \end{itemize}
+                   [2
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.83     \item C
-                entralizar el desarrollo de las partes cr√≠ticas de frontend...
-[3]
+l.84 \end{itemize}
+                   [3]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 118.
@@ -853,8 +2141,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.119 
-       [4])
+l.122 \textbf{Impacto:}
+                        MEDIO-ALTO [4])
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -878,25 +2166,26 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14072 strings out of 474486
- 228329 string characters out of 5742810
+ 14330 strings out of 474486
+ 234135 string characters out of 5742810
  1936542 words of memory out of 5000000
- 35854 multiletter control sequences out of 15000+600000
- 598637 words of font info for 86 fonts, out of 8000000 for 9000
+ 35944 multiletter control sequences out of 15000+600000
+ 605945 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,812b,799s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,19n,79p,1045b,799s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
 rm1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\ecit1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ectt1200.pk><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Usuario/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Usuario/AppData/Local/
-Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Usuario/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Usuario/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (58 pages, 2298106 bytes).
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Usuario/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Usuario/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Usuario/App
+Data/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Usuario/A
+ppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Usuario
+/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (82 pages, 2384565 bytes).
 PDF statistics:
- 728 PDF objects out of 1000 (max. 8388607)
- 214 named destinations out of 1000 (max. 500000)
- 424 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1025 PDF objects out of 1200 (max. 8388607)
+ 338 named destinations out of 1000 (max. 500000)
+ 520 words of extra memory for PDF output out of 10000 (max. 10000000)
 

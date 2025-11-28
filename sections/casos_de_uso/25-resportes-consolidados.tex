@@ -1,0 +1,74 @@
+\subsubsection{Caso de uso: Generar métricas consolidadas (general y por tipo) en un periodo}
+
+	extbf{Descripción:} Se unifica la obtención de métricas en DTOs reales para: General, Pureza, PMS, Germinación, Tetrazolio y DOSN. También se exponen contaminantes por especie para Pureza/DOSN.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+   \item Usuario autenticado con permisos de lectura.
+   \item Fechas `fechaInicio`/`fechaFin` opcionales; si se incluyen, `fechaInicio \\leq fechaFin`.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+   \item DTO(s) retornados con estructuras pobladas; métricas en cero y mapas vacíos si no hay datos.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Administrador, Analista.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+   \item Usuario (Administrador o Analista) selecciona periodo (`fechaInicio`, `fechaFin`) o deja ambas `null` para histórico completo.
+   \item Frontend solicita al backend los reportes necesarios para la visualización consolidada.
+   \item Servicio valida coherencia de fechas (si `fechaInicio` y `fechaFin` presentes: `fechaInicio \\leq fechaFin`).
+   \item Para cada tipo de análisis (General, Pureza, PMS, Germinación, Tetrazolio, DOSN):
+   \begin{enumerate}[nosep]
+      \item Invoca repositorios filtrando por rango temporal y aplicando permisos del usuario.
+      \item Agrega y/o agrupa resultados (por `especie`, `estado`, u otras claves relevantes) y calcula métricas como promedios, porcentajes, conteos y tiempos medios.
+      \item Construye el DTO correspondiente con los campos esperados por la UI (totales, por estado, por especie, distribuciones, top N problemas, tiempos promedio, etc.).
+   \end{enumerate}
+   \item Para el reporte "General" se agregan datos transversales: totales por estado, conteos totales de registros, tiempos medios de procesamiento, y un `top-problemas` agregado.
+   \item Para Pureza y DOSN se incluye además un mapa/estructura con contaminantes por `especie`, mostrando conteos y porcentajes por contaminante.
+   \item Servicio retorna uno o más DTOs para que el frontend los muestre en paneles consolidados o descargue como CSV/Excel si se solicita.
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Fechas nulas}
+\begin{itemize}[nosep]
+   \item Si `fechaInicio` y `fechaFin` son `null`, se consideran todos los registros históricos.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Límite abierto}
+\begin{itemize}[nosep]
+   \item Si solo `fechaInicio` o `fechaFin` está presente, se interpreta como límite abierto (p. ej. `fechaInicio` con `fechaFin=null` => desde `fechaInicio` hasta hoy).
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A3. Sin datos en rango}
+\begin{itemize}[nosep]
+   \item Si no hay datos en el rango, devolver DTOs con totales a cero y mapas vacíos (`200 OK`).
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A4. Fecha inicio mayor a fin}
+\begin{itemize}[nosep]
+   \item Si `fechaInicio > fechaFin`, preferible validar y retornar `400 Bad Request` con mensaje de error; alternativa: devolver resultado vacío según política.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+   \item Respuesta paginada o resumida para conjuntos extremadamente grandes (si aplica) para evitar sobrecarga de memoria.
+   \item Tiempo de respuesta razonable: los cálculos agregados deben realizarse con consultas agregadas en BD (GROUP BY) y/o índices adecuados.
+   \item DTOs versionables: incluir `version`/`timestamp` para permitir cambios en la estructura sin romper el frontend.
+   \item Documentar claramente las claves de agrupamiento (p. ej. nombre de `especie`, identificadores de contaminantes) y los valores esperados de `estado`.
+\end{itemize}
+
+% Fin del caso de uso

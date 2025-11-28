@@ -1,0 +1,92 @@
+\subsubsection{Caso de uso: Aprobar Análisis Pendiente}
+
+\textbf{Descripción:} El Administrador aprueba un análisis que se encuentra en estado "PENDIENTE APROBACION". El sistema valida condiciones, marca el análisis como oficial, actualiza estados relacionados y registra la aprobación en el historial.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+    \item El análisis debe estar en estado "PENDIENTE APROBACION".
+    \item El usuario debe tener rol Administrador.
+    \item El análisis debe cumplir con los estándares de calidad definidos.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+    \item El análisis cambia a estado "APROBADO".
+    \item El análisis queda marcado como oficial del lote.
+    \item Otros análisis del mismo tipo y lote pasan a solo lectura (marcados como históricos/referencia).
+    \item Se registra la aprobación en el historial (usuario, fecha, observaciones).
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de eventos principal:}
+\begin{enumerate}[nosep]
+    \item El Administrador accede al listado de análisis pendientes.
+    \item Filtra por tipo de análisis (Pureza, PMS, Germinación, Tetrazolio, DOSN) si lo desea.
+    \item Selecciona un análisis en estado "PENDIENTE APROBACION".
+    \item Revisa el detalle completo del análisis (datos registrados, cálculos, cumplimiento de estándares, historial de cambios).
+    \item Verifica que cumple con los criterios de calidad.
+    \item Selecciona la acción "Aprobar análisis".
+    \item El sistema valida:
+    \begin{itemize}[nosep]
+        \item Que el análisis esté en estado "PENDIENTE APROBACION".
+        \item Que el usuario tenga rol Administrador.
+        \item Que la evidencia exigida esté presente y sea consistente con los estándares.
+    \end{itemize}
+    \item Si las validaciones son exitosas:
+    \begin{itemize}[nosep]
+        \item El sistema cambia el estado del análisis a "APROBADO".
+        \item Marca el análisis como oficial del lote.
+        \item Si existen otros análisis del mismo tipo para el mismo lote, los marca como históricos/referencia y los pone en solo lectura.
+        \item Registra la aprobación en el historial (usuario, rol, fecha, comentario opcional).
+        \item Muestra confirmación: "Análisis aprobado exitosamente".
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Análisis no cumple estándares}
+\begin{itemize}[nosep]
+    \item El Administrador detecta problemas en los datos o cálculos.
+    \item En lugar de aprobar, selecciona "Marcar para repetir".
+    \item Ver caso de uso: "Marcar Análisis para Repetir" (flujo externo).
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Análisis requiere correcciones menores}
+\begin{itemize}[nosep]
+    \item El Administrador edita directamente el análisis para corregir errores menores.
+    \item Como Administrador, conserva acceso de edición; el análisis permanece en "PENDIENTE APROBACION" hasta aprobar.
+    \item Guarda los cambios y procede a aprobar cuando corresponda.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A3. Intentar aprobar análisis en otro estado}
+\begin{itemize}[nosep]
+    \item El sistema detecta que el análisis no está en estado "PENDIENTE APROBACION".
+    \item Muestra error: "Solo se pueden aprobar análisis en estado \texttt{PENDIENTE APROBACION}".
+    \item Bloquea la acción.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A4. Usuario sin permisos}
+\begin{itemize}[nosep]
+    \item Si el usuario no es Administrador, la acción "Aprobar análisis" no se muestra en la interfaz.
+    \item Si intenta acceder por URL directa, el sistema responde con error 403 (Acceso denegado).
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Solo Administradores pueden aprobar análisis.
+    \item Solo análisis en "PENDIENTE APROBACION" pueden ser aprobados.
+    \item La aprobación marca el análisis como oficial del lote y desactiva edición en análisis alternativos del mismo tipo.
+    \item Registro detallado en historial con usuario, rol, fecha y observaciones.
+    \item Notificación automática al creador del análisis (funcionalidad futura / opcional).
+\end{itemize}

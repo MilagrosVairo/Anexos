@@ -1,0 +1,114 @@
+\subsubsection{Caso de uso: Actualizar Perfil Propio}
+
+\textbf{Descripción:} El usuario actualiza su propia información de perfil, incluyendo datos personales y contraseña. Los cambios se validan en tiempo real y se aplican de forma segura.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+    \item El usuario debe estar autenticado.
+    \item La sesión debe ser válida.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+    \item Información del perfil actualizada.
+    \item Si se cambió la contraseña: nueva contraseña hasheada y almacenada (bcrypt).
+    \item Si se cambió el email: se aplica validación de unicidad.
+    \item Cambios reflejados inmediatamente; la sesión permanece activa.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Administrador, Analista, Observador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item El usuario hace clic en su nombre/avatar y selecciona "Mi Perfil" o "Configuración".
+    \item El sistema carga los datos actuales del usuario (nombre de usuario, nombres, apellidos, email) y muestra el formulario de edición.
+    \item Actualización de datos personales:
+    \begin{itemize}[nosep]
+        \item El usuario puede modificar: Nombre de usuario (único), Nombres (solo letras), Apellidos (solo letras), Email (único, formato válido).
+        \item El sistema valida en tiempo real formato y unicidad (excluyendo el usuario actual).
+    \end{itemize}
+    \item Cambio de contraseña (opcional):
+    \begin{itemize}[nosep]
+        \item Si el usuario marca "Cambiar contraseña", aparecen campos: Contraseña actual, Nueva contraseña, Confirmar nueva contraseña.
+        \item El sistema valida: contraseña actual correcta, nueva contraseña cumple requisitos (mínimo 8 caracteres, letra y número), nueva contraseña distinta a la actual y coincidencia de confirmación.
+        \item Se muestra indicador de fortaleza (débil/media/fuerte) en tiempo real.
+    \end{itemize}
+    \item El usuario hace clic en "Guardar cambios".
+    \item El sistema valida todos los campos; si todo es correcto:
+    \begin{itemize}[nosep]
+        \item Si cambió contraseña → hashea con bcrypt y almacena el hash.
+        \item Actualiza el registro del usuario en la base de datos.
+        \item Mantiene la sesión activa.
+        \item Muestra confirmación: "Perfil actualizado exitosamente". Si cambió contraseña: mensaje adicional "Tu contraseña ha sido cambiada exitosamente".
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Nombre de usuario duplicado}
+\begin{itemize}[nosep]
+    \item El sistema detecta duplicado (excluyendo el usuario actual).
+    \item Muestra error: "El nombre de usuario ya está en uso por otro usuario".
+    \item No permite guardar hasta corregir.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Email duplicado}
+\begin{itemize}[nosep]
+    \item El sistema detecta duplicado (excluyendo el usuario actual).
+    \item Muestra error: "El email ya está en uso por otro usuario".
+    \item No permite guardar hasta corregir.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A3. Contraseña actual incorrecta}
+\begin{itemize}[nosep]
+    \item El usuario ingresa la contraseña actual incorrecta.
+    \item El sistema valida contra el hash almacenado y muestra error: "Contraseña actual incorrecta".
+    \item No permite guardar el cambio de contraseña.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A4. Nueva contraseña igual a la actual}
+\begin{itemize}[nosep]
+    \item El sistema detecta igualdad y muestra error: "La nueva contraseña no puede ser igual a la contraseña actual".
+    \item No permite guardar hasta cambiar.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A5. Contraseña débil}
+\begin{itemize}[nosep]
+    \item El sistema muestra indicador rojo y requisitos no cumplidos.
+    \item Permite guardar pero con advertencia explícita al usuario (según política del producto).
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A6. Contraseñas no coinciden}
+\begin{itemize}[nosep]
+    \item El sistema valida en tiempo real y muestra error: "Las contraseñas no coinciden".
+    \item No permite guardar hasta corregir.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A7. Cancelar cambios}
+\begin{itemize}[nosep]
+    \item El usuario selecciona "Cancelar".
+    \item El sistema descarta los cambios y vuelve a la vista anterior.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Validación asíncrona de unicidad (nombre de usuario y email) excluyendo el usuario actual (case-insensitive).
+    \item Validación en tiempo real de fortaleza de contraseña.
+    \item Hasheo seguro con bcrypt antes de almacenar nueva contraseña.
+    \item Verificación obligatoria de la contraseña actual para cambiar la contraseña.
+    \item Indicador visual de fortaleza de contraseña.
+    \item La sesión permanece activa después de cambios, incluido cambio de contraseña.
+\end{itemize}

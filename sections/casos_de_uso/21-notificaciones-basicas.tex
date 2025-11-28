@@ -1,0 +1,57 @@
+\subsubsection{Caso de uso: Crear y consumir notificaciones automáticas de eventos del sistema}
+
+\textbf{Descripción:} Se generan notificaciones automáticas ante eventos relevantes (registro de usuario, aprobación, rechazo, finalización de análisis, aprobación de análisis y marcado para repetir). Los usuarios destinatarios listan, marcan como leídas, cuentan no leídas y pueden eliminar notificaciones.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+    \item Usuario autenticado.
+    \item Evento disparado existente en el servicio (p.ej. finalizar/análisis/aprobación).
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+    \item Notificación persistida y visible al/los destinatario(s).
+    \item Si el usuario marca la notificación como leída, su estado cambia a \texttt{leida=true}.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+    \item Ocurre un evento en el sistema (ej.: finalización de un análisis).
+    \item El servicio de notificaciones identifica destinatarios (p.ej., administradores, creador del recurso).
+    \item Se crea la notificación con campos: tipo, mensaje, referencia (ID del recurso), leida = false, fecha.
+    \item El usuario solicita el listado de notificaciones (paginado o filtrado) o solicita solo las no leídas.
+    \item El usuario selecciona una notificación para ver el detalle; el sistema marca la notificación como leída.
+    \item Opcional: el usuario marca todas como leídas o elimina notificaciones individuales.
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Eliminación de notificación inexistente}
+\begin{itemize}[nosep]
+    \item El usuario intenta eliminar una notificación que no existe.
+    \item El sistema responde con error y no cambia estado de otras notificaciones.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Error al crear notificación (repositorio)}
+\begin{itemize}[nosep]
+    \item Si ocurre un error al persistir la notificación, el servicio captura el error y registra el incidente.
+    \item El flujo principal del evento continúa sin bloquearse por la falla en la notificación.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Tipos de notificaciones: \texttt{USUARIO_REGISTRO}, \texttt{USUARIO_APROBADO}, \texttt{USUARIO_RECHAZADO}, \texttt{ANALISIS_FINALIZADO}, \texttt{ANALISIS_APROBADO}, \texttt{ANALISIS_REPETIR}.
+    \item Operaciones soportadas: crear, listar (paginado), obtener no leídas, marcar leída, marcar todas como leídas, eliminar, contar no leídas.
+    \item Persistencia eficiente y endpoint para consultar/actualizar estado (leída/no leída) sin bloquear los eventos.
+    \item Manejo de errores y logging al fallar operaciones de persistencia o notificación.
+\end{itemize}

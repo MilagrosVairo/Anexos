@@ -1,0 +1,73 @@
+\subsubsection{Caso de uso: Importar datos históricos desde un archivo Excel a la entidad Legado}
+
+	extbf{Descripción:} El sistema procesa un archivo Excel, mapea filas a entidades `Legado` (incluyendo el campo `filaExcel`) y persiste los registros, permitiendo la carga de datos previos externos.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+   \item Archivo Excel válido suministrado.
+   \item Formato esperado (columnas reconocibles) sin corrupción.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+   \item Registros `Legado` creados o ignorados según modo (simulación vs persistencia real) y resultado con conteos (procesados, guardados, errores).
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de evento principal:}
+\begin{enumerate}[nosep]
+   \item Usuario (Administrador) sube archivo Excel y elige modo: simulación (`dry-run`) o importación definitiva.
+   \item Servicio recibe el archivo y valida el formato básico del workbook (hoja(s) esperadas, encabezados mínimos).
+   \item Servicio itera sobre las filas válidas:
+   \begin{enumerate}[nosep]
+      \item Mapea columnas a campos de la entidad `Legado`.
+      \item Asigna el número de `filaExcel` (o identificador de fila) para rastreo de origen.
+      \item Valida integridad/consistencia de datos de la fila (tipos, rangos, campos obligatorios).
+      \item Si el modo es definitivo: persiste la entidad mediante el repositorio correspondiente. Si el modo es simulación: acumula el resultado sin persistir.
+      \item Registra si la fila fue procesada correctamente o si generó un error (con mensaje y número de fila).
+   \end{enumerate}
+   \item Al finalizar, el servicio construye y retorna un resultado con conteos: total filas, procesadas, guardadas, ignoradas y errores. Puede incluir una muestra de errores con `filaExcel` y mensaje.
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Archivo vacío}
+\begin{itemize}[nosep]
+   \item Resultado con contadores en cero y `200 OK`.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Error de formato}
+\begin{itemize}[nosep]
+   \item Si falta una columna obligatoria, registrar error y (según política) abortar con `400 Bad Request` o continuar e incluir errores por fila en el resultado.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A3. Dry-run}
+\begin{itemize}[nosep]
+   \item No se guarda nada; la respuesta indica lo que se habría importado y los errores detectados.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A4. Fila inválida}
+\begin{itemize}[nosep]
+   \item Omisión de la fila, incremento del contador de errores y registro del detalle para corrección posterior.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+   \item Mantener el campo `filaExcel` en la entidad `Legado` para permitir trazabilidad desde el origen.
+   \item Soportar archivos grandes: procesamiento por streaming/por lotes y límites de memoria.
+   \item Transacciones: en modo definitivo, soportar opción de "todo o nada" (rollback) o persistencia por fila según la política de importación.
+   \item Registro de auditoría: quién inició la importación, modo, fecha y resumen de resultados.
+\end{itemize}
+
+% Fin del caso de uso

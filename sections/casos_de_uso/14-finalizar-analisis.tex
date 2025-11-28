@@ -1,0 +1,111 @@
+\subsubsection{Caso de uso: Finalizar Análisis (Todos los tipos)}
+
+\textbf{Descripción:} El usuario finaliza un análisis que se encuentra en estado "EN PROCESO". El sistema valida la evidencia según el tipo de análisis, asigna la fecha de fin, registra el cambio en el historial y cambia el estado final según el rol del usuario.
+
+\vspace{0.5em}
+\noindent\textbf{PreCondiciones:}
+\begin{itemize}[nosep]
+    \item El análisis debe estar en estado "EN PROCESO".
+    \item Debe existir suficiente evidencia registrada según el tipo de análisis (ver validaciones específicas).
+    \item El usuario debe estar autenticado.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{PostCondiciones:}
+\begin{itemize}[nosep]
+    \item Si el usuario es Analista: el análisis pasa a "PENDIENTE APROBACION".
+    \item Si el usuario es Administrador: el análisis pasa a "APROBADO".
+    \item Se asigna automáticamente la fecha de fin (fecha actual).
+    \item Se registra la acción en el historial del análisis con usuario y fecha.
+    \item El cambio no es reversible desde esta acción (solo aprobación/rechazo explicita puede alterar flujo posterior).
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Actores:} Analista, Administrador.
+
+\vspace{0.5em}
+\noindent\textbf{Flujo de eventos principal:}
+\begin{enumerate}[nosep]
+    \item El usuario accede al detalle de un análisis en estado "EN PROCESO".
+    \item Verifica visualmente que el análisis esté completo y la evidencia cargada.
+    \item Selecciona el botón/acción ``Finalizar análisis''.
+    \item El sistema valida que exista evidencia suficiente según el tipo de análisis:
+    \    \textbf{Pureza:} Datos de pesos, datos INASE o listados.
+    \    \textbf{PMS:} Al menos una tanda con CV válido.
+    \    \textbf{Germinación:} Al menos una tabla con repeticiones completas.
+    \    \textbf{Tetrazolio:} Todas las repeticiones esperadas completadas.
+    \    \textbf{DOSN:} Datos INIA completos.
+    \item Si la validación es exitosa:
+    \begin{itemize}[nosep]
+        \item Si el usuario es Analista: el sistema cambia el estado a "PENDIENTE APROBACION".
+        \item Si el usuario es Administrador: el sistema cambia el estado a "APROBADO".
+        \item Asigna la fecha de fin automáticamente (fecha actual).
+        \item Registra el cambio en el historial del análisis (usuario, rol, fecha, acción).
+        \item Muestra mensaje de confirmación según rol:
+        \begin{itemize}[nosep]
+            \item Analista: "Análisis enviado a aprobación exitosamente".
+            \item Administrador: "Análisis aprobado exitosamente".
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Flujos alternativos:}
+
+\vspace{0.3em}
+\noindent\textit{A1. Análisis sin evidencia suficiente (Pureza)}
+\begin{itemize}[nosep]
+    \item El sistema detecta falta de datos exigidos para Pureza.
+    \item Muestra error: "No se puede finalizar: el análisis de Pureza carece de evidencia. Agregue datos de pesos (Redon), datos INASE o listados antes de finalizar".
+    \item Bloquea la finalización.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A2. Análisis sin evidencia suficiente (PMS)}
+\begin{itemize}[nosep]
+    \item El sistema detecta que no hay tandas con CV válido.
+    \item Muestra error: "No se puede finalizar: debe tener al menos una tanda con CV válido".
+    \item Bloquea la finalización.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A3. Análisis sin evidencia suficiente (Germinación)}
+\begin{itemize}[nosep]
+    \item El sistema detecta que no hay tablas de germinación completas.
+    \item Muestra error: "No se puede finalizar: debe tener al menos una tabla de germinación con repeticiones completas".
+    \item Bloquea la finalización.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A4. Análisis sin evidencia suficiente (Tetrazolio)}
+\begin{itemize}[nosep]
+    \item El sistema detecta repeticiones incompletas.
+    \item Muestra error: "No se puede finalizar: faltan repeticiones por completar".
+    \item Bloquea la finalización.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A5. Análisis sin evidencia suficiente (DOSN)}
+\begin{itemize}[nosep]
+    \item El sistema detecta datos INIA incompletos.
+    \item Muestra el error correspondiente (ej: "No se puede finalizar: datos INIA incompletos").
+    \item Bloquea la finalización.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textit{A6. Intentar finalizar análisis ya finalizado}
+\begin{itemize}[nosep]
+    \item El sistema detecta que el análisis no está en estado "EN PROCESO".
+    \item Muestra error: "Este análisis ya ha sido finalizado".
+    \item No permite la acción.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Requerimientos especiales:}
+\begin{itemize}[nosep]
+    \item Validación específica de evidencia según tipo de análisis (Pureza, PMS, Germinación, Tetrazolio, DOSN).
+    \item Fecha de fin asignada automáticamente con la fecha actual del sistema.
+    \item Estado final depende del rol del usuario (Analista -> PENDIENTE APROBACION; Administrador -> APROBADO).
+    \item Registro automático en historial con usuario, rol, fecha y descripción de la acción.
+    \item La acción de finalizar no debe ser reversible desde la interfaz (solo acciones de aprobación/rechazo posteriores podrán modificar el flujo).
+\end{itemize}
