@@ -72,62 +72,6 @@ Los LIMS (Laboratory Information Management Systems) son sistemas especialmente 
 
 Estos conceptos sirvieron como guía para definir la estructura del proyecto.
 
-\subsection{Tecnologías Relevantes}
-
-El proyecto se desarrolló utilizando un conjunto de tecnologías modernas, estables y ampliamente adoptadas en la industria del software. La elección del stack buscó asegurar un equilibrio entre rendimiento, mantenibilidad, seguridad y disponibilidad de recursos a largo plazo. A continuación se presenta una descripción ampliada de cada uno de los componentes utilizados, explicando por qué fueron seleccionados y cómo contribuyen al funcionamiento global del sistema.
-
-\subsubsection{Frontend: React + TypeScript}
-
-React es actualmente una de las bibliotecas más populares para el desarrollo de interfaces web. Esto se debe a su forma de trabajar basada en componentes reutilizables, lo que permite construir pantallas modulares, organizadas y fáciles de mantener. Este enfoque facilita escalar la aplicación sin que la complejidad de la interfaz crezca de manera descontrolada.
-
-Otro aspecto clave es su modelo de actualización mediante virtual DOM, que mejora considerablemente el rendimiento al renderizar solo lo necesario en cada cambio de estado. A esto se suma un ecosistema muy amplio de librerías, herramientas y documentación que acelera el desarrollo y permite incorporar funcionalidades avanzadas sin necesidad de reinventar soluciones existentes.
-
-El uso de TypeScript complementa a React proporcionando tipado estático, ayudando a prevenir errores frecuentes en aplicaciones JavaScript puras y mejorando la claridad y mantenibilidad del código. Esta combinación hace que el frontend sea sólido, predecible y fácil de extender en el futuro.
-
-\subsubsection{Backend: Java + Spring Boot}
-
-Para el backend se optó por Java junto con Spring Boot, una de las combinaciones más confiables en entornos empresariales. Spring Boot permite crear aplicaciones robustas con una configuración mínima y una estructura bien organizada desde el inicio.
-
-Entre sus principales ventajas para este proyecto se encuentran:
-
-\begin{itemize}
-    \item Integración nativa con Spring Security, que facilita la implementación de autenticación, autorización y manejo de permisos por roles.
-    \item Soporte simple para APIs REST, ideal para la comunicación con el frontend.
-    \item Inyección de dependencias, que fomenta una arquitectura modular y fácilmente testeable.
-    \item Extensa documentación y comunidad activa, lo que asegura mantenimiento y soporte a largo plazo.
-\end{itemize}
-
-El uso de Java 21, una versión LTS (Long-Term Support), aporta estabilidad y asegura compatibilidad por varios años, permitiendo que el sistema se mantenga vigente sin necesidad de migraciones apresuradas.
-
-\subsubsection{Base de Datos: PostgreSQL}
-
-PostgreSQL fue seleccionada como base de datos por ser una de las opciones open-source más maduras y confiables disponibles en la actualidad. Es ampliamente utilizada en sistemas que requieren precisión, consistencia y soporte para operaciones complejas, características esenciales para manejar análisis, lotes y configuraciones del INIA.
-
-Entre sus puntos fuertes destacan:
-
-\begin{itemize}
-    \item Soporte a transacciones ACID.
-    \item Operaciones eficientes incluso con grandes volúmenes de datos.
-    \item Flexibilidad para definir estructuras avanzadas, tipos personalizados y validaciones.
-    \item Estabilidad comprobada en entornos de producción.
-\end{itemize}
-
-Estas características la convierten en una alternativa ideal para instituciones que dependen fuertemente de la integridad del dato.
-
-\subsubsection{Infraestructura y Arquitectura}
-
-La arquitectura elegida para el sistema sigue un modelo cliente-servidor, donde el frontend (React + TypeScript) interactúa con el backend (Spring Boot) mediante servicios REST. Esta separación clara de responsabilidades permite desarrollar y desplegar ambos componentes de manera independiente.
-
-Además, el proyecto se divide en tres capas principales:
-
-\begin{itemize}
-    \item \textbf{Presentación:} la interfaz web que utilizan los usuarios.
-    \item \textbf{Servicios:} lógica de negocio y validaciones.
-    \item \textbf{Datos:} persistencia en la base PostgreSQL.
-\end{itemize}
-
-Este enfoque favorece la organización, la extensibilidad y el mantenimiento futuro del sistema.
-
 \subsection{Soluciones Similares}
 
 \subsubsection{Airtable}

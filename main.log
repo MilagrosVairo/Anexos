@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.26)  30 NOV 2025 23:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.26)  1 DEC 2025 22:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -637,11 +637,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 [2
 
 
-] [3])
+])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [4] (anexos.tex (sections/anexo1-portada.tex [5
+ [3] (anexos.tex (sections/anexo1-portada.tex [4
 
 
 ])
@@ -655,12 +655,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 \T1/ptm/m/n/12 Mi-la-gros Vai-ro,
  []
 
-[6
+[5
 
-] [7
+] [6
 
 
-] (sections/casos_de_uso/01-registrar_lote.tex [8
+] (sections/casos_de_uso/01-registrar_lote.tex [7
 
 
 ]
@@ -672,51 +672,45 @@ File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9])
-(sections/casos_de_uso/02-analisis_pureza.tex [10] [11])
-(sections/casos_de_uso/03-analisis_pms.tex [12]
+ [8])
+(sections/casos_de_uso/02-analisis_pureza.tex [9] [10])
+(sections/casos_de_uso/03-analisis_pms.tex [11]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 5
 7.
 
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-[13]) (sections/casos_de_uso/04-analisis_germinacion.tex [14])
-(sections/casos_de_uso/05-analisis_tetrazolio.tex
-Underfull \vbox (badness 3977) has occurred while \output is active []
-
- [15]
-[16]) (sections/casos_de_uso/06-analisis_dosn.tex
+[12]) (sections/casos_de_uso/04-analisis_germinacion.tex [13])
+(sections/casos_de_uso/05-analisis_tetrazolio.tex [14] [15])
+(sections/casos_de_uso/06-analisis_dosn.tex
 Underfull \vbox (badness 6876) has occurred while \output is active []
 
- [17]
-[18]
+ [16]
+[17]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
- [19])
-(sections/casos_de_uso/07-registrar_usuario.tex [20]
+ [18])
+(sections/casos_de_uso/07-registrar_usuario.tex [19]
 Underfull \vbox (badness 6876) has occurred while \output is active []
 
- [21]
+ [20]
+Underfull \vbox (badness 2556) has occurred while \output is active []
+
+ [21])
+(sections/casos_de_uso/08-edicion_lotes.tex [22] [23])
+(sections/casos_de_uso/09-gestion_pureza.tex [24] [25]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
- [22])
-(sections/casos_de_uso/08-edicion_lotes.tex [23] [24])
-(sections/casos_de_uso/09-gestion_pureza.tex [25] [26]
+ [26])
+(sections/casos_de_uso/10-gestion_pms.tex [27] [28]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
- [27])
-(sections/casos_de_uso/10-gestion_pms.tex [28]
-Underfull \vbox (badness 3977) has occurred while \output is active []
-
- [29]
+ [29])
+(sections/casos_de_uso/11-gestion_analisis_germinacion.tex [30] [31]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
- [30])
-(sections/casos_de_uso/11-gestion_analisis_germinacion.tex [31] [32]
-Underfull \vbox (badness 7649) has occurred while \output is active []
-
- [33]
+ [32]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 128.
@@ -724,11 +718,18 @@ LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 135.
 )
-(sections/casos_de_uso/12-gestion_analisis_tetrazolio.tex [34] [35]
+(sections/casos_de_uso/12-gestion_analisis_tetrazolio.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+[34]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
- [36])
-(sections/casos_de_uso/13-gestion_analisis_dosn.tex [37]
+ [35])
+(sections/casos_de_uso/13-gestion_analisis_dosn.tex
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
+ [36]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 22.
@@ -736,43 +737,46 @@ LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 23.
 
-Underfull \vbox (badness 6876) has occurred while \output is active []
+Underfull \vbox (badness 2644) has occurred while \output is active []
 
- [38]
+ [37]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
- [39])
-(sections/casos_de_uso/14-finalizar-analisis.tex [40]
-Underfull \vbox (badness 3977) has occurred while \output is active []
+ [38])
+(sections/casos_de_uso/14-finalizar-analisis.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41]
-[42]) (sections/casos_de_uso/15-aprobar-analisis.tex
+ [39]
+[40] [41]) (sections/casos_de_uso/15-aprobar-analisis.tex [42]
 Overfull \hbox (8.84633pt too wide) in paragraph at lines 18--19
 []\T1/ptm/m/n/12 Otros aná-li-sis del mis-mo ti-po y lo-te pa-san a so-lo lec-t
 u-ra (mar-ca-dos co-mo his-tó-ri-cos/referencia). 
  []
 
-[43]
-Underfull \vbox (badness 2229) has occurred while \output is active []
 
- [44])
-(sections/casos_de_uso/16-marcar-analisis-para-repetir.tex [45]
-Underfull \vbox (badness 1406) has occurred while \output is active []
+Underfull \vbox (badness 6876) has occurred while \output is active []
 
- [46])
-(sections/casos_de_uso/17-gestion-de-usuario.tex
+ [43])
+(sections/casos_de_uso/16-marcar-analisis-para-repetir.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
-[48] [49]) (sections/casos_de_uso/18-actualizar-perfil-de-usuario.tex [50]
+ [44]
+[45] [46]) (sections/casos_de_uso/17-gestion-de-usuario.tex [47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48])
+(sections/casos_de_uso/18-actualizar-perfil-de-usuario.tex [49]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 43.
 
-[51] [52]) (sections/casos_de_uso/19-busquedas-y-filtros.tex [53])
-(sections/casos_de_uso/20-exportacion-excel.tex [54] [55])
-(sections/casos_de_uso/21-notificaciones-basicas.tex [56])
-(sections/casos_de_uso/22-autenticacion-2fa.tex [57] [58])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50]
+[51]) (sections/casos_de_uso/19-busquedas-y-filtros.tex [52])
+(sections/casos_de_uso/20-exportacion-excel.tex [53] [54])
+(sections/casos_de_uso/21-notificaciones-basicas.tex [55])
+(sections/casos_de_uso/22-autenticacion-2fa.tex [56] [57])
 (sections/casos_de_uso/23-bloqueo-usuario-pendiente-y-login.tex
 Overfull \hbox (13.53043pt too wide) in paragraph at lines 24--25
 []\T1/ptm/m/n/12 El bac-kend con-sul-ta el es-ta-do del usua-rio y de-tec-ta qu
@@ -785,14 +789,17 @@ Overfull \hbox (32.55876pt too wide) in paragraph at lines 25--26
 i-ca-da (ej.: \T1/cmtt/m/n/12 USUARIO_-PENDIENTE_-APROBACION\T1/ptm/m/n/12 ). 
  []
 
-[59]) (sections/casos_de_uso/24-dashboard-basico.tex
+[58]) (sections/casos_de_uso/24-dashboard-basico.tex
 Overfull \hbox (17.2827pt too wide) in paragraph at lines 24--25
 []\T1/ptm/m/n/12 El ser-vi-cio de mé-tri-cas con-sul-ta los re-po-si-to-rios co
 -rres-pon-dien-tes (por ejem-plo: \T1/cmtt/m/n/12 countByEstado
  []
 
-[60]) (sections/casos_de_uso/25-resportes-consolidados.tex [61] [62])
-(sections/casos_de_uso/26-importacion-excel.tex [63])) [64]
+[59]) (sections/casos_de_uso/25-resportes-consolidados.tex [60]
+Underfull \vbox (badness 1990) has occurred while \output is active []
+
+ [61])
+(sections/casos_de_uso/26-importacion-excel.tex [62] [63])) [64]
 (sections/anexo2-portada.tex [65
 
 
@@ -800,30 +807,27 @@ Overfull \hbox (17.2827pt too wide) in paragraph at lines 24--25
 
 
 ] [67]
-[68] [69] [70
-
-] [71] [72]
-<images/airtable.png, id=634, 1606.0pt x 801.99625pt>
+[68] [69]
+<images/airtable.png, id=612, 1606.0pt x 801.99625pt>
 File: images/airtable.png Graphic file (type png)
 <use images/airtable.png>
-Package pdftex.def Info: images/airtable.png  used on input line 154.
+Package pdftex.def Info: images/airtable.png  used on input line 98.
 (pdftex.def)             Requested size: 422.77664pt x 211.12068pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [73
+ [70
 
 ]
-<images/smartsheet.png, id=640, 1606.0pt x 901.3675pt>
+<images/smartsheet.png, id=617, 1606.0pt x 901.3675pt>
 File: images/smartsheet.png Graphic file (type png)
 <use images/smartsheet.png>
-Package pdftex.def Info: images/smartsheet.png  used on input line 179.
+Package pdftex.def Info: images/smartsheet.png  used on input line 123.
 (pdftex.def)             Requested size: 422.77664pt x 237.27956pt.
 )
-[74 <./images/airtable.png (PNG copy)>] [75 <./images/smartsheet.png (PNG copy)
->] [76
+[71 <./images/airtable.png (PNG copy)>] [72 <./images/smartsheet.png (PNG copy)
+>] (sections/anexo3-portada.tex [73
 
-] (sections/anexo3-portada.tex [77
 
 ]) (sections/anexo3-contenido.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--21
@@ -835,16 +839,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 []|\T1/ptm/m/n/12 Nadia Go-rría,
  []
 
-[78
+[74
 
-] [79
+] [75
 
 
-] [80]
+] [76]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 121.
- [81]) [82]) (main.aux
+ [77]) [78]) (main.aux
 LaTeX Info: Redefining \. on input line 13.
 LaTeX Info: Redefining \% on input line 13.
 )
@@ -852,12 +856,16 @@ LaTeX Info: Redefining \% on input line 13.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 14418 strings out of 474486
- 236687 string characters out of 5742810
- 1937542 words of memory out of 5000000
- 36010 multiletter control sequences out of 15000+600000
+ 14404 strings out of 474486
+ 236547 string characters out of 5742810
+ 1936542 words of memory out of 5000000
+ 36005 multiletter control sequences out of 15000+600000
  604081 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,891b,647s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -870,9 +878,9 @@ KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Usuario/AppData/Local/
 Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Usuario/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Usuario/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (82 pages, 1718705 bytes).
+Output written on main.pdf (78 pages, 1708810 bytes).
 PDF statistics:
- 1000 PDF objects out of 1000 (max. 8388607)
- 355 named destinations out of 1000 (max. 500000)
- 440 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 956 PDF objects out of 1000 (max. 8388607)
+ 346 named destinations out of 1000 (max. 500000)
+ 400 words of extra memory for PDF output out of 10000 (max. 10000000)
 
