@@ -1,5 +1,5 @@
 % Documento principal de Anexos
-\documentclass[12pt]{article}
+\documentclass[12pt,twoside]{article}
 % Idioma y codificación
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -46,9 +46,18 @@
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{\fill}
 
+% Forzar salto de página antes de cada sección/subsección (cada capítulo en anexos)
+\usepackage{etoolbox}
+\preto\section{\clearpage}
+\preto\subsection{\clearpage}
+
 % Añadir soporte para un cuarto nivel de secciones
 \setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{3}
+% Hacer que las subsecciones actúen como numeración principal dentro de cada anexo
+% y que los subsubsections muestren la numeración como <subsection>.<subsubsection>
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
   {3.25ex \@plus 1ex \@minus .2ex}%
@@ -56,6 +65,9 @@
   {\normalfont\normalsize\bfseries}}
 \makeatother
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}}
+
+% Forzar justificación completa en todo el documento
+\usepackage{ragged2e}
 
 % Configuración de encabezado
 \pagestyle{fancy}
@@ -69,6 +81,8 @@
 \titleformat{\section}{\normalfont\bfseries\large}{\thesection.}{0.5em}{}
 \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.}{0.5em}{}
 
+% Asegurar que todo el documento quede justificado desde el inicio
+\AtBeginDocument{\justifying}
 \begin{document}
 
 % Portada personalizada

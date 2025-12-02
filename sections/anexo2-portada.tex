@@ -3,12 +3,16 @@
 % marcar y numerar la sección aquí para que el enlace del TOC apunte a la portada
 \refstepcounter{section}
 \phantomsection
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Anexo 2 -- Estado del Arte}
+% Añadir al TOC sin mostrar el número de sección (el contenido conservará la numeración)
+\addcontentsline{toc}{section}{Anexo 2 -- Marco Teórico}
+% Reiniciar numeración interna para que los puntos del anexo empiecen en 1
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
 \vspace*{3cm}
 {\centering
 {\Huge\bfseries Anexo 2\par}
 \vspace{1cm}
-{\LARGE Estado del Arte\par}
+{\LARGE Marco Teórico\par}
 \vspace{2cm}
 {\large Sistema de Gestión de Laboratorio de Semillas (SGLS)\par}
 \vfill

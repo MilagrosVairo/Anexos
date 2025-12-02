@@ -3,7 +3,11 @@
 % marcar y numerar la sección aquí para que el enlace del TOC apunte a la portada
 \refstepcounter{section}
 \phantomsection
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Anexo 3 -- Mitigación de Riesgos}
+% Añadir al TOC sin mostrar el número de sección (el contenido conservará la numeración)
+\addcontentsline{toc}{section}{Anexo 3 -- Mitigación de Riesgos}
+% Reiniciar numeración interna para que los puntos del anexo empiecen en 1
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
 \vspace*{3cm}
 {\centering
 {\Huge\bfseries Anexo 3\par}
