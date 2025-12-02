@@ -1,30 +1,30 @@
 \subsubsection{Impedir acceso a cuenta en estado pendiente}
 
-\textbf{Descripción:} Si un usuario aún no fue aprobado, el intento de login devuelve un mensaje claro de bloqueo y no se genera token de sesión.
+\textbf{Descripción:} Si el usuario aún no fue aprobado, el login devuelve mensaje de bloqueo y no genera token.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
-    \item Usuario creado con estado \texttt{PENDIENTE APROBACION} (rol nulo o \texttt{activo = false}) o con bandera interna que indique pendiente.
+    \item Usuario creado con estado pendiente (rol null/activo false) o bandera interna.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item No se crea sesión; se informa al cliente el motivo (usuario pendiente de aprobación).
+    \item Sin sesión creada; se informa motivo al cliente.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Solicitante (usuario recién registrado).
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El usuario intenta iniciar sesión enviando credenciales.
-    \item El backend consulta el estado del usuario y detecta que está en estado \texttt{PENDIENTE APROBACION}.
-    \item El servicio de seguridad lanza una excepción identificada (ej.: \texttt{USUARIO_PENDIENTE_APROBACION}).
-    \item El controlador de autenticación captura la excepción y la traduce a un mensaje legible para el cliente.
-    \item El usuario no recibe token y permanece sin acceso hasta que sea aprobado.
+    \item Usuario intenta login.
+    \item Backend consulta estado y detecta ``PENDIENTE APROBACIÓN''.
+    \item Lanza excepción identificada (``USUARIO PENDIENTE APROBACIÓN'').
+    \item Controlador traduce a mensaje legible.
+    \item Usuario permanece sin acceso hasta aprobación.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -33,19 +33,18 @@
 \vspace{0.3em}
 \noindent\textit{A1. Usuario ya aprobado}
 \begin{itemize}[nosep]
-    \item Si el usuario ya fue aprobado y activo, el flujo de login continúa normalmente (incluyendo 2FA si corresponde).
+    \item Flujo normal de login (con o sin 2FA).
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Credenciales inválidas}
 \begin{itemize}[nosep]
-    \item Si las credenciales son incorrectas, se devuelve el error estándar de autenticación y no se revela el estado interno del usuario.
+    \item Error de autenticación estándar.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Mensaje específico y consistente en `AuthController` para usuarios pendientes.
-    \item `SeguridadService` o servicio equivalente debe lanzar la excepción correspondiente cuando detecte estado pendiente.
-    \item No revelar información sensible adicional en la respuesta de error.
+    \item Mensaje específico en AuthController.
+    \item SeguridadService lanza excepción para estado pendiente.
 \end{itemize}

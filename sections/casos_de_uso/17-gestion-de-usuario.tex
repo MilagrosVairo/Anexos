@@ -1,11 +1,11 @@
 \subsubsection{Aprobar, Rechazar y Gestionar Usuarios}
 
-\textbf{Descripción:} El Administrador revisa solicitudes de usuarios pendientes, aprueba o rechaza el acceso y gestiona usuarios existentes (cambio de rol y estado). El sistema notifica automáticamente y registra las acciones en historial.
+\textbf{Descripción:} El Administrador revisa solicitudes de usuarios pendientes, aprueba o rechaza el acceso, y gestiona usuarios existentes cambiando roles o estados.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
-    \item El usuario que realiza la acción debe tener rol Administrador.
+    \item El usuario debe tener rol \texttt{ADMIN}.
     \item Para aprobar/rechazar: debe existir al menos una solicitud pendiente.
     \item Para gestionar: debe existir el usuario en el sistema.
 \end{itemize}
@@ -13,11 +13,10 @@
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item Aprobar: el usuario pasa a estado \texttt{ACTIVO} con el rol asignado.
-    \item Rechazar: la solicitud es eliminada del sistema (o marcada como rechazada según políticas).
-    \item Gestionar: los cambios solicitados (rol, estado activo/inactivo) se aplican.
-    \item Notificaciones y envío de email ejecutados (si el envío falla, la acción se completa y el error queda logueado).
-    \item Se registra en el historial (usuario que actuó, fecha, tipo de acción, observaciones).
+    \item Aprobar: Usuario pasa a estado \texttt{ACTIVO} con rol asignado.
+    \item Rechazar: Usuario eliminado del sistema.
+    \item Gestionar: Cambios aplicados (rol, estado activo/inactivo).
+    \item Notificaciones y emails enviados automáticamente.
 \end{itemize}
 
 \vspace{0.5em}
@@ -26,25 +25,89 @@
 \vspace{0.5em}
 \noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El Administrador accede a la sección ``Gestión de Usuarios''.
-    \item Para Aprobación: selecciona la pestaña ``Solicitudes Pendientes'' y revisa la lista (nombre, usuario, email, fecha de registro).
-    \item Selecciona una solicitud y revisa el detalle completo del solicitante.
-    \item Selecciona "Aprobar usuario"; el sistema muestra formulario para asignar rol (ANALISTA o ADMIN).
-    \item El Administrador elige el rol y confirma la aprobación.
-    \item El sistema:
+    \item \textbf{Aprobar Usuario}
+    \begin{enumerate}[nosep]
+        \item \textit{Revisión de solicitudes}
+        \begin{itemize}[nosep]
+            \item El Administrador accede a ``Gestión de Usuarios''.
+            \item Selecciona pestaña ``Solicitudes Pendientes''.
+            \item Ver lista de usuarios con estado \texttt{PENDIENTE}:
+            \begin{itemize}[nosep]
+                \item Nombre completo
+                \item Nombre de usuario
+                \item Email
+                \item Fecha de registro
+            \end{itemize}
+            \item Puede buscar/filtrar solicitudes.
+        \end{itemize}
+
+        \item \textit{Aprobación}
+        \begin{itemize}[nosep]
+            \item Selecciona una solicitud para revisar.
+            \item Ve el detalle completo del solicitante.
+            \item Selecciona ``Aprobar usuario''.
+            \item El sistema muestra formulario de aprobación:
+            \begin{itemize}[nosep]
+                \item Seleccionar rol: \texttt{ANALISTA} o \texttt{ADMIN}
+            \end{itemize}
+            \item El Administrador selecciona el rol apropiado.
+            \item Confirma la aprobación.
+            \item El sistema:
+            \begin{itemize}[nosep]
+                \item Cambia estado a \texttt{ACTIVO}.
+                \item Asigna el rol seleccionado.
+                \item Establece \texttt{activo = true}.
+                \item Crea notificación para el usuario.
+                \item Envía email de bienvenida al usuario.
+                \item Muestra confirmación: ``Usuario aprobado exitosamente''.
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{Rechazar Usuario}
     \begin{itemize}[nosep]
-        \item Valida que el email/usuario no esté duplicado en otro usuario activo.
-        \item Cambia el estado del usuario a \texttt{ACTIVO} y asigna el rol seleccionado.
-        \item Establece \texttt{activo = true}.
-        \item Crea notificación interna y desencadena envío de email de bienvenida.
-        \item Registra la acción en el historial.
-        \item Muestra confirmación: "Usuario aprobado exitosamente".
+        \item El Administrador accede a una solicitud pendiente.
+        \item Revisa los datos.
+        \item Selecciona ``Rechazar solicitud''.
+        \item El sistema muestra confirmación:
+        \begin{itemize}[nosep]
+            \item ``¿Está seguro de rechazar esta solicitud?''
+            \item ``El usuario será eliminado del sistema''
+        \end{itemize}
+        \item El Administrador confirma.
+        \item El sistema:
+        \begin{itemize}[nosep]
+            \item Crea notificación de rechazo.
+            \item Elimina el usuario del sistema.
+            \item Muestra confirmación: ``Solicitud rechazada''.
+        \end{itemize}
     \end{itemize}
-    \item Para Rechazo: desde la solicitud, selecciona "Rechazar solicitud"; confirma en diálogo.
-    \item El sistema crea notificación de rechazo, elimina (o marca como rechazada) la solicitud y registra la acción; muestra confirmación "Solicitud rechazada".
-    \item Para Gestión de usuarios existentes: selecciona la pestaña "Todos los Usuarios", filtra/ busca por rol, estado, nombre, usuario o email.
-    \item Selecciona un usuario y edita rol y/o estado activo/inactivo; guarda cambios.
-    \item El sistema actualiza los datos del usuario, sincroniza el campo activo, registra el cambio en historial y muestra confirmación.
+
+    \item \textbf{Gestionar Usuario Existente}
+    \begin{itemize}[nosep]
+        \item El Administrador accede a ``Gestión de Usuarios''.
+        \item Selecciona pestaña ``Todos los Usuarios''.
+        \item Puede filtrar por:
+        \begin{itemize}[nosep]
+            \item Rol (\texttt{ANALISTA}, \texttt{ADMIN})
+            \item Estado (Activo, Inactivo)
+            \item Búsqueda por nombre, usuario o email
+        \end{itemize}
+        \item Selecciona un usuario para gestionar.
+        \item Puede modificar:
+        \begin{itemize}[nosep]
+            \item Rol: cambiar entre \texttt{ANALISTA} y \texttt{ADMIN}
+            \item Estado activo: activar/desactivar usuario
+        \end{itemize}
+        \item Guarda los cambios.
+        \item El sistema:
+        \begin{itemize}[nosep]
+            \item Actualiza el usuario.
+            \item Sincroniza estado con campo \texttt{activo}.
+            \item Registra el cambio.
+            \item Muestra confirmación.
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 \vspace{0.5em}
@@ -53,45 +116,50 @@
 \vspace{0.3em}
 \noindent\textit{A1. Intentar aprobar con email duplicado}
 \begin{itemize}[nosep]
-    \item El sistema detecta que el email ya está en uso por otro usuario activo.
-    \item Muestra error: "El email ya está en uso por otro usuario activo" y no permite aprobar.
+    \item El sistema detecta que el email ya existe en otro usuario activo.
+    \item Muestra error: ``El email ya está en uso por otro usuario activo''.
+    \item No permite aprobar.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Cancelar aprobación/rechazo}
 \begin{itemize}[nosep]
-    \item El Administrador cierra el diálogo de confirmación o selecciona "Cancelar".
-    \item No se realiza ningún cambio; la solicitud permanece en estado \texttt{PENDIENTE}.
+    \item El usuario cierra el diálogo.
+    \item No se realiza ningún cambio.
+    \item La solicitud permanece \texttt{PENDIENTE}.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A3. Desactivar usuario con sesión activa}
 \begin{itemize}[nosep]
-    \item El sistema permite desactivar el usuario; las sesiones activas pueden continuar hasta expirar.
-    \item En el próximo intento de acceso, el usuario no podrá autenticarse.
+    \item El sistema permite desactivar.
+    \item El usuario pierde acceso en su próximo intento de login.
+    \item Las sesiones activas pueden continuar hasta expirar.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A4. Cambiar rol de ADMIN a ANALISTA}
 \begin{itemize}[nosep]
-    \item Si se intenta demotar a un Admin, el sistema verifica que exista al menos otro Admin activo.
-    \item Si es el último Admin, muestra advertencia y requiere confirmación adicional.
+    \item El sistema verifica que haya al menos otro \texttt{ADMIN} activo.
+    \item Si es el último \texttt{ADMIN} $\rightarrow$ muestra advertencia.
+    \item Requiere confirmación adicional.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A5. Error al enviar email}
 \begin{itemize}[nosep]
-    \item Si el envío de email falla, la acción de aprobar/rechazar se completa de todas formas.
-    \item El sistema registra el error en logs y muestra mensaje indicando el fallo de notificación.
+    \item La aprobación/rechazo se completa exitosamente.
+    \item El email se intenta enviar pero no bloquea el proceso.
+    \item Se registra log del error.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Solo Administradores pueden aprobar, rechazar o gestionar usuarios.
-    \item En la aprobación se envía automáticamente un email de bienvenida; si falla, el proceso no se bloquea.
-    \item Validación de al menos un Admin activo en el sistema antes de demotar un Admin.
-    \item Búsqueda y filtrado eficientes con paginación en la lista de usuarios.
-    \item Sincronización automática entre el campo de estado y el campo \texttt{activo}.
-    \item Registro detallado en historial con usuario, rol, fecha y observaciones.
+    \item Solo Administradores pueden gestionar usuarios.
+    \item Email de bienvenida automático al aprobar.
+    \item Notificación automática al aprobar/rechazar.
+    \item Validación de al menos un \texttt{ADMIN} activo en el sistema.
+    \item Búsqueda y filtrado eficiente con paginación.
+    \item Sincronización automática entre estado y campo \texttt{activo}.
 \end{itemize}

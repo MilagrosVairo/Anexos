@@ -1,33 +1,32 @@
 \subsubsection{Crear y consumir notificaciones automáticas de eventos del sistema}
 
-\textbf{Descripción:} Se generan notificaciones automáticas ante eventos relevantes (registro de usuario, aprobación, rechazo, finalización de análisis, aprobación de análisis y marcado para repetir). Los usuarios destinatarios listan, marcan como leídas, cuentan no leídas y pueden eliminar notificaciones.
+\textbf{Descripción:} Se generan notificaciones para: registro de usuario, aprobación, rechazo, finalización de análisis, aprobación de análisis y marcado para repetir. El usuario las lista, marca como leídas, cuenta no leídas y puede eliminarlas.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
     \item Usuario autenticado.
-    \item Evento disparado existente en el servicio (p.ej. finalizar/análisis/aprobación).
+    \item Evento disparado existente en el servicio.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item Notificación persistida y visible al/los destinatario(s).
-    \item Si el usuario marca la notificación como leída, su estado cambia a \texttt{leida=true}.
+    \item Notificación persistida y visible al destinatario; estado cambia a leída si se marca.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Analista, Administrador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item Ocurre un evento en el sistema (ej.: finalización de un análisis).
-    \item El servicio de notificaciones identifica destinatarios (p.ej., administradores, creador del recurso).
-    \item Se crea la notificación con campos: tipo, mensaje, referencia (ID del recurso), leida = false, fecha.
-    \item El usuario solicita el listado de notificaciones (paginado o filtrado) o solicita solo las no leídas.
-    \item El usuario selecciona una notificación para ver el detalle; el sistema marca la notificación como leída.
-    \item Opcional: el usuario marca todas como leídas o elimina notificaciones individuales.
+    \item Ocurre evento (ej. finalizar análisis).
+    \item Servicio identifica destinatarios (p.ej., administradores o creador).
+    \item Crea notificación (tipo, mensaje, referencia, \texttt{leída=false}).
+    \item Usuario solicita listado paginado o no leídas.
+    \item Selecciona una; se marca leída.
+    \item Opcional: marca todas como leídas o elimina una.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -36,22 +35,18 @@
 \vspace{0.3em}
 \noindent\textit{A1. Eliminación de notificación inexistente}
 \begin{itemize}[nosep]
-    \item El usuario intenta eliminar una notificación que no existe.
-    \item El sistema responde con error y no cambia estado de otras notificaciones.
+    \item Lanza error y no cambia estado.
 \end{itemize}
 
 \vspace{0.3em}
-\noindent\textit{A2. Error al crear notificación (repositorio)}
+\noindent\textit{A2. Error al crear (repositorio)}
 \begin{itemize}[nosep]
-    \item Si ocurre un error al persistir la notificación, el servicio captura el error y registra el incidente.
-    \item El flujo principal del evento continúa sin bloquearse por la falla en la notificación.
+    \item Se captura y continúa sin bloquear el flujo principal del evento.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Tipos de notificaciones: \texttt{USUARIO_REGISTRO}, \texttt{USUARIO_APROBADO}, \texttt{USUARIO_RECHAZADO}, \texttt{ANALISIS_FINALIZADO}, \texttt{ANALISIS_APROBADO}, \texttt{ANALISIS_REPETIR}.
-    \item Operaciones soportadas: crear, listar (paginado), obtener no leídas, marcar leída, marcar todas como leídas, eliminar, contar no leídas.
-    \item Persistencia eficiente y endpoint para consultar/actualizar estado (leída/no leída) sin bloquear los eventos.
-    \item Manejo de errores y logging al fallar operaciones de persistencia o notificación.
+    \item Tipos de notificaciones: \texttt{USUARIO\_REGISTRO}, \texttt{USUARIO\_APROBADO}, \texttt{USUARIO\_RECHAZADO}, \texttt{ANALISIS\_FINALIZADO}, \texttt{ANALISIS\_APROBADO}, \texttt{ANALISIS\_REPETIR}.
+    \item Operaciones: crear, listar, obtener no leídas, marcar leída, marcar todas, eliminar, contar no leídas.
 \end{itemize}

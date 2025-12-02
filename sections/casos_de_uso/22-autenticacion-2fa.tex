@@ -1,33 +1,32 @@
 \subsubsection{Verificar segundo factor luego del login inicial}
 
-\textbf{Descripción:} Tras validar credenciales, si el usuario tiene 2FA (TOTP) habilitado, el sistema solicita un código TOTP generado por una aplicación autenticadora. Si la verificación es correcta, se completa la sesión con segundo factor.
+\textbf{Descripción:} Tras credenciales válidas, si el usuario tiene 2FA activo se solicita código TOTP (aplicación autenticadora). Se verifica y se completa la sesión.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
     \item Usuario activo y aprobado.
-    \item 2FA habilitado para el usuario (secret TOTP almacenado).
+    \item 2FA habilitado (secret almacenado) para ese usuario.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item Sesión autenticada con segundo factor; acceso normal concedido.
-    \item Evento de auditoría registrado (intento 2FA correcto/incorrecto).
+    \item Sesión autenticada de segundo factor; acceso normal concedido.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Observador, Analista, Administrador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El usuario envía credenciales al endpoint de login.
-    \item El backend valida credenciales y el estado del usuario (no pendiente de aprobación).
-    \item Si el usuario tiene 2FA habilitado, el backend responde indicando que se requiere TOTP.
-    \item El usuario envía el código TOTP (por ejemplo: \texttt{Verify2FARequestDTO}).
-    \item El backend valida el código contra el servicio TOTP (\texttt{TotpService}).
-    \item Si la verificación es correcta, el backend retorna el token final (JWT/session) y habilita el acceso.
+    \item Usuario envía credenciales al endpoint de login.
+    \item Backend valida usuario y estado (no pendiente) y detecta 2FA.
+    \item Responde solicitando código TOTP.
+    \item Usuario envía código (\texttt{Verify2FARequestDTO}).
+    \item Backend valida contra \texttt{TotpService}.
+    \item Si es correcto, retorna token final y habilita acceso.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -36,28 +35,26 @@
 \vspace{0.3em}
 \noindent\textit{A1. Código incorrecto}
 \begin{itemize}[nosep]
-    \item Si el código TOTP es incorrecto, el backend devuelve error y permite reintentos según política (p.ej., 3 intentos antes de bloqueo temporal).
-    \item Se registra el intento fallido en auditoría.
+    \item Respuesta de error, se permite reintento.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Usuario sin 2FA}
 \begin{itemize}[nosep]
-    \item Si el usuario no tiene 2FA habilitado, el backend emite el token final inmediatamente después de validar credenciales.
+    \item Emisión de token sin paso adicional.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A3. Usuario pendiente de aprobación}
 \begin{itemize}[nosep]
-    \item Si el usuario está pendiente de aprobación o inactivo, el backend bloquea el acceso y retorna el error correspondiente (ver caso de uso de gestión de usuarios).
+    \item Se bloquea (ver siguiente caso).
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Validación TOTP centralizada en un servicio dedicado (\texttt{TotpService}).
-    \item Control por controlador/endpoint específico para verificación 2FA.
-    \item Auditoría de intentos 2FA (exitosos y fallidos).
-    \item Notificación por email al activar 2FA (informativo).
-    \item Política de reintentos y bloqueo temporal configurable (p.ej., 3 intentos, 5 minutos de bloqueo).
+    \item Validación TOTP en servicio dedicado.
+    \item Control por controlador específico.
+    \item Email informativo al activar 2FA.
+\end{itemize}
 \end{itemize}

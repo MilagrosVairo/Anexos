@@ -1,6 +1,6 @@
 \subsubsection{Importar datos históricos desde un archivo Excel a la entidad Legado}
 
-	extbf{Descripción:} El sistema procesa un archivo Excel, mapea filas a entidades `Legado` (incluyendo el campo `filaExcel`) y persiste los registros, permitiendo la carga de datos previos externos.
+\textbf{Descripción:} El sistema procesa un archivo Excel, mapea filas a entidades Legado (incluyendo \texttt{filaExcel}) y persiste los registros, permitiendo carga de datos previos externos.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
@@ -12,26 +12,21 @@
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-   \item Registros `Legado` creados o ignorados según modo (simulación vs persistencia real) y resultado con conteos (procesados, guardados, errores).
+   \item Registros Legado creados o ignorados según modo (simulación vs persistencia real) y resultado con conteos.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Administrador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-   \item Usuario (Administrador) sube archivo Excel y elige modo: simulación (`dry-run`) o importación definitiva.
-   \item Servicio recibe el archivo y valida el formato básico del workbook (hoja(s) esperadas, encabezados mínimos).
-   \item Servicio itera sobre las filas válidas:
-   \begin{enumerate}[nosep]
-      \item Mapea columnas a campos de la entidad `Legado`.
-      \item Asigna el número de `filaExcel` (o identificador de fila) para rastreo de origen.
-      \item Valida integridad/consistencia de datos de la fila (tipos, rangos, campos obligatorios).
-      \item Si el modo es definitivo: persiste la entidad mediante el repositorio correspondiente. Si el modo es simulación: acumula el resultado sin persistir.
-      \item Registra si la fila fue procesada correctamente o si generó un error (con mensaje y número de fila).
-   \end{enumerate}
-   \item Al finalizar, el servicio construye y retorna un resultado con conteos: total filas, procesadas, guardadas, ignoradas y errores. Puede incluir una muestra de errores con `filaExcel` y mensaje.
+   \item Usuario sube archivo y elige simulación (dry-run) o importación definitiva.
+   \item Servicio lee workbook y recorre filas válidas.
+   \item Para cada fila crea Legado, asigna campos y \texttt{filaExcel}.
+   \item Si modo definitivo: guarda vía repositorio; si simulación: acumula sin persistir.
+   \item Construye resultado con filas procesadas, guardadas y errores.
+   \item Retorna resultado al usuario.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -40,34 +35,31 @@
 \vspace{0.3em}
 \noindent\textit{A1. Archivo vacío}
 \begin{itemize}[nosep]
-   \item Resultado con contadores en cero y `200 OK`.
+   \item Resultado con contadores en cero.
 \end{itemize}
 
 \vspace{0.3em}
-\noindent\textit{A2. Error de formato}
+\noindent\textit{A2. Error de formato (columna obligatoria faltante)}
 \begin{itemize}[nosep]
-   \item Si falta una columna obligatoria, registrar error y (según política) abortar con `400 Bad Request` o continuar e incluir errores por fila en el resultado.
+   \item Se registra error y puede abortar o continuar según implementación.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A3. Dry-run}
 \begin{itemize}[nosep]
-   \item No se guarda nada; la respuesta indica lo que se habría importado y los errores detectados.
+   \item No se guarda nada; solo se reporta lo que se importaría.
 \end{itemize}
 
 \vspace{0.3em}
-\noindent\textit{A4. Fila inválida}
+\noindent\textit{A4. Fila con datos inválidos}
 \begin{itemize}[nosep]
-   \item Omisión de la fila, incremento del contador de errores y registro del detalle para corrección posterior.
+   \item Se omite e incrementa contador de errores.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-   \item Mantener el campo `filaExcel` en la entidad `Legado` para permitir trazabilidad desde el origen.
-   \item Soportar archivos grandes: procesamiento por streaming/por lotes y límites de memoria.
-   \item Transacciones: en modo definitivo, soportar opción de "todo o nada" (rollback) o persistencia por fila según la política de importación.
-   \item Registro de auditoría: quién inició la importación, modo, fecha y resumen de resultados.
+   \item Campo filaExcel para rastreo de origen.
 \end{itemize}
 
 % Fin del caso de uso

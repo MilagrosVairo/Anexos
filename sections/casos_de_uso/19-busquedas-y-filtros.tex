@@ -6,28 +6,28 @@
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
     \item Usuario autenticado (Observador, Analista o Administrador).
-    \item Existen registros en la entidad consultada (lotes, análisis, usuarios, etc.).
+    \item Existen registros en la entidad consultada.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item Se devuelve una página de resultados con el total global para la consulta, permitiendo paginar y refinar filtros.
+    \item Se devuelve página de resultados con total global para continuar navegando.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Observador, Analista, Administrador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El usuario abre un listado (por ejemplo: lotes, análisis, usuarios).
-    \item Selecciona los filtros deseados (ej: estado = PENDIENTE_APROBACION, tipo = GERMINACION, rango de fechas).
-    \item Define parámetros de paginación y orden (campo y asc/desc).
-    \item El frontend envía los parámetros al backend.
-    \item El backend construye la consulta (por ejemplo usando Specifications) y ejecuta la paginación.
-    \item El backend devuelve: lista de resultados para la página, total global, número de página y tamaño de página.
-    \item El usuario navega páginas o refina los filtros según sea necesario.
+    \item Usuario abre listado (lotes, análisis, usuarios).
+    \item Selecciona filtros (ej: estado = \texttt{PENDIENTE\_APROBACION}, tipo = \texttt{GERMINACION}, fecha inicio entre dos fechas).
+    \item Define página (campo).
+    \item Frontend envía parámetros al backend.
+    \item Backend construye query (ej Specifications) y ejecuta paginación.
+    \item Devuelve lista, total, número de página y tamaño.
+    \item Usuario navega páginas o refina filtros.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -36,29 +36,27 @@
 \vspace{0.3em}
 \noindent\textit{A1. Sin resultados}
 \begin{itemize}[nosep]
-    \item La consulta no encuentra registros que cumplan los filtros.
-    \item Se devuelve lista vacía y total = 0.
+    \item Retorna lista vacía y total 0.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Filtros inválidos}
 \begin{itemize}[nosep]
-    \item Si los parámetros son inválidos (ej: formato de fechas incorrecto), el backend rechaza la solicitud y devuelve error.
-    \item El frontend muestra el error al usuario para corregir los filtros.
+    \item Formato fechas incorrecto: backend rechaza.
+    \item Se muestra error.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A3. Página fuera de rango}
 \begin{itemize}[nosep]
-    \item Si la página solicitada excede el rango disponible, el backend ajusta a la última página válida o retorna vacío según la política.
+    \item Backend ajusta a última página o devuelve vacío.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Soporte de filtros por estado (EN_PROCESO, PENDIENTE_APROBACION, APROBADO, A_REPETIR) y estado activo/inactivo.
-    \item Filtros por tipo de análisis (PUREZA, PMS, GERMINACION, TETRAZOLIO, DOSN).
-    \item Paginación que incluya total global para permitir navegación correcta.
-    \item Orden por al menos un campo (configurable asc/desc).
-    \item Validaciones de parámetros en backend y manejo claro de errores para el frontend.
+    \item Filtros por estado (\texttt{EN\_PROCESO}, \texttt{PENDIENTE\_APROBACION}, \texttt{APROBADO}, \texttt{A\_REPETIR}) y activos/inactivos.
+    \item Filtros por tipo de análisis (\texttt{PUREZA}, \texttt{PMS}, \texttt{GERMINACION}, \texttt{TETRAZOLIO}, \texttt{DOSN}).
+    \item Paginación con total.
+    \item Orden por al menos un campo.
 \end{itemize}

@@ -1,32 +1,32 @@
 \subsubsection{Generar archivo Excel con datos de lotes y análisis aplicando filtros}
 
-\textbf{Descripción:} El usuario solicita exportar resultados filtrados y el sistema genera un archivo XLSX con encabezados, subencabezados y filas de datos según el DTO de exportación.
+\textbf{Descripción:} El usuario solicita exportar resultados filtrados y el sistema genera un archivo XLSX con encabezados, subencabezados y filas de datos según DTO de exportación.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
-    \item Usuario autenticado (Observador, Analista o Administrador).
-    \item Existen registros para los filtros o los IDs solicitados.
+    \item Usuario autenticado.
+    \item Existen registros para los filtros o IDs solicitados.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item Archivo Excel generado en memoria y ofrecido para descarga (respuesta HTTP con bytes XLSX).
+    \item Archivo Excel generado en memoria y ofrecido para descarga.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Observador, Analista, Administrador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El usuario dispara la acción "Exportar Excel" desde la pantalla de resultados.
-    \item El frontend envía al backend `loteIds` o una estructura de filtros (`ExportacionRequestDTO`).
-    \item El backend obtiene los datos consolidados según filtros (DTO de exportación).
-    \item El servicio construye el workbook XLSX: encabezados, subencabezados y filas de datos.
-    \item Se aplican estilos básicos, autoajuste de columnas y formatos adecuados (fechas, números).
-    \item El backend retorna los bytes del archivo XLSX para descarga inmediata por el frontend.
+    \item Usuario dispara acción ``Exportar Excel'' desde la pantalla de resultados.
+    \item Frontend envía \texttt{loteIds} o estructura de filtros (\texttt{ExportacionRequestDTO}).
+    \item Backend obtiene datos (DTO consolidado) según filtros.
+    \item Construye workbook (encabezados, subencabezados, filas).
+    \item Ajusta estilos básicos y autoajuste de columnas.
+    \item Retorna bytes XLSX para descarga inmediata.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -35,30 +35,25 @@
 \vspace{0.3em}
 \noindent\textit{A1. Sin datos}
 \begin{itemize}[nosep]
-    \item No existen registros para los filtros solicitados.
-    \item El sistema genera un archivo XLSX que contiene solo los encabezados y se ofrece para descarga.
+    \item Genera archivo con solo encabezados.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. IDs inválidos}
 \begin{itemize}[nosep]
-    \item El backend omite los IDs inexistentes y continúa si hay al menos un ID válido.
-    \item Si todos los IDs son inválidos, el sistema puede devolver un error indicando que no hay datos válidos (según política).
+    \item Backend omite inexistentes y continúa, o lanza error si todos son inválidos.
 \end{itemize}
 
 \vspace{0.3em}
-\noindent\textit{A3. Error de E/S al generar el archivo}
+\noindent\textit{A3. Error de E/S al generar}
 \begin{itemize}[nosep]
-    \item Si ocurre un error de E/S en la generación del libro, el backend devuelve un mensaje de fallo y no entrega el archivo.
-    \item El error queda logueado y se notifica al equipo si procede.
+    \item Se retorna mensaje de fallo y no se entrega archivo.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Solo formato Excel (XLSX) soportado para esta exportación.
-    \item Encabezados y subencabezados definidos por el servicio de exportación.
-    \item Filtrado avanzado soportado por la solicitud (por ejemplo: `obtenerDatosConFiltros`).
-    \item Generación en memoria y retorno como bytes para descarga; evitar escritura temporal en disco si es posible.
-    \item Manejo de formatos de datos (fechas, números) y autoajuste de columnas para legibilidad.
+    \item Solo formato Excel.
+    \item Encabezados y subencabezados definidos en servicio.
+    \item Filtrado avanzado soportado por solicitud (\texttt{obtenerDatosConFiltros}).
 \end{itemize}

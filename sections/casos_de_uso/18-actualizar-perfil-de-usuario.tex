@@ -1,6 +1,6 @@
 \subsubsection{Actualizar Perfil Propio}
 
-\textbf{Descripción:} El usuario actualiza su propia información de perfil, incluyendo datos personales y contraseña. Los cambios se validan en tiempo real y se aplican de forma segura.
+\textbf{Descripción:} El usuario actualiza su propia información de perfil, incluyendo datos personales y contraseña.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
@@ -13,37 +13,81 @@
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
     \item Información del perfil actualizada.
-    \item Si se cambió la contraseña: nueva contraseña hasheada y almacenada (bcrypt).
-    \item Si se cambió el email: se aplica validación de unicidad.
-    \item Cambios reflejados inmediatamente; la sesión permanece activa.
+    \item Si cambió contraseña: nueva contraseña hasheada y almacenada.
+    \item Si cambió email: validación de unicidad aplicada.
+    \item Cambios reflejados inmediatamente.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Administrador, Analista, Observador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El usuario hace clic en su nombre/avatar y selecciona "Mi Perfil" o "Configuración".
-    \item El sistema carga los datos actuales del usuario (nombre de usuario, nombres, apellidos, email) y muestra el formulario de edición.
-    \item Actualización de datos personales:
+    \item \textbf{Acceso al perfil}
     \begin{itemize}[nosep]
-        \item El usuario puede modificar: Nombre de usuario (único), Nombres (solo letras), Apellidos (solo letras), Email (único, formato válido).
-        \item El sistema valida en tiempo real formato y unicidad (excluyendo el usuario actual).
+        \item El usuario hace clic en su nombre/avatar.
+        \item Selecciona ``Mi Perfil'' o ``Configuración''.
+        \item El sistema carga los datos actuales del usuario:
+        \begin{itemize}[nosep]
+            \item Nombre de usuario
+            \item Nombres
+            \item Apellidos
+            \item Email
+        \end{itemize}
+        \item Muestra formulario de edición.
     \end{itemize}
-    \item Cambio de contraseña (opcional):
+
+    \item \textbf{Actualización de datos personales}
     \begin{itemize}[nosep]
-        \item Si el usuario marca "Cambiar contraseña", aparecen campos: Contraseña actual, Nueva contraseña, Confirmar nueva contraseña.
-        \item El sistema valida: contraseña actual correcta, nueva contraseña cumple requisitos (mínimo 8 caracteres, letra y número), nueva contraseña distinta a la actual y coincidencia de confirmación.
-        \item Se muestra indicador de fortaleza (débil/media/fuerte) en tiempo real.
+        \item El usuario puede modificar:
+        \begin{itemize}[nosep]
+            \item Nombre de usuario (único)
+            \item Nombres (solo letras)
+            \item Apellidos (solo letras)
+            \item Email (único, formato válido)
+        \end{itemize}
+        \item El sistema valida en tiempo real:
+        \begin{itemize}[nosep]
+            \item Formato de cada campo
+            \item Unicidad de nombre de usuario (excluyendo el actual)
+            \item Unicidad de email (excluyendo el actual)
+        \end{itemize}
     \end{itemize}
-    \item El usuario hace clic en "Guardar cambios".
-    \item El sistema valida todos los campos; si todo es correcto:
+
+    \item \textbf{Cambio de contraseña (opcional)}
     \begin{itemize}[nosep]
-        \item Si cambió contraseña → hashea con bcrypt y almacena el hash.
-        \item Actualiza el registro del usuario en la base de datos.
-        \item Mantiene la sesión activa.
-        \item Muestra confirmación: "Perfil actualizado exitosamente". Si cambió contraseña: mensaje adicional "Tu contraseña ha sido cambiada exitosamente".
+        \item Si el usuario desea cambiar la contraseña:
+        \begin{itemize}[nosep]
+            \item Aparecen campos adicionales:
+            \begin{itemize}[nosep]
+                \item Contraseña actual (obligatoria para verificar identidad)
+                \item Nueva contraseña (mínimo 8 caracteres, letra y número)
+                \item Confirmar nueva contraseña
+            \end{itemize}
+            \item El sistema valida:
+            \begin{itemize}[nosep]
+                \item Contraseña actual es correcta
+                \item Nueva contraseña cumple requisitos
+                \item Nueva contraseña $\neq$ contraseña actual
+                \item Confirmación coincide con nueva contraseña
+            \end{itemize}
+            \item Muestra indicador de fortaleza (débil/media/fuerte).
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Guardar cambios}
+    \begin{itemize}[nosep]
+        \item El usuario hace clic en ``Guardar cambios''.
+        \item El sistema:
+        \begin{itemize}[nosep]
+            \item Valida todos los campos modificados.
+            \item Si cambió contraseña $\rightarrow$ hashea con bcrypt.
+            \item Actualiza el usuario en base de datos.
+            \item Mantiene la sesión activa.
+            \item Muestra confirmación: ``Perfil actualizado exitosamente''.
+            \item Si cambió contraseña $\rightarrow$ mensaje adicional: ``Tu contraseña ha sido cambiada exitosamente''.
+        \end{itemize}
     \end{itemize}
 \end{enumerate}
 
@@ -53,62 +97,68 @@
 \vspace{0.3em}
 \noindent\textit{A1. Nombre de usuario duplicado}
 \begin{itemize}[nosep]
-    \item El sistema detecta duplicado (excluyendo el usuario actual).
-    \item Muestra error: "El nombre de usuario ya está en uso por otro usuario".
-    \item No permite guardar hasta corregir.
+    \item El sistema detecta duplicado (excluyendo usuario actual).
+    \item Muestra error: ``El nombre de usuario ya está en uso por otro usuario''.
+    \item No permite guardar hasta cambiar.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Email duplicado}
 \begin{itemize}[nosep]
-    \item El sistema detecta duplicado (excluyendo el usuario actual).
-    \item Muestra error: "El email ya está en uso por otro usuario".
-    \item No permite guardar hasta corregir.
+    \item El sistema detecta duplicado (excluyendo usuario actual).
+    \item Muestra error: ``El email ya está en uso por otro usuario''.
+    \item No permite guardar hasta cambiar.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A3. Contraseña actual incorrecta}
 \begin{itemize}[nosep]
-    \item El usuario ingresa la contraseña actual incorrecta.
-    \item El sistema valida contra el hash almacenado y muestra error: "Contraseña actual incorrecta".
-    \item No permite guardar el cambio de contraseña.
+    \item El usuario ingresa contraseña actual incorrecta.
+    \item El sistema valida contra hash almacenado.
+    \item Muestra error: ``Contraseña actual incorrecta''.
+    \item No permite guardar cambio de contraseña.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A4. Nueva contraseña igual a la actual}
 \begin{itemize}[nosep]
-    \item El sistema detecta igualdad y muestra error: "La nueva contraseña no puede ser igual a la contraseña actual".
+    \item El sistema compara hashes.
+    \item Muestra error: ``La nueva contraseña no puede ser igual a la contraseña actual''.
     \item No permite guardar hasta cambiar.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A5. Contraseña débil}
 \begin{itemize}[nosep]
-    \item El sistema muestra indicador rojo y requisitos no cumplidos.
-    \item Permite guardar pero con advertencia explícita al usuario (según política del producto).
+    \item El sistema muestra indicador rojo.
+    \item Muestra requisitos no cumplidos.
+    \item Permite guardar pero con advertencia.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A6. Contraseñas no coinciden}
 \begin{itemize}[nosep]
-    \item El sistema valida en tiempo real y muestra error: "Las contraseñas no coinciden".
+    \item El sistema valida en tiempo real.
+    \item Muestra error: ``Las contraseñas no coinciden''.
     \item No permite guardar hasta corregir.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A7. Cancelar cambios}
 \begin{itemize}[nosep]
-    \item El usuario selecciona "Cancelar".
-    \item El sistema descarta los cambios y vuelve a la vista anterior.
+    \item El usuario hace clic en ``Cancelar''.
+    \item El sistema descarta todos los cambios.
+    \item Vuelve a la vista anterior.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Validación asíncrona de unicidad (nombre de usuario y email) excluyendo el usuario actual (case-insensitive).
+    \item Validación asíncrona de unicidad (nombre y email) excluyendo usuario actual.
     \item Validación en tiempo real de fortaleza de contraseña.
     \item Hasheo seguro con bcrypt antes de almacenar nueva contraseña.
-    \item Verificación obligatoria de la contraseña actual para cambiar la contraseña.
+    \item Verificación de contraseña actual obligatoria para cambiar contraseña.
     \item Indicador visual de fortaleza de contraseña.
-    \item La sesión permanece activa después de cambios, incluido cambio de contraseña.
+    \item Sesión permanece activa después de cambios (incluido cambio de contraseña).
+    \item Validación case-insensitive para email y nombre de usuario.
 \end{itemize}

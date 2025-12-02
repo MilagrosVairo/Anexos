@@ -1,22 +1,22 @@
 \subsubsection{Marcar Análisis para Repetir}
 
-\textbf{Descripción:} El Administrador marca un análisis como "A REPETIR" cuando no cumple con los estándares de calidad, permitiendo crear un nuevo análisis del mismo tipo para el lote. El análisis marcado queda como referencia histórica.
+\textbf{Descripción:} El Administrador marca un análisis como \texttt{A REPETIR} cuando no cumple con los estándares de calidad, permitiendo crear un nuevo análisis del mismo tipo para el lote.
 
 \vspace{0.5em}
-\noindent\textbf{PreCondiciones:}
+\noindent\textbf{Pre-Condiciones:}
 \begin{itemize}[nosep]
-    \item El análisis debe estar en estado "PENDIENTE APROBACION" o "APROBADO".
-    \item El usuario debe tener rol Administrador.
-    \item Se detectaron problemas de calidad, errores en datos o inconsistencias metodológicas.
+    \item El análisis debe estar en estado \texttt{PENDIENTE APROBACION} o \texttt{APROBADO}.
+    \item El usuario debe tener rol \texttt{ADMIN}.
+    \item Se detectaron problemas de calidad o errores.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item El análisis cambia a estado "A REPETIR".
+    \item Análisis cambia a estado \texttt{A REPETIR}.
     \item Se habilita la creación de un nuevo análisis del mismo tipo para el lote.
-    \item El análisis marcado queda como referencia histórica (solo lectura).
-    \item Se registra la acción en el historial con usuario, fecha y motivo/observaciones.
+    \item El análisis marcado queda como referencia histórica.
+    \item Registro en historial.
 \end{itemize}
 
 \vspace{0.5em}
@@ -26,22 +26,29 @@
 \noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
     \item El Administrador accede al detalle de un análisis.
-    \item Revisa el análisis y detecta problemas (errores en datos, incumplimiento de estándares, resultados inconsistentes, problemas metodológicos).
-    \item Selecciona la acción "Marcar para repetir".
-    \item El sistema muestra un diálogo de confirmación con texto explicativo:
+    \item Revisa el análisis y detecta problemas:
     \begin{itemize}[nosep]
-        \item "¿Está seguro de marcar este análisis para repetir?"
-        \item "Esto permitirá crear un nuevo análisis del mismo tipo"
+        \item Errores en datos registrados.
+        \item No cumple estándares de calidad.
+        \item Resultados inconsistentes.
+        \item Problemas metodológicos.
+    \end{itemize}
+    \item Selecciona ``Marcar para repetir''.
+    \item El sistema muestra diálogo de confirmación:
+    \begin{itemize}[nosep]
+        \item ``¿Está seguro de marcar este análisis para repetir?''
+        \item ``Esto permitirá crear un nuevo análisis del mismo tipo''
         \item Campo opcional para ingresar motivo/observaciones.
     \end{itemize}
     \item El Administrador confirma y opcionalmente ingresa el motivo.
     \item El sistema:
     \begin{itemize}[nosep]
-        \item Cambia el estado del análisis a "A REPETIR".
-        \item Registra el motivo y la acción en el historial (usuario, rol, fecha, observaciones).
-        \item Habilita la opción de crear un nuevo análisis del mismo tipo para el lote (el lote vuelve a ser elegible para ese tipo de análisis).
-        \item Muestra confirmación: "Análisis marcado para repetir. Ahora puede crear un nuevo análisis".
+        \item Cambia el estado a \texttt{A REPETIR}.
+        \item Registra el motivo en el historial.
+        \item Habilita la opción de crear nuevo análisis del mismo tipo para el lote.
+        \item Muestra confirmación: ``Análisis marcado para repetir. Ahora puede crear un nuevo análisis''.
     \end{itemize}
+    \item El lote vuelve a estar ``elegible'' para ese tipo de análisis.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -50,39 +57,46 @@
 \vspace{0.3em}
 \noindent\textit{A1. Marcar análisis APROBADO para repetir}
 \begin{itemize}[nosep]
-    \item Si el análisis está en estado "APROBADO", el sistema muestra una advertencia adicional: "ATENCIÓN: Este análisis está APROBADO. Marcarlo para repetir lo invalidará como resultado oficial".
-    \item Requiere confirmación adicional por parte del Administrador.
-    \item Si confirma, procede como en el flujo principal.
+    \item El sistema muestra advertencia adicional:
+    \begin{itemize}[nosep]
+        \item ``ATENCIÓN: Este análisis está APROBADO''
+        \item ``Marcarlo para repetir lo invalidará como resultado oficial''
+    \end{itemize}
+    \item Requiere confirmación adicional.
+    \item Si confirma $\rightarrow$ procede normalmente.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Usuario cancela la acción}
 \begin{itemize}[nosep]
-    \item El Administrador cierra el diálogo o selecciona "Cancelar".
-    \item No se realiza ningún cambio; el análisis mantiene su estado actual.
+    \item El usuario cierra el diálogo o selecciona ``Cancelar''.
+    \item No se realiza ningún cambio.
+    \item El análisis mantiene su estado actual.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A3. Ya existe otro análisis activo del mismo tipo}
 \begin{itemize}[nosep]
-    \item El sistema verifica si hay otro análisis en progreso del mismo tipo para el lote.
-    \item Muestra advertencia: "Ya existe otro análisis de [TIPO] en proceso para este lote".
-    \item Permite continuar (el sistema puede aceptar múltiples análisis históricos), pero informa al usuario.
+    \item El sistema verifica si ya hay otro análisis en progreso.
+    \item Muestra advertencia: ``Ya existe otro análisis de [TIPO] en proceso para este lote''.
+    \item Permite continuar (puede haber múltiples análisis históricos).
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A4. Usuario sin permisos}
 \begin{itemize}[nosep]
-    \item Si el usuario no es Administrador, la acción "Marcar para repetir" no aparece en la interfaz.
-    \item Si intenta acceder por URL directa, el sistema responde con error 403 (Acceso denegado).
+    \item El sistema detecta que no es Administrador.
+    \item No muestra el botón ``Marcar para repetir''.
+    \item Si intenta acceder $\rightarrow$ muestra error 403.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Solo Administradores pueden marcar un análisis como "A REPETIR".
-    \item Puede aplicarse a análisis en "PENDIENTE APROBACION" o "APROBADO".
-    \item Requiere confirmación explícita y, opcionalmente, motivo/observaciones.
-    \item El análisis marcado no se elimina; permanece como referencia histórica y queda en solo lectura.
-    \item La acción habilita automáticamente la creación de un nuevo análisis del mismo tipo para el lote.
+    \item Solo Administradores pueden marcar para repetir.
+    \item Puede aplicarse a análisis \texttt{PENDIENTE APROBACION} o \texttt{APROBADO}.
+    \item Requiere confirmación explícita.
+    \item Campo opcional para registrar motivo/observaciones.
+    \item El análisis marcado no se elimina, queda como referencia histórica.
+    \item Habilita automáticamente la creación de nuevo análisis del mismo tipo.
 \end{itemize}

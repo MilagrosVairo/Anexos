@@ -21,29 +21,29 @@
 \contentsline {subsubsection}{\numberline {3.13}Gestión de Análisis DOSN}{36}{subsubsection.120}%
 \contentsline {subsubsection}{\numberline {3.14}Finalizar Análisis (Todos los tipos)}{40}{subsubsection.146}%
 \contentsline {subsubsection}{\numberline {3.15}Aprobar Análisis Pendiente}{42}{subsubsection.152}%
-\contentsline {subsubsection}{\numberline {3.16}Marcar Análisis para Repetir}{45}{subsubsection.161}%
-\contentsline {subsubsection}{\numberline {3.17}Aprobar, Rechazar y Gestionar Usuarios}{47}{subsubsection.168}%
-\contentsline {subsubsection}{\numberline {3.18}Actualizar Perfil Propio}{49}{subsubsection.180}%
-\contentsline {subsubsection}{\numberline {3.19}Consultar registros con filtros combinados}{52}{subsubsection.187}%
-\contentsline {subsubsection}{\numberline {3.20}Generar archivo Excel con datos de lotes y análisis aplicando filtros}{53}{subsubsection.195}%
-\contentsline {subsubsection}{\numberline {3.21}Crear y consumir notificaciones automáticas de eventos del sistema}{55}{subsubsection.202}%
-\contentsline {subsubsection}{\numberline {3.22}Verificar segundo factor luego del login inicial}{56}{subsubsection.209}%
-\contentsline {subsubsection}{\numberline {3.23}Impedir acceso a cuenta en estado pendiente}{58}{subsubsection.216}%
-\contentsline {subsubsection}{\numberline {3.24}Obtener métricas agregadas de análisis}{59}{subsubsection.222}%
-\contentsline {subsubsection}{\numberline {3.25}Generar métricas consolidadas (general y por tipo) en un periodo}{60}{subsubsection.227}%
-\contentsline {subsubsection}{\numberline {3.26}Importar datos históricos desde un archivo Excel a la entidad Legado}{62}{subsubsection.238}%
-\contentsline {section}{Anexo 2 -- Marco Teórico}{65}{section*.249}%
-\contentsline {subsection}{\numberline {1}Introducción}{66}{subsection.250}%
-\contentsline {subsubsection}{\numberline {1.1}Limitaciones de las hojas de cálculo}{66}{subsubsection.251}%
-\contentsline {subsubsection}{\numberline {1.2}La Transición Hacia Sistemas Web}{68}{subsubsection.252}%
-\contentsline {subsubsection}{\numberline {1.3}Sistemas LIMS como referencia conceptual}{69}{subsubsection.253}%
-\contentsline {subsection}{\numberline {2}Soluciones Similares}{70}{subsection.254}%
-\contentsline {subsubsection}{\numberline {2.1}Airtable}{70}{subsubsection.255}%
-\contentsline {subsubsection}{\numberline {2.2}Smartsheet}{71}{subsubsection.258}%
-\contentsline {section}{Anexo 3 -- Mitigación de Riesgos}{73}{section*.262}%
-\contentsline {subsection}{\numberline {1}Historial de revisiones}{74}{subsection.263}%
-\contentsline {subsection}{\numberline {2}Lista de Riesgos identificados}{75}{subsection.264}%
-\contentsline {subsubsection}{\numberline {2.1}Riesgo 1 -- Experiencia limitada en PWA}{75}{subsubsection.265}%
-\contentsline {subsubsection}{\numberline {2.2}Riesgo 2 -- Falta de experiencia en React de parte del equipo}{76}{subsubsection.266}%
-\contentsline {subsubsection}{\numberline {2.3}Riesgo 3 -- Plazos reducidos}{77}{subsubsection.267}%
-\contentsline {subsubsection}{\numberline {2.4}Riesgo 4 -- Dependencia de coordinación grupal}{78}{subsubsection.268}%
+\contentsline {subsubsection}{\numberline {3.16}Marcar Análisis para Repetir}{44}{subsubsection.165}%
+\contentsline {subsubsection}{\numberline {3.17}Aprobar, Rechazar y Gestionar Usuarios}{47}{subsubsection.173}%
+\contentsline {subsubsection}{\numberline {3.18}Actualizar Perfil Propio}{50}{subsubsection.179}%
+\contentsline {subsubsection}{\numberline {3.19}Consultar registros con filtros combinados}{54}{subsubsection.184}%
+\contentsline {subsubsection}{\numberline {3.20}Generar archivo Excel con datos de lotes y análisis aplicando filtros}{55}{subsubsection.192}%
+\contentsline {subsubsection}{\numberline {3.21}Crear y consumir notificaciones automáticas de eventos del sistema}{56}{subsubsection.199}%
+\contentsline {subsubsection}{\numberline {3.22}Verificar segundo factor luego del login inicial}{57}{subsubsection.206}%
+\contentsline {subsubsection}{\numberline {3.23}Impedir acceso a cuenta en estado pendiente}{58}{subsubsection.213}%
+\contentsline {subsubsection}{\numberline {3.24}Obtener métricas agregadas de análisis}{59}{subsubsection.219}%
+\contentsline {subsubsection}{\numberline {3.25}Generar métricas consolidadas (general y por tipo) en un periodo, incluyendo consultas de contaminantes por especie}{60}{subsubsection.224}%
+\contentsline {subsubsection}{\numberline {3.26}Importar datos históricos desde un archivo Excel a la entidad Legado}{62}{subsubsection.234}%
+\contentsline {section}{Anexo 2 -- Marco Teórico}{65}{section*.242}%
+\contentsline {subsection}{\numberline {1}Introducción}{66}{subsection.243}%
+\contentsline {subsubsection}{\numberline {1.1}Limitaciones de las hojas de cálculo}{66}{subsubsection.244}%
+\contentsline {subsubsection}{\numberline {1.2}La Transición Hacia Sistemas Web}{68}{subsubsection.245}%
+\contentsline {subsubsection}{\numberline {1.3}Sistemas LIMS como referencia conceptual}{69}{subsubsection.246}%
+\contentsline {subsection}{\numberline {2}Soluciones Similares}{70}{subsection.247}%
+\contentsline {subsubsection}{\numberline {2.1}Airtable}{70}{subsubsection.248}%
+\contentsline {subsubsection}{\numberline {2.2}Smartsheet}{71}{subsubsection.251}%
+\contentsline {section}{Anexo 3 -- Mitigación de Riesgos}{73}{section*.255}%
+\contentsline {subsection}{\numberline {1}Historial de revisiones}{74}{subsection.256}%
+\contentsline {subsection}{\numberline {2}Lista de Riesgos identificados}{75}{subsection.257}%
+\contentsline {subsubsection}{\numberline {2.1}Riesgo 1 -- Experiencia limitada en PWA}{75}{subsubsection.258}%
+\contentsline {subsubsection}{\numberline {2.2}Riesgo 2 -- Falta de experiencia en React de parte del equipo}{76}{subsubsection.259}%
+\contentsline {subsubsection}{\numberline {2.3}Riesgo 3 -- Plazos reducidos}{77}{subsubsection.260}%
+\contentsline {subsubsection}{\numberline {2.4}Riesgo 4 -- Dependencia de coordinación grupal}{78}{subsubsection.261}%

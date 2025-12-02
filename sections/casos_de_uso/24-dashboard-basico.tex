@@ -1,29 +1,29 @@
 \subsubsection{Obtener métricas agregadas de análisis}
 
-\textbf{Descripción:} El sistema calcula totales por estado y la cantidad de análisis aprobados en la fecha actual para mostrar indicadores rápidos en un dashboard o widget.
+\textbf{Descripción:} El sistema calcula totales por estado y cantidad de análisis aprobados en la fecha actual para mostrar indicadores rápidos.
 
 \vspace{0.5em}
 \noindent\textbf{PreCondiciones:}
 \begin{itemize}[nosep]
-    \item Existen registros de análisis en el sistema.
+    \item Registros de análisis existentes.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondiciones:}
 \begin{itemize}[nosep]
-    \item Se devuelve un DTO con los conteos por estado y el conteo de aprobados hoy.
+    \item DTO con conteos por estado y aprobados hoy devuelto.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Actores:} Administrador, Analista, Observador.
 
 \vspace{0.5em}
-\noindent\textbf{Flujo de evento principal:}
+\noindent\textbf{Flujo de eventos principal:}
 \begin{enumerate}[nosep]
-    \item El usuario solicita métricas (por ejemplo, desde un endpoint o widget del dashboard).
-    \item El servicio de métricas consulta los repositorios correspondientes (por ejemplo: \texttt{countByEstado} y \texttt{countCompletadosEnFecha}).
-    \item El servicio agrega los resultados en una estructura \texttt{StatsDTO} con campos: conteo por estado y aprobados hoy.
-    \item Se retorna la respuesta al cliente con los datos listos para mostrar en UI.
+    \item Usuario solicita métricas.
+    \item Servicio consulta repositorios \texttt{countByEstado} y \texttt{countCompletadosEnFecha}.
+    \item Agrega resultados en estructura Stats.
+    \item Retorna respuesta.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -32,19 +32,19 @@
 \vspace{0.3em}
 \noindent\textit{A1. Sin análisis}
 \begin{itemize}[nosep]
-    \item Si no existen análisis, el sistema devuelve ceros en todos los campos del DTO.
+    \item Retorna ceros en todos los campos.
 \end{itemize}
 
 \vspace{0.3em}
 \noindent\textit{A2. Error de repositorio}
 \begin{itemize}[nosep]
-    \item Si ocurre una excepción al consultar el repositorio, la excepción se propaga y se maneja según la capa superior (controlador/middleware).
+    \item Se propaga excepción (manejo según capa superior).
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Conteos por estado: \texttt{EN_PROCESO}, \texttt{PENDIENTE_APROBACION}, \texttt{APROBADO}, \texttt{A_REPETIR}.
-    \item Conteo diario de aprobados (fecha actual) para mostrar un valor de "aprobados hoy".
-    \item Respuesta ligera (DTO) sin datos de series históricas ni gráficos complejos.
+    \item Conteos: ``EN PROCESO'', ``PENDIENTE APROBACION'', ``APROBADO'', ``A REPETIR''.
+    \item Conteo diario de aprobados (hoy).
+    \item Sin gráficos ni tendencias históricas avanzadas.
 \end{itemize}
