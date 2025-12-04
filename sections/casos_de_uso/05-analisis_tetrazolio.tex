@@ -30,22 +30,22 @@
 \begin{enumerate}[nosep]
     \item \textbf{Configuración del ensayo}
     \begin{itemize}[nosep]
-        \item El usuario selecciona un lote elegible para Tetrazolio
-        \item Accede a ``Crear análisis de Tetrazolio''
+        \item El usuario selecciona un lote elegible para Tetrazolio.
+        \item Accede a ``Crear análisis de Tetrazolio''.
         \item Configura parámetros obligatorios:
         \begin{itemize}[nosep]
-            \item Fecha del ensayo
-            \item Semillas por repetición: 25, 50 o 100 (no modificable después)
-            \item Número de repeticiones esperadas: entre 2 y 8 (no modificable después)
-            \item Pretratamiento: EP 16h, EP 18h, S/Pretratamiento, Agua 7h, Agua 8h, u Otro
-            \item Concentración: 1\%, 0\%, 5\%, 0.75\%, u Otro
-            \item Temperatura de tinción: 30-40°C u Otra
-            \item Tiempo de tinción: 2h, 3h, 16h, 18h u Otra
+            \item Fecha del ensayo.
+            \item Semillas por repetición: 25, 50 o 100 (no modificable después).
+            \item Número de repeticiones esperadas: entre 2 y 8 (no modificable después).
+            \item Pretratamiento: EP 16h, EP 18h, S/Pretratamiento, Agua 7h, Agua 8h, u Otro.
+            \item Concentración: 1\%, 0\%, 5\%, 0.75\%, u Otro.
+            \item Temperatura de tinción: 30-40°C u Otra.
+            \item Tiempo de tinción: 2h, 3h, 16h, 18h u Otra.
         \end{itemize}
-        \item Si selecciona ``Otro'' en algún campo, debe especificar el valor manualmente
-        \item Ingresa Viabilidad INASE (opcional, numérico)
-        \item Guarda la configuración
-        \item El sistema crea el análisis con estado \texttt{EN\_PROCESO}
+        \item Si selecciona ``Otro'' en algún campo, debe especificar el valor manualmente.
+        \item Ingresa Viabilidad INASE (opcional, numérico).
+        \item Guarda la configuración.
+        \item El sistema crea el análisis con estado \texttt{EN\_PROCESO}.
     \end{itemize}
 \end{enumerate}
 
@@ -54,30 +54,30 @@
 \begin{itemize}[nosep]
     \item \textit{Campos ``Otro'' sin especificar:}
     \begin{itemize}[nosep]
-        \item El sistema valida que si se selecciona ``Otro (especificar)'', el campo de texto no esté vacío
-        \item Muestra error: ``Debe especificar el pretratamiento/concentración/temperatura/horas''
-        \item No permite guardar hasta completar
+        \item El sistema valida que si se selecciona ``Otro (especificar)'', el campo de texto no esté vacío.
+        \item Muestra error: ``Debe especificar el pretratamiento/concentración/temperatura/horas''.
+        \item No permite guardar hasta completar.
     \end{itemize}
     \item \textit{Viabilidad INASE inválida:}
     \begin{itemize}[nosep]
-        \item El sistema valida que sea un número válido
-        \item Muestra error: ``El campo 'Viabilidad INASE' debe ser un número válido''
-        \item No bloquea guardado si no se ingresa (es opcional)
+        \item El sistema valida que sea un número válido.
+        \item Muestra error: ``El campo 'Viabilidad INASE' debe ser un número válido''.
+        \item No bloquea guardado si no se ingresa (es opcional).
     \end{itemize}
     \item \textit{Lote sin tipo de análisis TETRAZOLIO asignado:}
     \begin{itemize}[nosep]
-        \item El sistema no permite seleccionar el lote
-        \item Solo muestra lotes elegibles con TETRAZOLIO asignado
+        \item El sistema no permite seleccionar el lote.
+        \item Solo muestra lotes elegibles con TETRAZOLIO asignado.
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Validación estricta de rangos (repeticiones 2-8, semillas 25/50/100)
-    \item Campos de configuración no modificables después de crear repeticiones
-    \item Validación de campos ``Otro'' con texto obligatorio
-    \item Tabla de tolerancias disponible para consulta
+    \item Validación estricta de rangos (repeticiones 2-8, semillas 25/50/100).
+    \item Campos de configuración no modificables después de crear repeticiones.
+    \item Validación de campos ``Otro'' con texto obligatorio.
+    \item Tabla de tolerancias disponible para consulta.
 \end{itemize}
 
 \vspace{0.5em}

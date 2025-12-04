@@ -8,18 +8,18 @@
 \vspace{0.5em}
 \noindent\textbf{PreCondición:}
 \begin{itemize}[nosep]
-    \item Debe existir al menos un lote activo con tipo de análisis ``DOSN'' asignado
-    \item El lote no debe tener un análisis DOSN en estado \texttt{APROBADO}
-    \item El usuario debe estar autenticado como Analista o Administrador
+    \item Debe existir al menos un lote activo con tipo de análisis ``DOSN'' asignado.
+    \item El lote no debe tener un análisis DOSN en estado \texttt{APROBADO}.
+    \item El usuario debe estar autenticado como Analista o Administrador.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondición:}
 \begin{itemize}[nosep]
-    \item Análisis creado con estado \texttt{EN\_PROCESO}
-    \item Datos INIA registrados (obligatorios)
-    \item Datos INASE registrados (opcionales)
-    \item Listados de malezas, cultivos y brassica vinculados
+    \item Análisis creado con estado \texttt{EN\_PROCESO}.
+    \item Datos INIA registrados (obligatorios).
+    \item Datos INASE registrados (opcionales).
+    \item Listados de malezas, cultivos y brassica vinculados.
 \end{itemize}
 
 \vspace{0.5em}
@@ -30,53 +30,53 @@
 \begin{enumerate}[nosep]
     \item \textbf{Configuración INIA (obligatoria)}
     \begin{itemize}[nosep]
-        \item El usuario selecciona un lote elegible para DOSN
-        \item Accede a ``Crear análisis de DOSN''
+        \item El usuario selecciona un lote elegible para DOSN.
+        \item Accede a ``Crear análisis de DOSN''.
         \item Completa datos INIA obligatorios:
         \begin{itemize}[nosep]
-            \item Fecha de análisis (no futura)
-            \item Gramos analizados (> 0)
-            \item Tipo de análisis: Completo, Reducido, Limitado o ReducidoLimitado (al menos uno)
+            \item Fecha de análisis (no futura).
+            \item Gramos analizados (> 0).
+            \item Tipo de análisis: Completo, Reducido, Limitado o ReducidoLimitado (al menos uno).
         \end{itemize}
-        \item El sistema valida en tiempo real
+        \item El sistema valida en tiempo real.
     \end{itemize}
     \item \textbf{Configuración INASE (opcional)}
     \begin{itemize}[nosep]
         \item El usuario puede completar datos INASE:
         \begin{itemize}[nosep]
-            \item Fecha de análisis
-            \item Gramos analizados
-            \item Tipos de análisis (mismos que INIA)
+            \item Fecha de análisis.
+            \item Gramos analizados.
+            \item Tipos de análisis (mismos que INIA).
         \end{itemize}
-        \item Si no completa, el análisis se crea solo con datos INIA
+        \item Si no completa, el análisis se crea solo con datos INIA.
     \end{itemize}
     \item \textbf{Registro de listados (opcional)}
     \begin{itemize}[nosep]
         \item El usuario puede registrar:
         \begin{itemize}[nosep]
-            \item Malezas (tolerancia cero, toleradas o comunes)
-            \item Otros cultivos
-            \item Brassica (si aplica)
+            \item Malezas (tolerancia cero, toleradas o comunes).
+            \item Otros cultivos.
+            \item Brassica (si aplica).
         \end{itemize}
         \item Para cada registro ingresa:
         \begin{itemize}[nosep]
-            \item Catálogo o especie
-            \item Cantidad de semillas
-            \item Categoría aplicable
+            \item Catálogo o especie.
+            \item Cantidad de semillas.
+            \item Categoría aplicable.
         \end{itemize}
     \end{itemize}
     \item \textbf{Cuscuta (opcional)}
     \begin{itemize}[nosep]
         \item Si encuentra semillas de Cuscuta, registra:
         \begin{itemize}[nosep]
-            \item Cantidad de semillas
-            \item Observaciones
+            \item Cantidad de semillas.
+            \item Observaciones.
         \end{itemize}
     \end{itemize}
     \item \textbf{Cumplimiento del estándar}
     \begin{itemize}[nosep]
-        \item El usuario selecciona si cumple o no con el estándar
-        \item Guarda el análisis
+        \item El usuario selecciona si cumple o no con el estándar.
+        \item Guarda el análisis.
     \end{itemize}
 \end{enumerate}
 
@@ -85,36 +85,36 @@
 \begin{itemize}[nosep]
     \item \textit{Fecha futura:}
     \begin{itemize}[nosep]
-        \item El sistema valida que la fecha INIA no sea posterior a hoy
-        \item Muestra error: ``Ingrese una fecha válida (no futura)''
-        \item No permite guardar hasta corregir
+        \item El sistema valida que la fecha INIA no sea posterior a hoy.
+        \item Muestra error: ``Ingrese una fecha válida (no futura)''.
+        \item No permite guardar hasta corregir.
     \end{itemize}
     \item \textit{Gramos inválidos:}
     \begin{itemize}[nosep]
-        \item El sistema valida que los gramos sean > 0
-        \item Muestra error: ``Debe ingresar una cantidad válida de gramos (> 0)''
-        \item No permite guardar hasta corregir
+        \item El sistema valida que los gramos sean > 0.
+        \item Muestra error: ``Debe ingresar una cantidad válida de gramos (> 0)''.
+        \item No permite guardar hasta corregir.
     \end{itemize}
     \item \textit{Sin tipo de análisis INIA:}
     \begin{itemize}[nosep]
-        \item El sistema valida que al menos un checkbox esté marcado
-        \item Muestra error: ``Debe seleccionar al menos un tipo de análisis''
-        \item No permite guardar hasta corregir
+        \item El sistema valida que al menos un checkbox esté marcado.
+        \item Muestra error: ``Debe seleccionar al menos un tipo de análisis''.
+        \item No permite guardar hasta corregir.
     \end{itemize}
     \item \textit{Finalizar sin evidencia:}
     \begin{itemize}[nosep]
-        \item Si intenta finalizar sin listados, cuscuta ni datos suficientes
-        \item El sistema valida que haya algún tipo de evidencia registrada
+        \item Si intenta finalizar sin listados, cuscuta ni datos suficientes.
+        \item El sistema valida que haya algún tipo de evidencia registrada.
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Validación de fechas no futuras
-    \item Validación de gramos > 0
-    \item Al menos un tipo de análisis INIA obligatorio
-    \item Datos INASE completamente opcionales
-    \item Tabla de tolerancias disponible para consulta
-    \item Permite múltiples categorías de listados
+    \item Validación de fechas no futuras.
+    \item Validación de gramos > 0.
+    \item Al menos un tipo de análisis INIA obligatorio.
+    \item Datos INASE completamente opcionales.
+    \item Tabla de tolerancias disponible para consulta.
+    \item Permite múltiples categorías de listados.
 \end{itemize}

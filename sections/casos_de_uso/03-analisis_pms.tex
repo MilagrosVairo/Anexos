@@ -8,18 +8,18 @@
 \vspace{0.5em}
 \noindent\textbf{PreCondición:}
 \begin{itemize}[nosep]
-    \item Debe existir al menos un lote activo con tipo de análisis ``PMS'' asignado
-    \item El lote no debe tener un análisis de PMS en estado \texttt{APROBADO}
-    \item El usuario debe estar autenticado como Analista o Administrador
+    \item Debe existir al menos un lote activo con tipo de análisis ``PMS'' asignado.
+    \item El lote no debe tener un análisis de PMS en estado \texttt{APROBADO}.
+    \item El usuario debe estar autenticado como Analista o Administrador.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondición:}
 \begin{itemize}[nosep]
-    \item Análisis creado con estado \texttt{EN\_PROCESO}
-    \item Configuración de repeticiones establecida
-    \item Sistema listo para recibir tandas y repeticiones
-    \item Umbral de coeficiente de variación establecido según tipo de semilla
+    \item Análisis creado con estado \texttt{EN\_PROCESO}.
+    \item Configuración de repeticiones establecida.
+    \item Sistema listo para recibir tandas y repeticiones.
+    \item Umbral de coeficiente de variación establecido según tipo de semilla.
 \end{itemize}
 
 \vspace{0.5em}
@@ -28,24 +28,24 @@
 \vspace{0.5em}
 \noindent\textbf{Flujo de evento principal:}
 \begin{enumerate}[nosep]
-    \item El usuario selecciona un lote elegible para PMS
-    \item Accede a ``Crear análisis de PMS''
+    \item El usuario selecciona un lote elegible para PMS.
+    \item Accede a ``Crear análisis de PMS''.
     \item Configura parámetros obligatorios:
     \begin{itemize}[nosep]
-        \item Número de repeticiones esperadas: entre 4 y 20 (obligatorio)
-        \item Tipo de semilla: marca checkbox si es semilla brozosa (opcional)
+        \item Número de repeticiones esperadas: entre 4 y 20 (obligatorio).
+        \item Tipo de semilla: marca checkbox si es semilla brozosa (opcional).
     \end{itemize}
     \item El sistema muestra:
     \begin{itemize}[nosep]
-        \item Número de tandas inicial = 1 (fijo, no editable)
-        \item Umbral CV: $\leq$ 6\% si es brozosa, $\leq$ 4\% si es normal
+        \item Número de tandas inicial = 1 (fijo, no editable).
+        \item Umbral CV: $\leq$ 6\% si es brozosa, $\leq$ 4\% si es normal.
     \end{itemize}
-    \item El usuario guarda la configuración
+    \item El usuario guarda la configuración.
     \item El sistema:
     \begin{itemize}[nosep]
-        \item Crea el análisis con estado \texttt{EN\_PROCESO}
-        \item Crea automáticamente la primera tanda vacía
-        \item Queda listo para agregar repeticiones
+        \item Crea el análisis con estado \texttt{EN\_PROCESO}.
+        \item Crea automáticamente la primera tanda vacía.
+        \item Queda listo para agregar repeticiones.
     \end{itemize}
 \end{enumerate}
 
@@ -54,24 +54,24 @@
 \begin{itemize}[nosep]
     \item \textit{Número de repeticiones inválido:}
     \begin{itemize}[nosep]
-        \item El sistema valida que esté entre 4 y 20
-        \item Muestra error: ``Debe especificar un número válido de repeticiones (4-20)''
-        \item No permite guardar hasta corregir
+        \item El sistema valida que esté entre 4 y 20.
+        \item Muestra error: ``Debe especificar un número válido de repeticiones (4-20)''.
+        \item No permite guardar hasta corregir.
     \end{itemize}
     \item \textit{Lote sin tipo de análisis PMS asignado:}
     \begin{itemize}[nosep]
-        \item El sistema no permite seleccionar el lote
-        \item Solo muestra lotes elegibles con PMS asignado
+        \item El sistema no permite seleccionar el lote.
+        \item Solo muestra lotes elegibles con PMS asignado.
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Validación estricta de rango de repeticiones (4-20)
-    \item Umbral de CV dinámico según tipo de semilla (4\% o 6\%)
-    \item Número de repeticiones no modificable después de crear análisis
-    \item Primera tanda se crea automáticamente al registrar el análisis
+    \item Validación estricta de rango de repeticiones (4-20).
+    \item Umbral de CV dinámico según tipo de semilla (4\% o 6\%).
+    \item Número de repeticiones no modificable después de crear análisis.
+    \item Primera tanda se crea automáticamente al registrar el análisis.
 \end{itemize}
 
 \vspace{0.5em}

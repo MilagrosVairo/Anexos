@@ -8,17 +8,17 @@
 \vspace{0.5em}
 \noindent\textbf{PreCondición:}
 \begin{itemize}[nosep]
-    \item Debe existir al menos un lote activo con tipo de análisis ``GERMINACION'' asignado
-    \item El lote no debe tener un análisis de Germinación en estado \texttt{APROBADO}
-    \item El usuario debe estar autenticado como Analista o Administrador
+    \item Debe existir al menos un lote activo con tipo de análisis ``GERMINACION'' asignado.
+    \item El lote no debe tener un análisis de Germinación en estado \texttt{APROBADO}.
+    \item El usuario debe estar autenticado como Analista o Administrador.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{PostCondición:}
 \begin{itemize}[nosep]
-    \item Análisis creado con estado \texttt{EN\_PROCESO}
-    \item Sistema listo para crear tablas de germinación individuales
-    \item Cada tabla tendrá su propia configuración de fechas, repeticiones y condiciones
+    \item Análisis creado con estado \texttt{EN\_PROCESO}.
+    \item Sistema listo para crear tablas de germinación individuales.
+    \item Cada tabla tendrá su propia configuración de fechas, repeticiones y condiciones.
 \end{itemize}
 
 \vspace{0.5em}
@@ -27,19 +27,19 @@
 \vspace{0.5em}
 \noindent\textbf{Flujo de evento principal:}
 \begin{enumerate}[nosep]
-    \item El usuario selecciona un lote elegible para Germinación
-    \item Accede a ``Crear análisis de Germinación''
+    \item El usuario selecciona un lote elegible para Germinación.
+    \item Accede a ``Crear análisis de Germinación''.
     \item El sistema muestra mensaje informativo:
     \begin{itemize}[nosep]
-        \item ``Solo necesitas seleccionar el lote y opcionalmente agregar comentarios''
-        \item ``La configuración detallada se realiza al crear cada tabla''
+        \item ``Solo necesitas seleccionar el lote y opcionalmente agregar comentarios''.
+        \item ``La configuración detallada se realiza al crear cada tabla''.
     \end{itemize}
-    \item El usuario puede agregar comentarios generales (opcional)
-    \item Guarda el análisis
+    \item El usuario puede agregar comentarios generales (opcional).
+    \item Guarda el análisis.
     \item El sistema:
     \begin{itemize}[nosep]
-        \item Crea el análisis con estado \texttt{EN\_PROCESO}
-        \item Queda listo para crear tablas de germinación
+        \item Crea el análisis con estado \texttt{EN\_PROCESO}.
+        \item Queda listo para crear tablas de germinación.
     \end{itemize}
 \end{enumerate}
 
@@ -48,23 +48,23 @@
 \begin{itemize}[nosep]
     \item \textit{Lote sin tipo de análisis GERMINACION asignado:}
     \begin{itemize}[nosep]
-        \item El sistema no permite seleccionar el lote
-        \item Solo muestra lotes elegibles con GERMINACION asignado
+        \item El sistema no permite seleccionar el lote.
+        \item Solo muestra lotes elegibles con GERMINACION asignado.
     \end{itemize}
     \item \textit{Guardar sin comentarios:}
     \begin{itemize}[nosep]
-        \item El análisis se crea exitosamente
-        \item Los comentarios son completamente opcionales
+        \item El análisis se crea exitosamente.
+        \item Los comentarios son completamente opcionales.
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item Análisis de germinación funciona como contenedor de tablas
-    \item No requiere configuración inicial compleja
-    \item Mínima configuración en el registro
-    \item Tabla de tolerancias disponible para consulta
+    \item Análisis de germinación funciona como contenedor de tablas.
+    \item No requiere configuración inicial compleja.
+    \item Mínima configuración en el registro.
+    \item Tabla de tolerancias disponible para consulta.
 \end{itemize}
 
 \vspace{0.5em}

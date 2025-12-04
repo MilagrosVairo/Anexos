@@ -8,17 +8,17 @@
 \vspace{0.5em}
 \noindent\textbf{Pre-Condición:}
 \begin{itemize}[nosep]
-    \item El lote debe existir y estar activo
-    \item El usuario debe estar autenticado como Analista o Administrador
-    \item No se puede editar un lote inactivo sin reactivarlo primero
+    \item El lote debe existir y estar activo.
+    \item El usuario debe estar autenticado como Analista o Administrador.
+    \item No se puede editar un lote inactivo sin reactivarlo primero.
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Post-Condición:}
 \begin{itemize}[nosep]
-    \item Información del lote actualizada
-    \item Cambios reflejados inmediatamente en el sistema
-    \item Si se agregaron nuevos tipos de análisis, quedan disponibles para crear
+    \item Información del lote actualizada.
+    \item Cambios reflejados inmediatamente en el sistema.
+    \item Si se agregaron nuevos tipos de análisis, quedan disponibles para crear.
 \end{itemize}
 
 \vspace{0.5em}
@@ -27,36 +27,36 @@
 \vspace{0.5em}
 \noindent\textbf{Flujo de evento principal:}
 \begin{enumerate}[nosep]
-    \item El usuario accede al detalle de un lote activo
-    \item Selecciona ``Editar lote''
-    \item El sistema carga los datos actuales del lote
+    \item El usuario accede al detalle de un lote activo.
+    \item Selecciona ``Editar lote''.
+    \item El sistema carga los datos actuales del lote.
     \item El usuario modifica campos deseados:
     \begin{itemize}[nosep]
-        \item Ficha (único)
-        \item Nombre del lote (único)
-        \item Cultivar
-        \item Tipo de lote (INTERNO/EXTERNO)
-        \item Empresa, Cliente
-        \item Fechas (recibo, entrega, cosecha)
-        \item Kilos limpios
-        \item Datos de humedad
-        \item Depósito, Unidad de embolsado, Remitente
-        \item Número de artículo, Origen, Estado
-        \item Observaciones
+        \item Ficha (único).
+        \item Nombre del lote (único).
+        \item Cultivar.
+        \item Tipo de lote (INTERNO/EXTERNO).
+        \item Empresa, Cliente.
+        \item Fechas (recibo, entrega, cosecha).
+        \item Kilos limpios.
+        \item Datos de humedad.
+        \item Depósito, Unidad de embolsado, Remitente.
+        \item Número de artículo, Origen, Estado.
+        \item Observaciones.
     \end{itemize}
-    \item Puede agregar nuevos tipos de análisis
-    \item Intenta remover tipos de análisis existentes
+    \item Puede agregar nuevos tipos de análisis.
+    \item Intenta remover tipos de análisis existentes.
     \begin{itemize}[nosep]
         \item El sistema valida:
         \begin{itemize}[nosep]
-            \item Si hay análisis creados de ese tipo $\rightarrow$ no permite remover
-            \item Si no hay análisis $\rightarrow$ permite remover
+            \item Si hay análisis creados de ese tipo $\rightarrow$ no permite remover.
+            \item Si no hay análisis $\rightarrow$ permite remover.
         \end{itemize}
     \end{itemize}
-    \item Valida unicidad de ficha y nombre de lote (si cambiaron)
-    \item Valida fechas no futuras
-    \item Guarda los cambios
-    \item El sistema muestra confirmación
+    \item Valida unicidad de ficha y nombre de lote (si cambiaron).
+    \item Valida fechas no futuras.
+    \item Guarda los cambios.
+    \item El sistema muestra confirmación.
 \end{enumerate}
 
 \vspace{0.5em}
@@ -64,35 +64,35 @@
 \begin{itemize}[nosep]
     \item \textit{Intentar editar lote inactivo:}
     \begin{itemize}[nosep]
-        \item El sistema bloquea la edición
-        \item Muestra error: ``No se puede editar un lote inactivo. Debe reactivarlo primero''
-        \item Ofrece botón ``Reactivar lote''
+        \item El sistema bloquea la edición.
+        \item Muestra error: ``No se puede editar un lote inactivo. Debe reactivarlo primero''.
+        \item Ofrece botón ``Reactivar lote''.
     \end{itemize}
     \item \textit{Intentar remover tipo de análisis con análisis creados:}
     \begin{itemize}[nosep]
-        \item El sistema detecta análisis existentes de ese tipo
-        \item Muestra error: ``No se puede remover el tipo de análisis [TIPO] porque ya existen análisis creados de este tipo para el lote''
-        \item El checkbox permanece marcado y deshabilitado
+        \item El sistema detecta análisis existentes de ese tipo.
+        \item Muestra error: ``No se puede remover el tipo de análisis [TIPO] porque ya existen análisis creados de este tipo para el lote''.
+        \item El checkbox permanece marcado y deshabilitado.
     \end{itemize}
     \item \textit{Ficha o nombre duplicado:}
     \begin{itemize}[nosep]
-        \item El sistema valida en tiempo real y en submit
-        \item Muestra alerta correspondiente
-        \item No permite guardar hasta corregir
+        \item El sistema valida en tiempo real y en submit.
+        \item Muestra alerta correspondiente.
+        \item No permite guardar hasta corregir.
     \end{itemize}
     \item \textit{Fecha futura:}
     \begin{itemize}[nosep]
-        \item El sistema valida en backend
-        \item Muestra error: ``La fecha de recibo/cosecha no puede ser posterior a la fecha actual''
-        \item No permite guardar hasta corregir
+        \item El sistema valida en backend.
+        \item Muestra error: ``La fecha de recibo/cosecha no puede ser posterior a la fecha actual''.
+        \item No permite guardar hasta corregir.
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5em}
 \noindent\textbf{Requerimientos especiales:}
 \begin{itemize}[nosep]
-    \item No se puede editar lote inactivo directamente
-    \item Tipos de análisis solo se pueden agregar, no remover si hay análisis creados
-    \item Validación asíncrona de campos únicos (ficha y nombre) excluyendo el lote actual
-    \item Eliminación automática de duplicados en tipos de análisis asignados
+    \item No se puede editar lote inactivo directamente.
+    \item Tipos de análisis solo se pueden agregar, no remover si hay análisis creados.
+    \item Validación asíncrona de campos únicos (ficha y nombre) excluyendo el lote actual.
+    \item Eliminación automática de duplicados en tipos de análisis asignados.
 \end{itemize}

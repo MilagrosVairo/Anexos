@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.26)  2 DEC 2025 15:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.26)  2 DEC 2025 19:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -713,10 +713,10 @@ Underfull \vbox (badness 7649) has occurred while \output is active []
  [32]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 128.
+            Default family used instead on input line 126.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 135.
+            Default family used instead on input line 133.
 )
 (sections/casos_de_uso/12-gestion_analisis_tetrazolio.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -993,7 +993,7 @@ Underfull \vbox (badness 5832) has occurred while \output is active []
 
 
 ] [67] [68] [69]
-<images/airtable.png, id=606, 1606.0pt x 801.99625pt>
+<images/airtable.png, id=607, 1606.0pt x 801.99625pt>
 File: images/airtable.png Graphic file (type png)
 <use images/airtable.png>
 Package pdftex.def Info: images/airtable.png  used on input line 98.
@@ -1004,7 +1004,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [70
 
 ]
-<images/smartsheet.png, id=611, 1606.0pt x 901.3675pt>
+<images/smartsheet.png, id=612, 1606.0pt x 901.3675pt>
 File: images/smartsheet.png Graphic file (type png)
 <use images/smartsheet.png>
 Package pdftex.def Info: images/smartsheet.png  used on input line 123.
@@ -1043,8 +1043,8 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14369 strings out of 474486
- 236108 string characters out of 5742810
+ 14370 strings out of 474486
+ 236116 string characters out of 5742810
  1936542 words of memory out of 5000000
  35979 multiletter control sequences out of 15000+600000
  598637 words of font info for 86 fonts, out of 8000000 for 9000
@@ -1059,9 +1059,9 @@ KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Usuario/AppData/Local/
 Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Usuario/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Usuario/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (78 pages, 1702427 bytes).
+Output written on main.pdf (78 pages, 1702840 bytes).
 PDF statistics:
- 953 PDF objects out of 1000 (max. 8388607)
- 339 named destinations out of 1000 (max. 500000)
+ 954 PDF objects out of 1000 (max. 8388607)
+ 340 named destinations out of 1000 (max. 500000)
  400 words of extra memory for PDF output out of 10000 (max. 10000000)
 
